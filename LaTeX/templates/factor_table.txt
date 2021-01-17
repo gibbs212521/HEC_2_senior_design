@@ -1,0 +1,71 @@
+\begin{table}[h!]
+\centering
+\caption{Alternatives Evaluation Table}
+\begin{tabular}{| l | l | l | l |}
+\hline
+\parbox{0.17\linewidth}{\centering Evaluation Basis} & \parbox{0.240\linewidth}{\centering 
+OPTION 1
+} & \parbox{0.240\linewidth}{\centering 
+OPTION 2
+} & \parbox{0.240\linewidth}{\centering 
+OPTION 3
+}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Environmental Factors} &
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Public Health} & 
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft \hfill\\ Economic Factors\\[0.5em]} &
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Social Factors} & 
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Safety and Welfare} & 
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Global Factors} & 
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\parbox{0.17\linewidth}{\raggedleft Cultural Factors} & 
+\parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\} & \parbox{0.240\linewidth}{\hfill \\
+
+\\}\\ \hline
+\end{tabular}
+\end{table}
+\hfill \\
