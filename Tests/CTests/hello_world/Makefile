@@ -1,6 +1,9 @@
+RM=del \Q
+DIRPATH=..\..\..\bin\Tests\CTests
+FILEPATH=$(DIRPATH)\test_hello_world.exe
+
 MAKE: test_hello_world.o
-  EXEFILEPATH = ..\..\..\bin\Tests\CTests
-  gcc test_hello_world.o -o $(EXEFILEPATH)test_hello_world.exe
+  gcc test_hello_world.o -o $(FILEPATH)
 
 test_hello_world.o: test_hello_world.c
   gcc -c test_hello_world.c -o test_hello_world.o
@@ -12,3 +15,8 @@ test_hello_world.c:
   echo return 0; >> test_hello_world.c
   echo } >> test_hello_world.c
 
+clean all:
+
+  $(RM) test_hello_world.c
+  $(RM) test_hello_world.o
+  $(RM) $(FILEPATH)
