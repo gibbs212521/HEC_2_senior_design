@@ -30,7 +30,7 @@ void main(void) {
 
         P1OUT ^= 0x03;                      // Toggle P1.0 using exclusive-OR
 
-        i = 0xffff;                         // SW Delay via do-while loop
+        i =0xffff;                         // SW Delay via do-while loop
         do i--;
         while(i != 0);
                                             // infinite for loop repeats to toggle off/on P1

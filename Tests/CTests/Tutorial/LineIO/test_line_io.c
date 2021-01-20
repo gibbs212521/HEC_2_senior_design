@@ -8,15 +8,15 @@ int main()
     int integer_var;
 
     printf("What is your input string?\n");
-    scanf("%s", string_var);
+    scanf(" %s", string_var);
     printf("Testing string var %s\n\n", string_var);
 
     printf("What is your second input string?\n");
-    scanf("%s", string_var_2);
+    scanf(" %s", string_var_2);
     printf("Testing string var2 %s\n\n", string_var_2);
 
     printf("What is your integer input?\n");
-    scanf("%d", &integer_var); // Remember that non-char arrays require an explicit pointer to assign values.
+    scanf(" %d", &integer_var); // Remember that non-char arrays require an explicit pointer to assign values.
     printf("Testing integer variable %d\n\n", integer_var);
 
     printf("You shall %s and %s without %d ????\n", string_var, string_var_2, integer_var);

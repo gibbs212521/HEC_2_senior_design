@@ -8,7 +8,7 @@ int main()
     float float_weight = 285.3;
     float float_watermellon_weight = 4.62;
 
-    printf("modulus of weight %% watermelon: %d\n", weight % watermelon_weight);
+    printf("modulus of weight %% watermelon: %d\n", weight % watermelon_weight); 
     printf("division of weight / watermelon as an integer: %d\n", weight / watermelon_weight);
     printf("modulus does not operate with float variables.\n");
     printf("float division of weight / watermelon as a float: %f\n", float_weight / float_watermellon_weight);
@@ -22,7 +22,7 @@ int main()
     printf("Testing simultaneous variable assignment a, b, c, :: %d, %d, %d\n", a, b, c);
     // Incrementals
     int views=0;
-    views += 1;
+    views += 1; // views = views + 1;
     printf("You're seeing this %d time\n", views);
     views += 1;
     printf("You're seeing this %d times\n", views);
