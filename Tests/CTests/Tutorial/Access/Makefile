@@ -1,5 +1,5 @@
 DIRPATH=..\..\..\..\bin\Tests\Tutorials
-FILENAME1=test_variables
+FILENAME1=test_access
 FILEPATH1=$(DIRPATH)\$(FILENAME1).exe
 CC=gcc
 # Code below should allow nmake and make to operate successfully
@@ -26,3 +26,4 @@ $(FILENAME1).o: $(FILENAME1).c
 clean:
   $(RM) $(FILENAME1).o
   $(RM) $(FILEPATH1)
+  $(RM) bacon.txt

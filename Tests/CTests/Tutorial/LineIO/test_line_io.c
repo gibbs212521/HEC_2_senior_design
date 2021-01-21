@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 int main()
 {
@@ -20,6 +22,28 @@ int main()
     printf("Testing integer variable %d\n\n", integer_var);
 
     printf("You shall %s and %s without %d ????\n", string_var, string_var_2, integer_var);
+
+    // must clear console input before transitioning from scanf to gets function via fflush(stdin) command.
+    fflush(stdin);
+
+    char catsName[50];
+    char catsFood[25];
+    char sentence[75] = "";
+
+    // puts, unlike scanf, will accept the total line until the use presses enter/return line
+
+    puts("\nWhat is the cat's name? ");
+    gets(catsName);
+
+    puts("\nWhats does the cat eat? ");
+    gets(catsFood);
+
+    strcat(sentence, catsName);
+    strcat(sentence, " LOVES to eat ");
+    strcat(sentence, catsFood);
+    strcat(sentence, " and indeed he does.");
+
+    puts(sentence);
 
     return 0;
 }

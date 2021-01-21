@@ -52,6 +52,6 @@ test_text.c:
   echo } >> test_text.c
 
 clean all:
-  $(RM) test_text.c
+#  $(RM) test_text.c
   $(RM) test_text.o
   $(RM) $(FILEPATH)

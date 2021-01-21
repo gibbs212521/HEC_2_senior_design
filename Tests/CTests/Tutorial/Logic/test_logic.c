@@ -98,5 +98,48 @@ int main()
     printf("I have %d true friend%s\n", friends, (friends!=1) ? "s" : "");
 
 
+    char grade = 'P';
+
+    switch(grade){
+        case 'A' :  printf("You made an A! Hey!");
+                    break;
+        case 'B' :  printf("You could do better!");
+                    break;
+        case 'C' :  printf("I C that you didn't study!");
+                    break;
+        case 'D' :  printf("That is embarrassing!");
+                    break;
+        case 'F' :  printf("No more cake for you!");
+                    break;
+        default :   printf("I don't know what you did to get that!");
+                    break;
+    }
+
+    
+    int tuna = 'b';
+    printf("\n\n TUNA is %d which is from int tuna = 'b'", tuna);
+
+    if( isalpha(tuna) ){
+        printf(" %c is a letter\n", tuna);
+        printf(" %d is a number inspite of isalpha check\n", tuna);
+        if( isupper(tuna)){
+            printf("tuna's %d is an uppercase letter", tuna);
+        }
+        else{
+            printf("tuna's %d is a lowercase letter", tuna);
+        }
+    }
+    tuna = '9';
+    if( isdigit(tuna) ){
+        printf("%c is a letter inspite of isdigit check\n", tuna);
+        printf("%d is a number inspite of tuna = '9'\n", tuna);
+        if( isupper(tuna)){
+            printf("tuna's %d is an uppercase letter", tuna);
+        }
+        else{
+            printf("tuna's %d is a lowercase letter", tuna);
+        }
+    }
+
     return 0;
 }
