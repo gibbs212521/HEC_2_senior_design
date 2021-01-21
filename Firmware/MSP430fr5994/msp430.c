@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include <comm_protocol.h>
+//#include <comm_protocol.h>
+#include <msp430>
 
 int main() {
    printf("Hello World!");
