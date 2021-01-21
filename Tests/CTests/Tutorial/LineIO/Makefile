@@ -1,7 +1,6 @@
 DIRPATH=..\..\..\..\bin\Tests\Tutorials
-FILENAME1=test_variables
+FILENAME1=test_line_io
 FILEPATH1=$(DIRPATH)\$(FILENAME1).exe
-CC=gcc
 # Code below should allow nmake and make to operate successfully
 # NMAKE code here \
 !ifndef 0 # \  
@@ -17,12 +16,12 @@ CP=cp -f #
 !endif
 
 MAKE: $(FILENAME1).o
-  $(CC) $(FILENAME1).o -o $(FILEPATH1)
+  gcc $(FILENAME1).o -o $(FILEPATH1)
 
 $(FILENAME1).o: $(FILENAME1).c
-  $(CC) -c $(FILENAME1).c -o $(FILENAME1).o
+  gcc -c $(FILENAME1).c -o $(FILENAME1).o
 
 
-clean:
+clean all:
   $(RM) $(FILENAME1).o
   $(RM) $(FILEPATH1)

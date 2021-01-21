@@ -1,0 +1,953 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module LTC4162_LADM</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>LTC4162_LADM</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///C:/users/flee/projects/ltc4162/registers/ltc4162-ladm/synthetics/public/python/ltc4162_ladm.py">c:\users\flee\projects\ltc4162\registers\ltc4162-ladm\synthetics\public\python\ltc4162_ladm.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="collections.html">collections</a><br>
+<a href="datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="numbers.html">numbers</a><br>
+<a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="LTC4162_LADM.html#logger">logger</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="_abcoll.html#Mapping">_abcoll.Mapping</a>(<a href="_abcoll.html#Sized">_abcoll.Sized</a>, <a href="_abcoll.html#Iterable">_abcoll.Iterable</a>, <a href="_abcoll.html#Container">_abcoll.Container</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="LTC4162_LADM.html#LTC4162">LTC4162</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="exceptions.html#Exception">exceptions.Exception</a>(<a href="exceptions.html#BaseException">exceptions.BaseException</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="LTC4162_LADM.html#LTC4162_APIException">LTC4162_APIException</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LTC4162">class <strong>LTC4162</strong></a>(<a href="_abcoll.html#Mapping">_abcoll.Mapping</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>API&nbsp;for&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;Advanced&nbsp;Synchronous&nbsp;Switching&nbsp;Battery&nbsp;Charger&nbsp;and&nbsp;PowerPath&nbsp;Manager.<br>
+&nbsp;<br>
+Each&nbsp;bit&nbsp;field&nbsp;is&nbsp;read&nbsp;and&nbsp;written&nbsp;as&nbsp;an&nbsp;attribute&nbsp;of&nbsp;the&nbsp;class&nbsp;instance.<br>
+Bit&nbsp;fields&nbsp;are&nbsp;changed&nbsp;in&nbsp;place&nbsp;with&nbsp;a&nbsp;read-modify-write&nbsp;algorithm&nbsp;to&nbsp;avoid&nbsp;clearing&nbsp;adjacent&nbsp;data&nbsp;in&nbsp;shared&nbsp;registers.<br>
+When&nbsp;multiple&nbsp;bit&nbsp;fields&nbsp;are&nbsp;stored&nbsp;within&nbsp;a&nbsp;single&nbsp;command&nbsp;code,&nbsp;an&nbsp;additional&nbsp;attribute&nbsp;of&nbsp;the&nbsp;class&nbsp;instance&nbsp;exists&nbsp;to&nbsp;allow&nbsp;reads&nbsp;and&nbsp;writes&nbsp;to&nbsp;the&nbsp;full&nbsp;register.<br>
+Presets&nbsp;(enumerations)&nbsp;and&nbsp;formats&nbsp;(transformation&nbsp;functions&nbsp;between&nbsp;integers&nbsp;and&nbsp;real-word&nbsp;units)&nbsp;are&nbsp;applied&nbsp;in&nbsp;both&nbsp;directions&nbsp;for&nbsp;interactive&nbsp;use,&nbsp;but&nbsp;can&nbsp;be&nbsp;disabled.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="LTC4162_LADM.html#LTC4162">LTC4162</a></dd>
+<dd><a href="_abcoll.html#Mapping">_abcoll.Mapping</a></dd>
+<dd><a href="_abcoll.html#Sized">_abcoll.Sized</a></dd>
+<dd><a href="_abcoll.html#Iterable">_abcoll.Iterable</a></dd>
+<dd><a href="_abcoll.html#Container">_abcoll.Container</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="LTC4162-__getitem__"><strong>__getitem__</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="LTC4162-__init__"><strong>__init__</strong></a>(self, read_function, write_function<font color="#909090">=None</font>, verbose<font color="#909090">=False</font>, read_list_function<font color="#909090">=None</font>)</dt><dd><tt>The&nbsp;user&nbsp;must&nbsp;supply&nbsp;appropriate&nbsp;functions&nbsp;to&nbsp;read&nbsp;from&nbsp;and&nbsp;write&nbsp;to&nbsp;the&nbsp;IÂ²C/SMBus&nbsp;hardware.<br>
+read_function&nbsp;should&nbsp;take&nbsp;arguments&nbsp;(addr_7bit,&nbsp;command_code)&nbsp;and&nbsp;return&nbsp;contents&nbsp;of&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;register&nbsp;at&nbsp;command_code.<br>
+write_function&nbsp;should&nbsp;take&nbsp;arguments&nbsp;(addr_7bit,&nbsp;command_code,&nbsp;data)&nbsp;and&nbsp;write&nbsp;data&nbsp;to&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;register&nbsp;at&nbsp;command_code.<br>
+Set&nbsp;verbose&nbsp;argument&nbsp;to&nbsp;True&nbsp;to&nbsp;enable&nbsp;printing&nbsp;of&nbsp;intermediate&nbsp;results&nbsp;of&nbsp;masking,&nbsp;shifting&nbsp;and&nbsp;data&nbsp;transformation&nbsp;operations.<br>
+Upon&nbsp;error&nbsp;reading&nbsp;or&nbsp;writing&nbsp;to&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>,&nbsp;read_function,&nbsp;write_function,&nbsp;and/or&nbsp;read_list_function&nbsp;should&nbsp;return&nbsp;an&nbsp;exception&nbsp;or&nbsp;other&nbsp;non-numeric&nbsp;Python&nbsp;<a href="__builtin__.html#object">object</a>,&nbsp;which&nbsp;will&nbsp;be&nbsp;passed&nbsp;back&nbsp;to&nbsp;any&nbsp;code&nbsp;calling&nbsp;us.<br>
+Optional:&nbsp;If&nbsp;the&nbsp;IÂ²C/SMBus&nbsp;hardware/firmware&nbsp;supports&nbsp;reading&nbsp;multiple&nbsp;command&nbsp;codes&nbsp;at&nbsp;once,<br>
+the&nbsp;user&nbsp;may&nbsp;supply&nbsp;a&nbsp;read_list_function&nbsp;that&nbsp;takes&nbsp;arguments&nbsp;(addr_7bit,&nbsp;command_code_list)<br>
+where&nbsp;command_code_list&nbsp;is&nbsp;a&nbsp;list,&nbsp;tuple,&nbsp;or&nbsp;set&nbsp;of&nbsp;command&nbsp;codes.&nbsp;This&nbsp;can&nbsp;increase&nbsp;read&nbsp;frequency.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-__iter__"><strong>__iter__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LTC4162-__len__"><strong>__len__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LTC4162-__repr__"><strong>__repr__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LTC4162-__setattr__"><strong>__setattr__</strong></a>(self, name, value)</dt><dd><tt>Override&nbsp;attribute&nbsp;storage&nbsp;mechanism&nbsp;to&nbsp;prevent&nbsp;writes&nbsp;to&nbsp;mis-spelled&nbsp;bit&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-__setitem__"><strong>__setitem__</strong></a>(self, key, value)</dt></dl>
+
+<dl><dt><a name="LTC4162-__str__"><strong>__str__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="LTC4162-create_format"><strong>create_format</strong></a>(self, format_name, format_function, unformat_function, signed<font color="#909090">=False</font>, description<font color="#909090">=None</font>, units<font color="#909090">=''</font>)</dt><dd><tt>Create&nbsp;a&nbsp;new&nbsp;format&nbsp;definition&nbsp;or&nbsp;modify&nbsp;an&nbsp;existing&nbsp;definition.<br>
+&nbsp;<br>
+format_function&nbsp;should&nbsp;take&nbsp;a&nbsp;single&nbsp;argument&nbsp;of&nbsp;integer&nbsp;raw&nbsp;data&nbsp;from&nbsp;the&nbsp;register&nbsp;and&nbsp;return&nbsp;a&nbsp;version&nbsp;of&nbsp;the&nbsp;data&nbsp;scaled&nbsp;to&nbsp;appropriate&nbsp;units.<br>
+unformat_function&nbsp;should&nbsp;take&nbsp;a&nbsp;single&nbsp;argument&nbsp;of&nbsp;data&nbsp;in&nbsp;real&nbsp;units&nbsp;and&nbsp;return&nbsp;an&nbsp;integer&nbsp;version&nbsp;of&nbsp;the&nbsp;data&nbsp;scaled&nbsp;to&nbsp;the&nbsp;register&nbsp;LSB&nbsp;weight.<br>
+If&nbsp;the&nbsp;data&nbsp;is&nbsp;signed&nbsp;in&nbsp;two's-complement&nbsp;format,&nbsp;set&nbsp;signed=True.<br>
+After&nbsp;creating&nbsp;format,&nbsp;use&nbsp;set_active_format&nbsp;method&nbsp;to&nbsp;make&nbsp;the&nbsp;new&nbsp;format&nbsp;active.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-disable_binary_read_presets"><strong>disable_binary_read_presets</strong></a>(self)</dt><dd><tt>Disable&nbsp;presets&nbsp;(enumerations)&nbsp;for&nbsp;all&nbsp;single-bit&nbsp;bit&nbsp;fields.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-disable_presets_and_formats"><strong>disable_presets_and_formats</strong></a>(self)</dt><dd><tt>Remove&nbsp;all&nbsp;presets&nbsp;and&nbsp;formats.<br>
+&nbsp;<br>
+Read&nbsp;and&nbsp;write&nbsp;data&nbsp;will&nbsp;be&nbsp;passed&nbsp;through&nbsp;unmodified,&nbsp;except&nbsp;for&nbsp;masking&nbsp;and&nbsp;shifting.<br>
+The&nbsp;dictionary&nbsp;of&nbsp;presets&nbsp;and&nbsp;formats&nbsp;is&nbsp;shared&nbsp;between&nbsp;all&nbsp;instances&nbsp;of&nbsp;the&nbsp;class&nbsp;and&nbsp;any&nbsp;other&nbsp;instances&nbsp;will&nbsp;reflect&nbsp;this&nbsp;change.<br>
+This&nbsp;is&nbsp;permanent&nbsp;for&nbsp;the&nbsp;duration&nbsp;of&nbsp;the&nbsp;Python&nbsp;session.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-disable_read_presets"><strong>disable_read_presets</strong></a>(self, bf_name, enabled<font color="#909090">=False</font>)</dt><dd><tt>Disable&nbsp;presets&nbsp;(enumerations)&nbsp;for&nbsp;a&nbsp;single&nbsp;bit&nbsp;field&nbsp;bf_name.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-enable_read_presets"><strong>enable_read_presets</strong></a>(self, bf_name, enabled<font color="#909090">=True</font>)</dt><dd><tt>Enable&nbsp;presets&nbsp;(enumerations)&nbsp;for&nbsp;a&nbsp;single&nbsp;bit&nbsp;field&nbsp;bf_name.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_active_format"><strong>get_active_format</strong></a>(self, bf_name)</dt><dd><tt>Returns&nbsp;string&nbsp;name&nbsp;of&nbsp;format&nbsp;currently&nbsp;active&nbsp;for&nbsp;field&nbsp;bf_name.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_constant"><strong>get_constant</strong></a>(self, constant)</dt><dd><tt>Gets&nbsp;the&nbsp;constants&nbsp;found&nbsp;in&nbsp;the&nbsp;datasheet&nbsp;used&nbsp;by&nbsp;the&nbsp;formatters&nbsp;to&nbsp;convert&nbsp;from&nbsp;real&nbsp;world&nbsp;values&nbsp;to&nbsp;digital&nbsp;value&nbsp;and&nbsp;back.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_formats"><strong>get_formats</strong></a>(self, bf_name)</dt><dd><tt>Returns&nbsp;tuple&nbsp;of&nbsp;formats&nbsp;defined&nbsp;for&nbsp;bit&nbsp;field&nbsp;bf_name.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_name"><strong>get_name</strong></a>(self)</dt><dd><tt>Returns&nbsp;the&nbsp;part&nbsp;number&nbsp;for&nbsp;the&nbsp;chip&nbsp;for&nbsp;which&nbsp;this&nbsp;API&nbsp;is&nbsp;designed,&nbsp;one&nbsp;that's&nbsp;specific<br>
+to&nbsp;the&nbsp;particular&nbsp;option&nbsp;or&nbsp;variant&nbsp;of&nbsp;the&nbsp;chip&nbsp;being&nbsp;targeted.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_status"><strong>get_status</strong></a>(self)</dt><dd><tt>Returns&nbsp;dictionary&nbsp;containing&nbsp;current&nbsp;value&nbsp;of&nbsp;all&nbsp;readable&nbsp;registers.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_units"><strong>get_units</strong></a>(self, bf_name)</dt><dd><tt>Returns&nbsp;a&nbsp;Unicode&nbsp;string&nbsp;containing&nbsp;the&nbsp;measurement&nbsp;units&nbsp;(e.g.&nbsp;Volts,&nbsp;Ohms,&nbsp;Amps,&nbsp;deg.&nbsp;C)<br>
+currently&nbsp;in&nbsp;effect&nbsp;for&nbsp;bit&nbsp;field&nbsp;bf_name.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-get_units_for_format"><strong>get_units_for_format</strong></a>(self, format_name)</dt><dd><tt>Returns&nbsp;a&nbsp;Unicode&nbsp;string&nbsp;depicting&nbsp;the&nbsp;measurement&nbsp;unit&nbsp;(e.g.&nbsp;Volts,&nbsp;Ohms,&nbsp;Amps,&nbsp;deg.&nbsp;C)<br>
+corresponding&nbsp;to&nbsp;the&nbsp;named&nbsp;format.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-list_constants"><strong>list_constants</strong></a>(self)</dt><dd><tt>Returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;constants&nbsp;found&nbsp;in&nbsp;the&nbsp;datasheet&nbsp;used&nbsp;by&nbsp;the&nbsp;formatters&nbsp;to&nbsp;convert&nbsp;from&nbsp;real&nbsp;world&nbsp;values&nbsp;to&nbsp;digital&nbsp;value&nbsp;and&nbsp;back.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-print_status"><strong>print_status</strong></a>(self)</dt><dd><tt>Prints&nbsp;current&nbsp;value&nbsp;of&nbsp;all&nbsp;readable&nbsp;registers.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-read_bitfield_list"><strong>read_bitfield_list</strong></a>(self, bf_name_list, allow_formats_and_presets<font color="#909090">=True</font>)</dt><dd><tt>Read&nbsp;the&nbsp;bitfields&nbsp;indicated&nbsp;by&nbsp;bf_name_list&nbsp;and&nbsp;return&nbsp;the&nbsp;results&nbsp;(and&nbsp;any&nbsp;error&nbsp;objects)&nbsp;in&nbsp;a&nbsp;dictionary<br>
+indexed&nbsp;by&nbsp;bitfield&nbsp;name.&nbsp;By&nbsp;default,&nbsp;results&nbsp;may&nbsp;be&nbsp;formatted&nbsp;and&nbsp;converted&nbsp;to&nbsp;enumerated&nbsp;presets,&nbsp;but<br>
+this&nbsp;may&nbsp;be&nbsp;defeated&nbsp;to&nbsp;return&nbsp;raw&nbsp;integer&nbsp;values.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-set_active_format"><strong>set_active_format</strong></a>(self, bf_name, format_name, force<font color="#909090">=False</font>)</dt><dd><tt>Changes&nbsp;currently&nbsp;active&nbsp;format&nbsp;for&nbsp;field&nbsp;bf_name&nbsp;to&nbsp;format_name.<br>
+If&nbsp;format_name&nbsp;is&nbsp;not&nbsp;in&nbsp;list&nbsp;of&nbsp;allowed_formats,&nbsp;set&nbsp;force&nbsp;argument&nbsp;to&nbsp;True&nbsp;to&nbsp;disable&nbsp;check.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-set_constant"><strong>set_constant</strong></a>(self, constant, value)</dt><dd><tt>Sets&nbsp;the&nbsp;constants&nbsp;found&nbsp;in&nbsp;the&nbsp;datasheet&nbsp;used&nbsp;by&nbsp;the&nbsp;formatters&nbsp;to&nbsp;convert&nbsp;from&nbsp;real&nbsp;world&nbsp;values&nbsp;to&nbsp;digital&nbsp;value&nbsp;and&nbsp;back.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-set_device_address"><strong>set_device_address</strong></a>(self, addr_7bit)</dt><dd><tt>Change&nbsp;IÂ²C/SMBus&nbsp;device&nbsp;address&nbsp;of&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>.<br>
+addr_7bit&nbsp;is&nbsp;the&nbsp;right-justified&nbsp;7-bit&nbsp;address&nbsp;with&nbsp;the&nbsp;R/WÌ…&nbsp;bit&nbsp;omitted.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-unformatted_bf_write"><strong>unformatted_bf_write</strong></a>(self, bf_name, data)</dt><dd><tt>Write&nbsp;data&nbsp;to&nbsp;bitfield.&nbsp;Assumes&nbsp;data&nbsp;is&nbsp;an&nbsp;integer&nbsp;whose&nbsp;binary&nbsp;representation&nbsp;is&nbsp;the&nbsp;raw&nbsp;bits&nbsp;to&nbsp;insert<br>
+into&nbsp;the&nbsp;containing&nbsp;register&nbsp;in&nbsp;the&nbsp;chip,&nbsp;i.e.&nbsp;assumes&nbsp;data&nbsp;is&nbsp;not&nbsp;formatted.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>CHARGER_CONFIG_BITS_REG</strong></dt>
+<dd><tt>Battery&nbsp;charger&nbsp;configuration&nbsp;settings</tt></dd>
+</dl>
+<dl><dt><strong>CHARGER_STATE_ALERTS_REG</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charger&nbsp;states&nbsp;have&nbsp;occurred.&nbsp;Individual&nbsp;bits&nbsp;are&nbsp;enabled&nbsp;by&nbsp;EN_CHARGER_STATE_ALERTS_REG.&nbsp;Writing&nbsp;0&nbsp;to&nbsp;any&nbsp;bit&nbsp;while&nbsp;writing&nbsp;1s&nbsp;to&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;clears&nbsp;that&nbsp;alert.&nbsp;Once&nbsp;set,&nbsp;alert&nbsp;bits&nbsp;remain&nbsp;high&nbsp;until&nbsp;cleared&nbsp;or&nbsp;disabled.</tt></dd>
+</dl>
+<dl><dt><strong>CHARGER_STATE_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>CHARGE_CURRENT_SETTING_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>CHARGE_STATUS_ALERTS_REG</strong></dt>
+<dd><tt>Alerts&nbsp;that&nbsp;charge_status&nbsp;indicators&nbsp;have&nbsp;occurred.&nbsp;Individual&nbsp;bits&nbsp;are&nbsp;enabled&nbsp;by&nbsp;EN_CHARGE_STATUS_ALERTS_REG.&nbsp;Writing&nbsp;0&nbsp;to&nbsp;any&nbsp;bit&nbsp;clears&nbsp;that&nbsp;alert.&nbsp;Once&nbsp;set,&nbsp;alert&nbsp;bits&nbsp;remain&nbsp;high&nbsp;until&nbsp;cleared&nbsp;or&nbsp;disabled.</tt></dd>
+</dl>
+<dl><dt><strong>CHARGE_STATUS_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>CHEM_CELLS_REG</strong></dt>
+<dd><tt>Programmed&nbsp;battery&nbsp;chemistry</tt></dd>
+</dl>
+<dl><dt><strong>CONFIG_BITS_REG</strong></dt>
+<dd><tt>System&nbsp;configuration&nbsp;settings</tt></dd>
+</dl>
+<dl><dt><strong>EN_CHARGER_STATE_ALERTS_REG</strong></dt>
+<dd><tt>Enable&nbsp;charger&nbsp;state&nbsp;notification&nbsp;via&nbsp;SMBALERT</tt></dd>
+</dl>
+<dl><dt><strong>EN_CHARGE_STATUS_ALERTS_REG</strong></dt>
+<dd><tt>Enable&nbsp;charge&nbsp;status&nbsp;notification&nbsp;via&nbsp;SMBALERT</tt></dd>
+</dl>
+<dl><dt><strong>EN_LIMIT_ALERTS_REG</strong></dt>
+<dd><tt>Enable&nbsp;limit&nbsp;monitoring&nbsp;and&nbsp;alert&nbsp;notification&nbsp;via&nbsp;SMBALERT</tt></dd>
+</dl>
+<dl><dt><strong>ICHARGE_DAC_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>ICHARGE_JEITA_4_3_2_REG</strong></dt>
+<dd><tt>charge_current_setting&nbsp;value&nbsp;for&nbsp;JEITA&nbsp;temperature&nbsp;regions&nbsp;jeita_t4,&nbsp;jeita_t3,&nbsp;and&nbsp;jeita_t2</tt></dd>
+</dl>
+<dl><dt><strong>ICHARGE_JEITA_6_5_REG</strong></dt>
+<dd><tt>charge_current_setting&nbsp;values&nbsp;for&nbsp;JEITA&nbsp;temperature&nbsp;regions&nbsp;jeita_t6&nbsp;and&nbsp;jeita_t5</tt></dd>
+</dl>
+<dl><dt><strong>IIN_LIMIT_DAC_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>IIN_LIMIT_TARGET_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>INPUT_UNDERVOLTAGE_DAC_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>INPUT_UNDERVOLTAGE_SETTING_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>JEITA_REGION_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>LIMIT_ALERTS_REG</strong></dt>
+<dd><tt>Limit&nbsp;alert&nbsp;register.&nbsp;This&nbsp;input/output&nbsp;register&nbsp;indicates&nbsp;that&nbsp;an&nbsp;enabled&nbsp;alert&nbsp;has&nbsp;occurred.&nbsp;Individual&nbsp;alerts&nbsp;are&nbsp;enabled&nbsp;in&nbsp;EN_LIMIT_ALERTS_REG.&nbsp;Writing&nbsp;0&nbsp;to&nbsp;any&nbsp;bit&nbsp;clears&nbsp;that&nbsp;alert.&nbsp;Once&nbsp;set,&nbsp;alert&nbsp;bits&nbsp;remain&nbsp;high&nbsp;until&nbsp;cleared&nbsp;or&nbsp;disabled.</tt></dd>
+</dl>
+<dl><dt><strong>SYSTEM_STATUS_REG</strong></dt>
+<dd><tt>Real&nbsp;time&nbsp;system&nbsp;status&nbsp;indicator&nbsp;bits</tt></dd>
+</dl>
+<dl><dt><strong>TELEMETRY_STATUS_REG</strong></dt>
+<dd><tt>Telemetry&nbsp;system&nbsp;status&nbsp;register</tt></dd>
+</dl>
+<dl><dt><strong>VCHARGE_DAC_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>VCHARGE_JEITA_4_3_2_REG</strong></dt>
+<dd><tt>vcharge_setting&nbsp;values&nbsp;for&nbsp;JEITA&nbsp;temperature&nbsp;regions&nbsp;jeita_t4,&nbsp;jeita_t3,&nbsp;and&nbsp;jeita_t2</tt></dd>
+</dl>
+<dl><dt><strong>VCHARGE_JEITA_6_5_REG</strong></dt>
+<dd><tt>vcharge_setting&nbsp;values&nbsp;for&nbsp;JEITA&nbsp;temperature&nbsp;regions&nbsp;jeita_t6&nbsp;and&nbsp;jeita_t5</tt></dd>
+</dl>
+<dl><dt><strong>VCHARGE_SETTING_REG</strong></dt>
+<dd><tt></tt></dd>
+</dl>
+<dl><dt><strong>arm_ship_mode</strong></dt>
+<dd><tt>Setting&nbsp;this&nbsp;register&nbsp;to&nbsp;arm&nbsp;arms&nbsp;the&nbsp;ultra&nbsp;low-power&nbsp;ship&nbsp;and&nbsp;store&nbsp;mode.&nbsp;Ship&nbsp;mode&nbsp;does&nbsp;not&nbsp;take&nbsp;effect&nbsp;until&nbsp;the&nbsp;VIN&nbsp;pin&nbsp;drops&nbsp;below&nbsp;approximately&nbsp;1V&nbsp;or&nbsp;immediately&nbsp;if&nbsp;VIN&nbsp;is&nbsp;already&nbsp;below&nbsp;1V.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'arm':&nbsp;21325</tt></dd>
+</dl>
+<dl><dt><strong>bat_detect_failed_fault_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;a&nbsp;bat_detect_failed_fault.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_bat_detect_failed_fault_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>bat_missing_fault_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;a&nbsp;bat_missing_fault&nbsp;has&nbsp;been&nbsp;detected.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_bat_missing_fault_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>bat_short_fault_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;a&nbsp;bat_short_fault&nbsp;has&nbsp;been&nbsp;detected.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_bat_short_fault_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>battery_detection_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;performing&nbsp;battery_detection.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_battery_detecttion_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>bsr</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;per-cell&nbsp;battery&nbsp;resistance.&nbsp;The&nbsp;battery&nbsp;resistance&nbsp;is&nbsp;relative&nbsp;to&nbsp;the&nbsp;battery&nbsp;charge&nbsp;current&nbsp;setting&nbsp;resistor,&nbsp;RSNSB,&nbsp;and&nbsp;can&nbsp;be&nbsp;computed&nbsp;in&nbsp;&amp;#937;&nbsp;from&nbsp;cell_count&nbsp;×&nbsp;bsr&nbsp;×&nbsp;RSNSB&nbsp;/&nbsp;500.&nbsp;If&nbsp;the&nbsp;charge&nbsp;current,&nbsp;ibat,&nbsp;is&nbsp;below&nbsp;icharge_over_10,&nbsp;bsr_questionable&nbsp;will&nbsp;be&nbsp;set.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;bsr_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;&amp;#937;&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;bsr&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>bsr_charge_current</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;is&nbsp;the&nbsp;battery&nbsp;charge&nbsp;current&nbsp;that&nbsp;existed&nbsp;during&nbsp;the&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;measurement.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;ibat,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.466µV&nbsp;/&nbsp;RSNSB&nbsp;amperes/LSB.&nbsp;If&nbsp;the&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;(bsr)&nbsp;test&nbsp;runs&nbsp;with&nbsp;ibat&nbsp;values&nbsp;less&nbsp;than&nbsp;icharge_over_10,&nbsp;the&nbsp;accuracy&nbsp;of&nbsp;the&nbsp;test&nbsp;is&nbsp;questionable&nbsp;due&nbsp;to&nbsp;low&nbsp;signal&nbsp;level&nbsp;and&nbsp;bsr_questionable&nbsp;will&nbsp;set.&nbsp;Rerunning&nbsp;the&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;test&nbsp;earlier&nbsp;in&nbsp;the&nbsp;charge&nbsp;cycle&nbsp;with&nbsp;higher&nbsp;ibat,&nbsp;and&nbsp;therefore&nbsp;higher&nbsp;bsr_charge_current,&nbsp;will&nbsp;give&nbsp;the&nbsp;most&nbsp;accurate&nbsp;result.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'icharge_over_10':&nbsp;2184<br>
+Format:&nbsp;ibat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;ibat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>bsr_done_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;equivalent-series-resistance&nbsp;measurement&nbsp;is&nbsp;finished&nbsp;and&nbsp;a&nbsp;result&nbsp;is&nbsp;available&nbsp;in&nbsp;bsr.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_bsr_done_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>bsr_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;bsr&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;bsr_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_bsr_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>bsr_hi_alert_limit</strong></dt>
+<dd><tt>Sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;high&nbsp;battery&nbsp;resistance.&nbsp;The&nbsp;per-cell&nbsp;battery&nbsp;resistance&nbsp;is&nbsp;relative&nbsp;to&nbsp;the&nbsp;battery&nbsp;charge&nbsp;current&nbsp;setting&nbsp;resistor,&nbsp;RSNSB,&nbsp;and&nbsp;can&nbsp;be&nbsp;computed&nbsp;in&nbsp;&amp;#937;&nbsp;from:&nbsp;BSR&nbsp;=&nbsp;cell_count&nbsp;×&nbsp;bsr&nbsp;×&nbsp;RSNSB&nbsp;/&nbsp;500.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_bsr_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;bsr_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;bsr_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;&amp;#937;&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;bsr&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>bsr_questionable</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;measurement&nbsp;is&nbsp;questionable&nbsp;due&nbsp;to&nbsp;low&nbsp;signal,&nbsp;specifically&nbsp;that&nbsp;ibat&nbsp;was&nbsp;less&nbsp;than&nbsp;icharge_over_10,&nbsp;when&nbsp;the&nbsp;last&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;(bsr)&nbsp;measurement&nbsp;was&nbsp;taken.&nbsp;bsr_charge_current&nbsp;contains&nbsp;the&nbsp;ibat&nbsp;A/D&nbsp;value&nbsp;present&nbsp;when&nbsp;the&nbsp;battery&nbsp;series&nbsp;resistance&nbsp;measurement&nbsp;was&nbsp;made.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>c_over_x_term_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charge&nbsp;is&nbsp;in&nbsp;the&nbsp;c_over_x_term&nbsp;state.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_c_over_x_term_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>c_over_x_threshold</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;ibat&nbsp;A/D&nbsp;value&nbsp;used&nbsp;to&nbsp;qualify&nbsp;C/x&nbsp;detection&nbsp;and&nbsp;termination.&nbsp;The&nbsp;C/x&nbsp;level&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;value&nbsp;for&nbsp;ibat&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.466µV&nbsp;/&nbsp;RSNSB&nbsp;amperes/LSB.&nbsp;For&nbsp;example,&nbsp;to&nbsp;make&nbsp;the&nbsp;C/x&nbsp;level&nbsp;C/10&nbsp;(a&nbsp;very&nbsp;common&nbsp;choice)&nbsp;then&nbsp;c_over_x_threshold&nbsp;should&nbsp;be&nbsp;set&nbsp;to&nbsp;c_over_10&nbsp;which&nbsp;is&nbsp;10%&nbsp;of&nbsp;the&nbsp;maximum&nbsp;possible&nbsp;ibat&nbsp;reading&nbsp;(32mV&nbsp;×&nbsp;37.5&nbsp;×&nbsp;18,191&nbsp;/&nbsp;10).&nbsp;32mV&nbsp;is&nbsp;the&nbsp;full&nbsp;scale&nbsp;charge&nbsp;current&nbsp;signal&nbsp;from&nbsp;CSP&nbsp;to&nbsp;CSN,&nbsp;37.5&nbsp;is&nbsp;the&nbsp;internal&nbsp;charge&nbsp;amplifier's&nbsp;gain&nbsp;and&nbsp;18,191&nbsp;is&nbsp;the&nbsp;A/D's&nbsp;span&nbsp;term&nbsp;in&nbsp;counts&nbsp;per&nbsp;Volt.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'c_over_10':&nbsp;2184<br>
+Format:&nbsp;ibat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;ibat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>cc_cv_charge_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charge&nbsp;is&nbsp;in&nbsp;the&nbsp;cc_cv_charge&nbsp;phase.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_cc_cv_charge_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>cell_count</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;cell&nbsp;count&nbsp;value&nbsp;detected&nbsp;by&nbsp;the&nbsp;CELLS0&nbsp;and&nbsp;CELLS1&nbsp;pin&nbsp;strapping.&nbsp;cell_count&nbsp;always&nbsp;indicates&nbsp;0&nbsp;when&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;not&nbsp;enabled&nbsp;such&nbsp;as&nbsp;when&nbsp;there&nbsp;is&nbsp;no&nbsp;input&nbsp;power&nbsp;available.&nbsp;(4&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'Unknown':&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>cell_count_err</strong></dt>
+<dd><tt>A&nbsp;cell&nbsp;count&nbsp;error&nbsp;will&nbsp;occur&nbsp;and&nbsp;charging&nbsp;will&nbsp;be&nbsp;inhibited&nbsp;if&nbsp;the&nbsp;CELLS0&nbsp;and&nbsp;CELLS1&nbsp;pins&nbsp;are&nbsp;programmed&nbsp;for&nbsp;more&nbsp;than&nbsp;8&nbsp;cells.&nbsp;cell_count_err&nbsp;always&nbsp;indicates&nbsp;true&nbsp;when&nbsp;telemetry&nbsp;is&nbsp;not&nbsp;enabled&nbsp;such&nbsp;as&nbsp;when&nbsp;the&nbsp;charger&nbsp;is&nbsp;not&nbsp;enabled.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>charge_current_setting</strong></dt>
+<dd><tt>Controls&nbsp;the&nbsp;target&nbsp;charge&nbsp;current&nbsp;regulation&nbsp;servo&nbsp;level.&nbsp;The&nbsp;charge&nbsp;current&nbsp;is&nbsp;regulated&nbsp;by&nbsp;servoing&nbsp;the&nbsp;voltage&nbsp;across&nbsp;an&nbsp;external&nbsp;current&nbsp;sense&nbsp;resistor,&nbsp;RSNSB,&nbsp;between&nbsp;the&nbsp;CSP&nbsp;and&nbsp;CSN&nbsp;pins.&nbsp;The&nbsp;servo&nbsp;voltage&nbsp;is&nbsp;given&nbsp;by&nbsp;(charge_current_setting&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV.&nbsp;The&nbsp;effective&nbsp;charge&nbsp;current,&nbsp;determined&nbsp;by&nbsp;the&nbsp;external&nbsp;resistor,&nbsp;RSNSB,&nbsp;is&nbsp;given&nbsp;by&nbsp;(charge_current_setting&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;icharge_dac&nbsp;will&nbsp;follow&nbsp;charge_current_setting&nbsp;unless&nbsp;thermal_reg_active&nbsp;is&nbsp;true&nbsp;or&nbsp;the&nbsp;JEITA&nbsp;algorithm,&nbsp;with&nbsp;en_jeita,&nbsp;has&nbsp;altered&nbsp;it.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>charge_status</strong></dt>
+<dd><tt>Charge&nbsp;status&nbsp;indicator.&nbsp;Individual&nbsp;bits&nbsp;are&nbsp;mutually&nbsp;exclusive&nbsp;and&nbsp;are&nbsp;only&nbsp;active&nbsp;in&nbsp;charging&nbsp;states.&nbsp;(6&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'ilim_reg_active':&nbsp;32&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;May&nbsp;indicate&nbsp;that&nbsp;the&nbsp;switching&nbsp;regulator&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;based&nbsp;on&nbsp;a&nbsp;safety&nbsp;current&nbsp;limit&nbsp;(~45mV&nbsp;from&nbsp;CSP&nbsp;to&nbsp;CSN).&nbsp;This&nbsp;should&nbsp;not&nbsp;occur&nbsp;under&nbsp;normal&nbsp;conditions&nbsp;and&nbsp;is&nbsp;likely&nbsp;the&nbsp;result&nbsp;of&nbsp;a&nbsp;circuit&nbsp;board&nbsp;fault.&nbsp;Alternately&nbsp;indicates&nbsp;that&nbsp;the&nbsp;switching&nbsp;regulator&nbsp;is&nbsp;in&nbsp;dropout&nbsp;(highest&nbsp;possible&nbsp;duty&nbsp;cycle)&nbsp;and&nbsp;is&nbsp;not&nbsp;regulating&nbsp;on&nbsp;any&nbsp;feedback&nbsp;control&nbsp;loop.<br>
+Preset&nbsp;'thermal_reg_active':&nbsp;16&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;icharge_dac&nbsp;has&nbsp;been&nbsp;automatically&nbsp;throttled&nbsp;because&nbsp;the&nbsp;die_temp&nbsp;has&nbsp;reached&nbsp;thermal_reg_start_temp.<br>
+Preset&nbsp;'vin_uvcl_active':&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;input&nbsp;voltage&nbsp;control&nbsp;loop&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;to&nbsp;the&nbsp;battery&nbsp;based&nbsp;on&nbsp;the&nbsp;input_undervoltage_dac&nbsp;which&nbsp;normally&nbsp;targets&nbsp;input_undervoltage_setting.&nbsp;This&nbsp;control&nbsp;loop&nbsp;is&nbsp;manipulated&nbsp;internally&nbsp;when&nbsp;mppt_en&nbsp;is&nbsp;set.<br>
+Preset&nbsp;'iin_limit_active':&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;input&nbsp;current&nbsp;control&nbsp;loop&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;to&nbsp;the&nbsp;battery&nbsp;based&nbsp;on&nbsp;iin_limit_dac&nbsp;which&nbsp;normally&nbsp;targets&nbsp;iin_limit_target.<br>
+Preset&nbsp;'constant_current':&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;charge&nbsp;current&nbsp;control&nbsp;loop&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;to&nbsp;the&nbsp;battery&nbsp;based&nbsp;on&nbsp;icharge_dac&nbsp;which&nbsp;normally&nbsp;targets&nbsp;charge_current_setting.&nbsp;This&nbsp;control&nbsp;loop&nbsp;is&nbsp;manipulated&nbsp;internally&nbsp;if&nbsp;en_jeita&nbsp;is&nbsp;true.<br>
+Preset&nbsp;'constant_voltage':&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;control&nbsp;loop&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;to&nbsp;the&nbsp;battery&nbsp;based&nbsp;on&nbsp;vcharge_dac&nbsp;which&nbsp;normally&nbsp;targets&nbsp;vcharge_setting.&nbsp;This&nbsp;control&nbsp;loop&nbsp;is&nbsp;manipulated&nbsp;internally&nbsp;if&nbsp;en_jeita&nbsp;is&nbsp;true.<br>
+Preset&nbsp;'charger_off':&nbsp;0&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;charger&nbsp;is&nbsp;not&nbsp;currently&nbsp;running.&nbsp;Due&nbsp;to&nbsp;a&nbsp;logic&nbsp;error&nbsp;this&nbsp;state&nbsp;may&nbsp;transiently&nbsp;appear&nbsp;during&nbsp;normal&nbsp;operation.&nbsp;Sampling&nbsp;it&nbsp;several&nbsp;times&nbsp;is&nbsp;recommended.</tt></dd>
+</dl>
+<dl><dt><strong>charger_state</strong></dt>
+<dd><tt>Real&nbsp;time&nbsp;battery&nbsp;charger&nbsp;state&nbsp;indicator.&nbsp;Individual&nbsp;bits&nbsp;are&nbsp;mutually&nbsp;exclusive.&nbsp;(13&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'bat_detect_failed_fault':&nbsp;4096&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;not&nbsp;charging&nbsp;due&nbsp;to&nbsp;an&nbsp;inability&nbsp;to&nbsp;source&nbsp;power&nbsp;during&nbsp;the&nbsp;battery&nbsp;detection&nbsp;test&nbsp;because&nbsp;either&nbsp;vin_uvcl_active&nbsp;or&nbsp;iin_limit_active&nbsp;regulation&nbsp;was&nbsp;true&nbsp;during&nbsp;the&nbsp;battery&nbsp;detection&nbsp;phase&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.<br>
+Preset&nbsp;'battery_detection':&nbsp;2048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;LTC4162&nbsp;is&nbsp;in&nbsp;the&nbsp;battery&nbsp;detection&nbsp;phase&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.<br>
+Preset&nbsp;'charger_suspended':&nbsp;256&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charging&nbsp;feature&nbsp;is&nbsp;currently&nbsp;suspended&nbsp;due&nbsp;to&nbsp;suspend_charger&nbsp;or&nbsp;has&nbsp;a&nbsp;thermistor_voltage&nbsp;above&nbsp;jeita_t1&nbsp;or&nbsp;below&nbsp;jeita_t6.<br>
+Preset&nbsp;'precharge':&nbsp;128&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;LTC4162&nbsp;is&nbsp;in&nbsp;the&nbsp;precondition&nbsp;phase&nbsp;of&nbsp;charging.<br>
+Preset&nbsp;'cc_cv_charge':&nbsp;64&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;LTC4162&nbsp;is&nbsp;in&nbsp;either&nbsp;the&nbsp;constant_current&nbsp;or&nbsp;constant_voltage&nbsp;phase&nbsp;of&nbsp;charging.<br>
+Preset&nbsp;'ntc_pause':&nbsp;32&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;charging&nbsp;is&nbsp;currently&nbsp;paused&nbsp;due&nbsp;to&nbsp;thermistor_voltage&nbsp;being&nbsp;above&nbsp;jeita_t1&nbsp;or&nbsp;below&nbsp;jeita_t6&nbsp;as&nbsp;set&nbsp;by&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;qualified&nbsp;charging&nbsp;system.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;jeita_t6&nbsp;and&nbsp;jeita_t1&nbsp;are&nbsp;still&nbsp;observed&nbsp;even&nbsp;if&nbsp;en_jeita&nbsp;is&nbsp;set&nbsp;to&nbsp;0.<br>
+Preset&nbsp;'timer_term':&nbsp;16&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;currently&nbsp;terminated&nbsp;due&nbsp;to&nbsp;tcvtimer&nbsp;reaching&nbsp;max_cv_time&nbsp;during&nbsp;a&nbsp;charge&nbsp;cycle.<br>
+Preset&nbsp;'c_over_x_term':&nbsp;8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;currently&nbsp;terminated&nbsp;due&nbsp;to&nbsp;ibat&nbsp;falling&nbsp;below&nbsp;the&nbsp;c_over_x_threshold&nbsp;(C/x&nbsp;detection)&nbsp;during&nbsp;the&nbsp;constant_voltage&nbsp;phase&nbsp;of&nbsp;charging&nbsp;as&nbsp;determined&nbsp;by&nbsp;c_over_x_threshold&nbsp;and&nbsp;en_c_over_x_term.<br>
+Preset&nbsp;'max_charge_time_fault':&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;currently&nbsp;terminated&nbsp;due&nbsp;to&nbsp;tchargetimer&nbsp;reaching&nbsp;max_charge_time.<br>
+Preset&nbsp;'bat_missing_fault':&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;not&nbsp;charging&nbsp;because&nbsp;no&nbsp;battery&nbsp;was&nbsp;found&nbsp;during&nbsp;the&nbsp;battery&nbsp;detection&nbsp;test&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle&nbsp;or&nbsp;if,&nbsp;at&nbsp;any&nbsp;time,&nbsp;the&nbsp;thermistor_voltage&nbsp;goes&nbsp;above&nbsp;21,684&nbsp;indicating&nbsp;an&nbsp;open&nbsp;or&nbsp;missing&nbsp;thermistor.<br>
+Preset&nbsp;'bat_short_fault':&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;not&nbsp;charging&nbsp;because&nbsp;the&nbsp;battery&nbsp;was&nbsp;found&nbsp;to&nbsp;be&nbsp;shorted&nbsp;during&nbsp;the&nbsp;battery&nbsp;detection&nbsp;test&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.</tt></dd>
+</dl>
+<dl><dt><strong>charger_suspended_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;in&nbsp;the&nbsp;charger_suspended&nbsp;state.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_charger_suspended_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>chem</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;chemistry&nbsp;of&nbsp;the&nbsp;battery&nbsp;being&nbsp;charged.&nbsp;For&nbsp;additional&nbsp;safety,&nbsp;application&nbsp;software&nbsp;can&nbsp;test&nbsp;this&nbsp;value&nbsp;to&nbsp;ensure&nbsp;that&nbsp;the&nbsp;correct&nbsp;version&nbsp;of&nbsp;the&nbsp;LTC4162&nbsp;(LTC4162-L,&nbsp;LTC4162-F&nbsp;or&nbsp;LTC4162-S)&nbsp;is&nbsp;populated&nbsp;on&nbsp;the&nbsp;circuit&nbsp;board.&nbsp;(4&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'LTC4162_LAD':&nbsp;0&nbsp;&nbsp;Li-Ion&nbsp;I²C&nbsp;Adjustable&nbsp;Voltage<br>
+Preset&nbsp;'LTC4162_L42':&nbsp;1&nbsp;&nbsp;Li-Ion&nbsp;4.2V&nbsp;Fixed&nbsp;Charge<br>
+Preset&nbsp;'LTC4162_L41':&nbsp;2&nbsp;&nbsp;Li-Ion&nbsp;4.1V&nbsp;Fixed&nbsp;Charge<br>
+Preset&nbsp;'LTC4162_L40':&nbsp;3&nbsp;&nbsp;Li-Ion&nbsp;4.0V&nbsp;Fixed&nbsp;Charge<br>
+Preset&nbsp;'LTC4162_FAD':&nbsp;4&nbsp;&nbsp;LiFePO4&nbsp;I²C&nbsp;Adjustable&nbsp;Voltage<br>
+Preset&nbsp;'LTC4162_FFS':&nbsp;5&nbsp;&nbsp;LiFePO4&nbsp;3.8V&nbsp;Rapid&nbsp;Charge<br>
+Preset&nbsp;'LTC4162_FST':&nbsp;6&nbsp;&nbsp;LiFePO4&nbsp;3.6V&nbsp;Fixed&nbsp;Charge<br>
+Preset&nbsp;'LTC4162_SST':&nbsp;8&nbsp;&nbsp;Lead&nbsp;Acid&nbsp;Fixed&nbsp;Voltage<br>
+Preset&nbsp;'LTC4162_SAD':&nbsp;9&nbsp;&nbsp;Lead&nbsp;Acid&nbsp;I²C&nbsp;Adjustable&nbsp;Voltage</tt></dd>
+</dl>
+<dl><dt><strong>constant_current_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;constant_current.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_constant_current_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>constant_voltage_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;constant_voltage.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_constant_voltage_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>die_temp</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;die&nbsp;temperature.&nbsp;The&nbsp;value&nbsp;can&nbsp;be&nbsp;calculated&nbsp;from&nbsp;the&nbsp;A/D&nbsp;reading&nbsp;in&nbsp;°C&nbsp;as&nbsp;TDIE(°C)&nbsp;=&nbsp;die_temp&nbsp;×&nbsp;0.0215°C/LSB&nbsp;-&nbsp;264.4°C.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;die_temp_format&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;die_temp&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>die_temp_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;die_temp&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;die_temp_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_die_temp_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>die_temp_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;high&nbsp;die&nbsp;temperature.&nbsp;The&nbsp;value&nbsp;in&nbsp;°C&nbsp;can&nbsp;be&nbsp;calculated&nbsp;from&nbsp;the&nbsp;A/D&nbsp;reading,&nbsp;die_temp,&nbsp;as&nbsp;TDIE(°C)&nbsp;=&nbsp;die_temp&nbsp;×&nbsp;0.0215°C/LSB&nbsp;-&nbsp;264.4°C.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_die_temp_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;die_temp_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;die_temp_format&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;die_temp&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>en_bat_detect_failed_fault_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;bat_detect_failed_fault_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;bat_detect_failed_fault&nbsp;due&nbsp;to&nbsp;an&nbsp;inability&nbsp;to&nbsp;source&nbsp;power&nbsp;to&nbsp;the&nbsp;battery&nbsp;during&nbsp;battery&nbsp;detection&nbsp;testing&nbsp;(usually&nbsp;due&nbsp;to&nbsp;either&nbsp;iin_limit_active&nbsp;or&nbsp;vin_uvcl_active).&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_bat_missing_fault_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;bat_missing_fault_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;bat_missing_fault&nbsp;whereby&nbsp;charging&nbsp;is&nbsp;prohibited&nbsp;if&nbsp;no&nbsp;battery&nbsp;is&nbsp;detected&nbsp;during&nbsp;the&nbsp;battery&nbsp;presence&nbsp;detection&nbsp;phase&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_bat_short_fault_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;bat_short_fault_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;bat_short_fault&nbsp;whereby&nbsp;charging&nbsp;is&nbsp;prohibited&nbsp;if&nbsp;a&nbsp;shorted&nbsp;battery&nbsp;is&nbsp;detected&nbsp;during&nbsp;the&nbsp;battery&nbsp;presence&nbsp;detection&nbsp;phase&nbsp;at&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_battery_detection_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;battery_detection_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;battery_detection&nbsp;due&nbsp;to&nbsp;the&nbsp;LTC4162&nbsp;entering&nbsp;battery&nbsp;detection&nbsp;testing.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_bsr_done_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;bsr_done_alert&nbsp;when&nbsp;the&nbsp;bsr&nbsp;(battery-series-resistance)&nbsp;measurement&nbsp;is&nbsp;finished.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_bsr_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;bsr_hi_alert&nbsp;when&nbsp;bsr&nbsp;is&nbsp;above&nbsp;bsr_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_c_over_x_term</strong></dt>
+<dd><tt>Enables&nbsp;charge&nbsp;current&nbsp;based&nbsp;(C/x)&nbsp;battery&nbsp;charger&nbsp;termination&nbsp;as&nbsp;set&nbsp;by&nbsp;ibat&nbsp;dropping&nbsp;to&nbsp;the&nbsp;c_over_x_threshold&nbsp;in&nbsp;constant_voltage.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_c_over_x_term_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;c_over_x_term_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;c_over_x_term&nbsp;whereby&nbsp;a&nbsp;battery&nbsp;charge&nbsp;cycle&nbsp;terminates&nbsp;due&nbsp;to&nbsp;ibat&nbsp;dropping&nbsp;below&nbsp;the&nbsp;c_over_x_threshold.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_cc_cv_charge_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;cc_cv_charge_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;cc_cv_charge&nbsp;denoting&nbsp;the&nbsp;onset&nbsp;of&nbsp;the&nbsp;constant&nbsp;current&nbsp;/&nbsp;constant&nbsp;voltage&nbsp;phase&nbsp;of&nbsp;a&nbsp;battery&nbsp;charging&nbsp;cycle.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_charger_suspended_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;charger_suspended_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;charger_suspended&nbsp;whereby&nbsp;battery&nbsp;charging&nbsp;is&nbsp;terminated&nbsp;due&nbsp;to&nbsp;suspend_charger&nbsp;or&nbsp;thermistor_voltage&nbsp;out&nbsp;of&nbsp;jeita_t1&nbsp;-&nbsp;jeita_t6&nbsp;range.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_chg</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;active.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>en_constant_current_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;a&nbsp;constant_current_alert&nbsp;SMBALERT&nbsp;upon&nbsp;constant_current&nbsp;indicating&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;constant&nbsp;current&nbsp;regulation&nbsp;loop&nbsp;has&nbsp;taken&nbsp;control&nbsp;of&nbsp;the&nbsp;switching&nbsp;regulator.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_constant_voltage_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;a&nbsp;constant_voltage_alert&nbsp;SMBALERT&nbsp;upon&nbsp;constant_voltage&nbsp;indicating&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;constant&nbsp;voltage&nbsp;regulation&nbsp;loop&nbsp;has&nbsp;taken&nbsp;control&nbsp;of&nbsp;the&nbsp;switching&nbsp;regulator.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_die_temp_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;die_temp_hi_alert&nbsp;when&nbsp;die_temp&nbsp;is&nbsp;above&nbsp;die_temp_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_ibat_lo_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;ibat_lo_alert&nbsp;when&nbsp;ibat&nbsp;is&nbsp;below&nbsp;ibat_lo_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_iin_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;iin_hi_alert&nbsp;when&nbsp;iin&nbsp;is&nbsp;above&nbsp;iin_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_iin_limit_active_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;a&nbsp;iin_limit_active_alert&nbsp;SMBALERT&nbsp;upon&nbsp;iin_limit_active&nbsp;indicating&nbsp;that&nbsp;the&nbsp;input&nbsp;current&nbsp;regulation&nbsp;loop&nbsp;has&nbsp;taken&nbsp;control&nbsp;of&nbsp;the&nbsp;switching&nbsp;regulator.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_ilim_reg_active_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;ilim_reg_active_alert&nbsp;SMBALERT&nbsp;upon&nbsp;ilim_reg_active&nbsp;(VCSP-VCSN&nbsp;greater&nbsp;than&nbsp;45mV).&nbsp;May&nbsp;indicates&nbsp;that&nbsp;the&nbsp;switching&nbsp;regulator&nbsp;is&nbsp;currently&nbsp;controlling&nbsp;power&nbsp;delivery&nbsp;based&nbsp;on&nbsp;a&nbsp;safety&nbsp;current&nbsp;limit.&nbsp;This&nbsp;should&nbsp;not&nbsp;occur&nbsp;under&nbsp;normal&nbsp;conditions&nbsp;and&nbsp;is&nbsp;likely&nbsp;the&nbsp;result&nbsp;of&nbsp;a&nbsp;circuit&nbsp;board&nbsp;fault.&nbsp;Alternately&nbsp;indicates&nbsp;that&nbsp;the&nbsp;switching&nbsp;regulator&nbsp;is&nbsp;in&nbsp;dropout&nbsp;(near&nbsp;100%&nbsp;duty&nbsp;cycle)&nbsp;and&nbsp;is&nbsp;not&nbsp;regulating&nbsp;on&nbsp;any&nbsp;feedback&nbsp;control&nbsp;loop.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_jeita</strong></dt>
+<dd><tt>Enables&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;qualified&nbsp;charging&nbsp;system.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_max_charge_time_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;max_charge_time_fault_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;max_charge_time_fault&nbsp;whereby&nbsp;charging&nbsp;has&nbsp;terminated&nbsp;due&nbsp;to&nbsp;tchargetimer&nbsp;reaching&nbsp;max_charge_time.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_ntc_pause_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;ntc_pause_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;ntc_pause&nbsp;whereby&nbsp;a&nbsp;battery&nbsp;charge&nbsp;cycle&nbsp;is&nbsp;interrupted&nbsp;due&nbsp;to&nbsp;thermistor_voltage&nbsp;out&nbsp;of&nbsp;range&nbsp;as&nbsp;set&nbsp;by&nbsp;the&nbsp;jeita_t1&nbsp;through&nbsp;jeita_t6&nbsp;values.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_precharge_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;precharge_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;precharge&nbsp;denoting&nbsp;the&nbsp;onset&nbsp;of&nbsp;the&nbsp;precharge&nbsp;phase&nbsp;of&nbsp;a&nbsp;battery&nbsp;charging&nbsp;cycle.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_telemetry_valid_alert</strong></dt>
+<dd><tt>To&nbsp;ensure&nbsp;high&nbsp;measurement&nbsp;accuracy,&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;in&nbsp;the&nbsp;LTC4162&nbsp;has&nbsp;a&nbsp;nominal&nbsp;start-up&nbsp;time&nbsp;of&nbsp;approximately&nbsp;12ms.&nbsp;Setting&nbsp;this&nbsp;interrupt&nbsp;request&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;telemetry_valid_alert&nbsp;when&nbsp;telemetry_valid&nbsp;indicates&nbsp;that&nbsp;the&nbsp;telemetry&nbsp;system's&nbsp;readings&nbsp;are&nbsp;valid.&nbsp;Note&nbsp;that&nbsp;the&nbsp;switching&nbsp;battery&nbsp;charger&nbsp;will&nbsp;not&nbsp;operate&nbsp;until&nbsp;this&nbsp;telemetry&nbsp;system&nbsp;warmup&nbsp;period&nbsp;has&nbsp;passed,&nbsp;regardless&nbsp;of&nbsp;the&nbsp;state&nbsp;of&nbsp;this&nbsp;setting.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_thermal_reg_active_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;a&nbsp;thermal_reg_active_alert&nbsp;SMBALERT&nbsp;upon&nbsp;thermal_reg_active&nbsp;indicating&nbsp;that&nbsp;the&nbsp;icharge_dac&nbsp;is&nbsp;being&nbsp;dialed&nbsp;back&nbsp;to&nbsp;reduce&nbsp;internal&nbsp;die&nbsp;heating.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_thermistor_voltage_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;thermistor_voltage_hi_alert&nbsp;when&nbsp;thermistor_voltage&nbsp;is&nbsp;above&nbsp;thermistor_voltage_hi_alert_limit.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;higher&nbsp;thermistor_voltage&nbsp;readings&nbsp;correspond&nbsp;to&nbsp;lower&nbsp;temperatures.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_thermistor_voltage_lo_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;thermistor_voltage_lo_alert&nbsp;when&nbsp;thermistor_voltage&nbsp;is&nbsp;below&nbsp;thermistor_voltage_lo_alert_limit.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;lower&nbsp;thermistor_voltage&nbsp;readings&nbsp;correspond&nbsp;to&nbsp;higher&nbsp;temperatures.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_timer_term_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;timer_term_alert&nbsp;as&nbsp;indicated&nbsp;by&nbsp;timer_term&nbsp;whereby&nbsp;a&nbsp;battery&nbsp;charge&nbsp;cycle&nbsp;terminates&nbsp;due&nbsp;to&nbsp;tcvtimer&nbsp;reaching&nbsp;max_cv_time,&nbsp;the&nbsp;maximum&nbsp;time&nbsp;allowed&nbsp;in&nbsp;constant_voltage&nbsp;mode.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vbat_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vbat_hi_alert&nbsp;when&nbsp;vbat&nbsp;is&nbsp;above&nbsp;vbat_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vbat_lo_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vbat_lo_alert&nbsp;when&nbsp;vbat&nbsp;is&nbsp;below&nbsp;vbat_lo_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vin_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vin_hi_alert&nbsp;when&nbsp;vin&nbsp;is&nbsp;above&nbsp;vin_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vin_lo_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vin_lo_alert&nbsp;when&nbsp;vin&nbsp;is&nbsp;below&nbsp;vin_lo_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vin_uvcl_active_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;a&nbsp;vin_uvcl_active_alert&nbsp;SMBALERT&nbsp;upon&nbsp;vin_uvcl_active&nbsp;indicating&nbsp;that&nbsp;the&nbsp;undervoltage&nbsp;regulation&nbsp;loop&nbsp;has&nbsp;taken&nbsp;control&nbsp;of&nbsp;the&nbsp;switching&nbsp;regulator.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vout_hi_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vout_hi_alert&nbsp;when&nbsp;vout&nbsp;is&nbsp;above&nbsp;vout_hi_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>en_vout_lo_alert</strong></dt>
+<dd><tt>Interrupt&nbsp;request&nbsp;that&nbsp;causes&nbsp;an&nbsp;SMBALERT&nbsp;upon&nbsp;vout_lo_alert&nbsp;when&nbsp;vout&nbsp;is&nbsp;below&nbsp;vout_lo_alert_limit.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>force_telemetry_on</strong></dt>
+<dd><tt>Causes&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;to&nbsp;operate&nbsp;at&nbsp;all&nbsp;times,&nbsp;including&nbsp;times&nbsp;when&nbsp;only&nbsp;battery&nbsp;power&nbsp;is&nbsp;available.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>ibat</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;battery&nbsp;current.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;charge&nbsp;current&nbsp;measurement&nbsp;(VCSP&nbsp;-&nbsp;VCSN)&nbsp;which&nbsp;is&nbsp;1.466µV&nbsp;/&nbsp;RSNSB&nbsp;amperes/LSB.&nbsp;If&nbsp;the&nbsp;charger&nbsp;is&nbsp;not&nbsp;enabled&nbsp;the&nbsp;value&nbsp;represents&nbsp;drain&nbsp;on&nbsp;the&nbsp;battery&nbsp;and&nbsp;will&nbsp;be&nbsp;negative.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;ibat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;ibat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>ibat_lo_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;ibat&nbsp;is&nbsp;below&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;ibat_lo_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_ibat_lo_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>ibat_lo_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;a&nbsp;lower&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;charge&nbsp;current&nbsp;dropping&nbsp;below&nbsp;a&nbsp;particular&nbsp;value,&nbsp;such&nbsp;as&nbsp;during&nbsp;the&nbsp;constant-voltage&nbsp;phase&nbsp;of&nbsp;charging,&nbsp;or,&nbsp;load&nbsp;current&nbsp;exceeding&nbsp;a&nbsp;particular&nbsp;limit&nbsp;when&nbsp;not&nbsp;charging.&nbsp;When&nbsp;the&nbsp;charger&nbsp;is&nbsp;not&nbsp;running,&nbsp;and&nbsp;telemetry&nbsp;is&nbsp;enabled&nbsp;with&nbsp;force_telemetry_on,&nbsp;this&nbsp;limit&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;draw&nbsp;has&nbsp;exceeded&nbsp;a&nbsp;particular&nbsp;value.&nbsp;Telemetry&nbsp;will&nbsp;be&nbsp;enabled&nbsp;automatically&nbsp;if&nbsp;the&nbsp;input&nbsp;voltage&nbsp;exceeds&nbsp;the&nbsp;battery&nbsp;voltage,&nbsp;in&nbsp;which&nbsp;case&nbsp;discharge&nbsp;current&nbsp;will&nbsp;be&nbsp;nearly&nbsp;zero.&nbsp;ibat&nbsp;values&nbsp;are&nbsp;positive&nbsp;for&nbsp;charging&nbsp;and&nbsp;negative&nbsp;for&nbsp;discharging&nbsp;so&nbsp;the&nbsp;polarity&nbsp;of&nbsp;this&nbsp;register&nbsp;should&nbsp;be&nbsp;set&nbsp;according&nbsp;to&nbsp;the&nbsp;mode&nbsp;in&nbsp;which&nbsp;the&nbsp;limit&nbsp;alert&nbsp;is&nbsp;of&nbsp;interest.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;ibat,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.466µV&nbsp;/&nbsp;RSNSB&nbsp;amperes/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_ibat_lo_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;ibat_lo_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;ibat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;ibat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_dac</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;actual&nbsp;charge&nbsp;current&nbsp;setting&nbsp;applied&nbsp;to&nbsp;the&nbsp;charge&nbsp;current&nbsp;digital&nbsp;to&nbsp;analog&nbsp;converter.&nbsp;icharge_dac&nbsp;is&nbsp;ramped&nbsp;up/down&nbsp;to&nbsp;implement&nbsp;digital&nbsp;soft-start/stop.&nbsp;The&nbsp;LTC4162&nbsp;sets&nbsp;the&nbsp;value&nbsp;of&nbsp;icharge_dac&nbsp;based&nbsp;on&nbsp;charger_state,&nbsp;thermistor_voltage,&nbsp;and&nbsp;charger&nbsp;settings&nbsp;including&nbsp;charge_current_setting,&nbsp;icharge_jeita_2&nbsp;through&nbsp;icharge_jeita_6,&nbsp;jeita_t1&nbsp;through&nbsp;jeita_t6&nbsp;and&nbsp;en_jeita.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;charge&nbsp;current&nbsp;is&nbsp;regulated&nbsp;by&nbsp;controlling&nbsp;the&nbsp;voltage&nbsp;across&nbsp;an&nbsp;external&nbsp;current&nbsp;sense&nbsp;resistor&nbsp;RSNSB.&nbsp;The&nbsp;servo&nbsp;voltage&nbsp;is&nbsp;given&nbsp;by&nbsp;(icharge_dac&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV.&nbsp;The&nbsp;charge&nbsp;current&nbsp;servo&nbsp;level&nbsp;is&nbsp;thus&nbsp;given&nbsp;by&nbsp;(icharge_dac&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV/RSNSB.&nbsp;(5&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_jeita_2</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;current&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;2&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;charge_current_setting&nbsp;where&nbsp;the&nbsp;charge&nbsp;current&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;(icharge_jeita_2&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;15&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;VCSP-VCSN&nbsp;servo&nbsp;voltage&nbsp;of&nbsp;16mV&nbsp;which&nbsp;is&nbsp;half&nbsp;scale&nbsp;or&nbsp;C/2.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_jeita_3</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;current&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;3&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;charge_current_setting&nbsp;where&nbsp;the&nbsp;&nbsp;charge&nbsp;current&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;(icharge_jeita_3&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;31&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;VCSP-VCSN&nbsp;servo&nbsp;voltage&nbsp;of&nbsp;32mV&nbsp;which&nbsp;is&nbsp;full&nbsp;scale.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_jeita_4</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;current&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;4&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;charge_current_setting&nbsp;where&nbsp;the&nbsp;charge&nbsp;current&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;(icharge_jeita_4&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;31&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;VCSP-VCSN&nbsp;servo&nbsp;voltage&nbsp;of&nbsp;32mV&nbsp;which&nbsp;is&nbsp;full&nbsp;scale.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_jeita_5</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;current&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;5&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;charge_current_setting&nbsp;where&nbsp;the&nbsp;charge&nbsp;current&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;(icharge_jeita_5&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;15&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;VCSP-VCSN&nbsp;servo&nbsp;voltage&nbsp;of&nbsp;16mV&nbsp;which&nbsp;is&nbsp;half&nbsp;scale&nbsp;or&nbsp;C/2.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>icharge_jeita_6</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;current&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;6&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;charge_current_setting&nbsp;where&nbsp;the&nbsp;charge&nbsp;current&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;(icharge_jeita_6&nbsp;+&nbsp;1)&nbsp;×&nbsp;1mV&nbsp;/&nbsp;RSNSB.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;15&nbsp;corresponds&nbsp;to&nbsp;a&nbsp;VCSP-VCSN&nbsp;servo&nbsp;voltage&nbsp;of&nbsp;16mV&nbsp;which&nbsp;is&nbsp;half&nbsp;scale&nbsp;or&nbsp;C/2.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;icharge&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;charge_current_setting.</tt></dd>
+</dl>
+<dl><dt><strong>iin</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;input&nbsp;current&nbsp;(VCLP&nbsp;-&nbsp;VCLN).&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;input&nbsp;current&nbsp;measurement&nbsp;which&nbsp;is&nbsp;1.466µV&nbsp;/&nbsp;RSNSI&nbsp;amperes/LSB.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;iin_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;iin&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>iin_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;iin&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;iin_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_iin_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>iin_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;input&nbsp;current&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;iin,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.466µV&nbsp;/&nbsp;RSNSI&nbsp;amperes/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_iin_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;iin_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;iin_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;iin&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>iin_limit_active_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;iin_limit_active.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_iin_limit_active_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>iin_limit_dac</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;actual&nbsp;input&nbsp;current&nbsp;limit.&nbsp;The&nbsp;iin_limit_dac&nbsp;will&nbsp;follow&nbsp;the&nbsp;value&nbsp;programmed&nbsp;in&nbsp;iin_limit_target.&nbsp;The&nbsp;input&nbsp;current&nbsp;will&nbsp;be&nbsp;regulated&nbsp;to&nbsp;a&nbsp;maximum&nbsp;value&nbsp;given&nbsp;by&nbsp;(iin_limit_dac&nbsp;+&nbsp;1)&nbsp;×&nbsp;500µV&nbsp;/&nbsp;RSNSI.&nbsp;(6&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;iinlim&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;iinlim&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>iin_limit_target</strong></dt>
+<dd><tt>Controls&nbsp;the&nbsp;target&nbsp;input&nbsp;current&nbsp;limit&nbsp;setting.&nbsp;The&nbsp;input&nbsp;current&nbsp;is&nbsp;limited&nbsp;by&nbsp;regulating&nbsp;charge&nbsp;current&nbsp;in&nbsp;response&nbsp;to&nbsp;the&nbsp;voltage&nbsp;across&nbsp;an&nbsp;external&nbsp;current&nbsp;sense&nbsp;resistor,&nbsp;RSNSI,&nbsp;between&nbsp;the&nbsp;CLP&nbsp;and&nbsp;CLN&nbsp;pins&nbsp;and&nbsp;is&nbsp;given&nbsp;by&nbsp;(iin_limit_target&nbsp;+&nbsp;1)&nbsp;×&nbsp;500µV&nbsp;/&nbsp;RSNSI.&nbsp;Note&nbsp;that&nbsp;the&nbsp;LTC4162&nbsp;can&nbsp;only&nbsp;limit&nbsp;charge&nbsp;current&nbsp;based&nbsp;on&nbsp;this&nbsp;setting.&nbsp;It&nbsp;does&nbsp;not&nbsp;have&nbsp;the&nbsp;authority&nbsp;to&nbsp;block&nbsp;current&nbsp;from&nbsp;passing&nbsp;directly&nbsp;through&nbsp;to&nbsp;the&nbsp;system&nbsp;load.&nbsp;Connecting&nbsp;the&nbsp;system&nbsp;load&nbsp;to&nbsp;the&nbsp;battery,&nbsp;however,&nbsp;can&nbsp;allow&nbsp;total&nbsp;input&nbsp;current&nbsp;control.&nbsp;(6&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;iinlim&nbsp;&nbsp;Convert&nbsp;from&nbsp;amperes&nbsp;to&nbsp;the&nbsp;iinlim&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>ilim_reg_active_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;ilim_reg_active.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_ilim_reg_active_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>input_undervoltage_dac</strong></dt>
+<dd><tt>Input&nbsp;undervoltage&nbsp;regulation&nbsp;digital&nbsp;to&nbsp;analog&nbsp;converter&nbsp;value.&nbsp;The&nbsp;regulation&nbsp;voltage&nbsp;is&nbsp;given&nbsp;by&nbsp;(input_undervoltage_dac&nbsp;+&nbsp;1)&nbsp;×&nbsp;140.625mV.&nbsp;If&nbsp;enabled,&nbsp;the&nbsp;MPPT&nbsp;algorithm&nbsp;will&nbsp;directly&nbsp;manipulate&nbsp;this&nbsp;value.&nbsp;Otherwise&nbsp;it&nbsp;will&nbsp;follow&nbsp;input_undervoltage_setting.&nbsp;(8&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vin_uvcl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vin_uvcl&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>input_undervoltage_setting</strong></dt>
+<dd><tt>Controls&nbsp;the&nbsp;input&nbsp;undervoltage&nbsp;regulation&nbsp;setting.&nbsp;The&nbsp;regulation&nbsp;voltage,&nbsp;given&nbsp;by&nbsp;(input_undervoltage_setting&nbsp;+&nbsp;1)&nbsp;×&nbsp;140.625mV,&nbsp;is&nbsp;the&nbsp;voltage&nbsp;at&nbsp;which&nbsp;the&nbsp;charge&nbsp;current&nbsp;will&nbsp;be&nbsp;reduced&nbsp;to&nbsp;prevent&nbsp;further&nbsp;droop&nbsp;in&nbsp;supply&nbsp;voltage&nbsp;due&nbsp;to&nbsp;a&nbsp;resistive&nbsp;source.&nbsp;If&nbsp;mppt_en&nbsp;is&nbsp;set,&nbsp;the&nbsp;MPPT&nbsp;algorithm&nbsp;will&nbsp;override&nbsp;this&nbsp;setting.&nbsp;The&nbsp;actual&nbsp;input&nbsp;undervoltage&nbsp;value&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;from&nbsp;the&nbsp;input_undervoltage_dac.&nbsp;(8&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vin_uvcl&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vin_uvcl&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>intvcc_gt_2p8v</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;INTVCC&nbsp;pin&nbsp;voltage&nbsp;is&nbsp;greater&nbsp;than&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;lockout&nbsp;level&nbsp;(2.8V&nbsp;typical).&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>jeita_region</strong></dt>
+<dd><tt>Indicates&nbsp;the&nbsp;LTC4162&nbsp;JEITA&nbsp;battery&nbsp;temperature&nbsp;region&nbsp;containing&nbsp;the&nbsp;thermistor_voltage.&nbsp;The&nbsp;temperature&nbsp;region&nbsp;consists&nbsp;of&nbsp;the&nbsp;values&nbsp;bounded&nbsp;by&nbsp;the&nbsp;transition&nbsp;temperatures&nbsp;jeita_t(R-1)&nbsp;and&nbsp;jeita_t(R).&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;higher&nbsp;temperatures&nbsp;make&nbsp;lower&nbsp;thermistor_voltage&nbsp;readings&nbsp;and&nbsp;vice-versa.&nbsp;JEITA&nbsp;temperature-controlled&nbsp;charging&nbsp;is&nbsp;active&nbsp;only&nbsp;when&nbsp;en_jeita&nbsp;is&nbsp;at&nbsp;its&nbsp;default&nbsp;value&nbsp;of&nbsp;1.&nbsp;JEITA&nbsp;regions&nbsp;R7&nbsp;(jeita_region&nbsp;=&nbsp;7)&nbsp;and&nbsp;R1&nbsp;(jeita_region&nbsp;=&nbsp;1)&nbsp;indicate&nbsp;that&nbsp;the&nbsp;thermistor_voltage&nbsp;(battery&nbsp;temperature)&nbsp;is&nbsp;out&nbsp;of&nbsp;range&nbsp;for&nbsp;charging&nbsp;and&nbsp;therefore&nbsp;charging&nbsp;is&nbsp;paused&nbsp;(ntc_pause).&nbsp;The&nbsp;transition&nbsp;temperatures&nbsp;are&nbsp;set&nbsp;by&nbsp;jeita_t1&nbsp;through&nbsp;jeita_t6.&nbsp;(3&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'R7':&nbsp;7<br>
+Preset&nbsp;'R6':&nbsp;6<br>
+Preset&nbsp;'R5':&nbsp;5<br>
+Preset&nbsp;'R4':&nbsp;4<br>
+Preset&nbsp;'R3':&nbsp;3<br>
+Preset&nbsp;'R2':&nbsp;2<br>
+Preset&nbsp;'R1':&nbsp;1</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t1</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T1&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R1&nbsp;and&nbsp;R2.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;16117&nbsp;maps&nbsp;to&nbsp;about&nbsp;0°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t2</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T2&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R2&nbsp;and&nbsp;R3.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;14113&nbsp;maps&nbsp;to&nbsp;about&nbsp;10°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t3</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T3&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R3&nbsp;and&nbsp;R4.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;7970&nbsp;maps&nbsp;to&nbsp;about&nbsp;40°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t4</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T4&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R3&nbsp;and&nbsp;R4.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;7112&nbsp;maps&nbsp;to&nbsp;about&nbsp;45°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t5</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T5&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R5&nbsp;and&nbsp;R6.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;6325&nbsp;maps&nbsp;to&nbsp;about&nbsp;50°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>jeita_t6</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;JEITA&nbsp;temperature&nbsp;region&nbsp;transition&nbsp;temperature&nbsp;T6&nbsp;between&nbsp;JEITA&nbsp;regions&nbsp;R6&nbsp;and&nbsp;R7.&nbsp;The&nbsp;temperature&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;thermistor&nbsp;reading&nbsp;from&nbsp;the&nbsp;telemetry&nbsp;system;&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;jeita_t1,&nbsp;representing&nbsp;colder&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;highest&nbsp;value&nbsp;and&nbsp;jeita_t6,&nbsp;representing&nbsp;warmer&nbsp;temperatures,&nbsp;will&nbsp;have&nbsp;the&nbsp;lowest&nbsp;value.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;4970&nbsp;maps&nbsp;to&nbsp;about&nbsp;60°C&nbsp;for&nbsp;the&nbsp;expected&nbsp;thermistor&nbsp;&amp;#946;&nbsp;value&nbsp;of&nbsp;3490K.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>max_charge_time</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;total&nbsp;charge&nbsp;time&nbsp;termination&nbsp;setting&nbsp;against&nbsp;which&nbsp;the&nbsp;tchargetimer&nbsp;is&nbsp;compared.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;0&nbsp;disables&nbsp;the&nbsp;total&nbsp;charge&nbsp;time&nbsp;feature&nbsp;and&nbsp;prevents&nbsp;the&nbsp;tchargetimer&nbsp;from&nbsp;running.&nbsp;If&nbsp;enabled&nbsp;with&nbsp;a&nbsp;non&nbsp;zero&nbsp;value,&nbsp;the&nbsp;tchargetimer&nbsp;begins&nbsp;counting&nbsp;at&nbsp;the&nbsp;onset&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle&nbsp;and&nbsp;increments&nbsp;at&nbsp;one&nbsp;count&nbsp;per&nbsp;minute.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'maxchargetime_disable':&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>max_charge_time_fault_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charge&nbsp;is&nbsp;in&nbsp;the&nbsp;max_charge_time_fault&nbsp;state.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_max_charge_time_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>max_cv_time</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;constant-voltage&nbsp;termination&nbsp;setting&nbsp;against&nbsp;which&nbsp;the&nbsp;tcvtimer&nbsp;is&nbsp;compared.&nbsp;The&nbsp;timer&nbsp;begins&nbsp;at&nbsp;the&nbsp;onset&nbsp;of&nbsp;the&nbsp;constant_voltage&nbsp;phase&nbsp;of&nbsp;charging&nbsp;and&nbsp;increments&nbsp;at&nbsp;one&nbsp;count&nbsp;per&nbsp;second.&nbsp;The&nbsp;default&nbsp;setting&nbsp;is&nbsp;14,400&nbsp;(4&nbsp;hours).&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'30mins':&nbsp;1800<br>
+Preset&nbsp;'1hour':&nbsp;3600<br>
+Preset&nbsp;'2hours':&nbsp;7200<br>
+Preset&nbsp;'4hours_default':&nbsp;14400</tt></dd>
+</dl>
+<dl><dt><strong>mppt_en</strong></dt>
+<dd><tt>Causes&nbsp;the&nbsp;Maximum&nbsp;Power-Point&nbsp;Tracking&nbsp;algorithm&nbsp;to&nbsp;run.&nbsp;The&nbsp;maximum&nbsp;power&nbsp;point&nbsp;algorithm&nbsp;takes&nbsp;control&nbsp;of&nbsp;the&nbsp;input&nbsp;undervoltage&nbsp;regulation&nbsp;control&nbsp;loop&nbsp;via&nbsp;the&nbsp;input_undervoltage_dac&nbsp;to&nbsp;seek&nbsp;the&nbsp;optimum&nbsp;power-point&nbsp;for&nbsp;resistive&nbsp;sources&nbsp;such&nbsp;as&nbsp;a&nbsp;long&nbsp;cable&nbsp;or&nbsp;solar&nbsp;panel.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>no_rt</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;no&nbsp;frequency&nbsp;setting&nbsp;resistor&nbsp;is&nbsp;detected&nbsp;on&nbsp;the&nbsp;RT&nbsp;pin.&nbsp;The&nbsp;RT&nbsp;pin&nbsp;impedance&nbsp;detection&nbsp;circuit&nbsp;will&nbsp;typically&nbsp;indicate&nbsp;a&nbsp;missing&nbsp;RT&nbsp;resistor&nbsp;for&nbsp;values&nbsp;above&nbsp;1.4M&amp;#937;.&nbsp;no_rt&nbsp;always&nbsp;indicates&nbsp;true&nbsp;when&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;not&nbsp;enabled&nbsp;such&nbsp;as&nbsp;when&nbsp;there&nbsp;is&nbsp;no&nbsp;input&nbsp;power&nbsp;available.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>ntc_pause_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;in&nbsp;the&nbsp;ntc_pause&nbsp;state.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_ntc_pause_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>precharge_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charger&nbsp;is&nbsp;in&nbsp;the&nbsp;precharge&nbsp;phase.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_precharge_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>run_bsr</strong></dt>
+<dd><tt>Causes&nbsp;the&nbsp;battery&nbsp;equivalent-series-resistance&nbsp;(bsr)&nbsp;measurement&nbsp;to&nbsp;be&nbsp;made&nbsp;as&nbsp;soon&nbsp;as&nbsp;a&nbsp;charge&nbsp;cycle&nbsp;starts&nbsp;or&nbsp;immediately&nbsp;if&nbsp;a&nbsp;charge&nbsp;cycle&nbsp;is&nbsp;already&nbsp;running.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>suspend_charger</strong></dt>
+<dd><tt>Causes&nbsp;battery&nbsp;charging&nbsp;to&nbsp;be&nbsp;suspended.&nbsp;This&nbsp;setting&nbsp;should&nbsp;be&nbsp;used&nbsp;cautiously.&nbsp;For&nbsp;embedded&nbsp;battery&nbsp;systems&nbsp;where&nbsp;two&nbsp;wire&nbsp;interface&nbsp;communication&nbsp;relies&nbsp;on&nbsp;a&nbsp;minimum&nbsp;battery&nbsp;voltage,&nbsp;setting&nbsp;this&nbsp;bit&nbsp;could&nbsp;result&nbsp;in&nbsp;a&nbsp;deadlock&nbsp;that&nbsp;may&nbsp;require&nbsp;factory&nbsp;service&nbsp;to&nbsp;correct.&nbsp;(1&nbsp;bit,&nbsp;R/W)</tt></dd>
+</dl>
+<dl><dt><strong>tchargetimer</strong></dt>
+<dd><tt>If&nbsp;max_charge_time&nbsp;is&nbsp;written&nbsp;to&nbsp;a&nbsp;non&nbsp;zero&nbsp;value&nbsp;tchargetimer&nbsp;is&nbsp;the&nbsp;elapsed&nbsp;time&nbsp;in&nbsp;minutes&nbsp;since&nbsp;the&nbsp;beginning&nbsp;of&nbsp;a&nbsp;charge&nbsp;cycle.&nbsp;The&nbsp;LTC4162&nbsp;will&nbsp;terminate&nbsp;charging&nbsp;when&nbsp;tchargetimer&nbsp;reaches&nbsp;the&nbsp;value&nbsp;in&nbsp;max_charge_time.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>tcvtimer</strong></dt>
+<dd><tt>This&nbsp;is&nbsp;the&nbsp;elapsed&nbsp;time&nbsp;in&nbsp;seconds&nbsp;since&nbsp;the&nbsp;battery&nbsp;charger&nbsp;has&nbsp;been&nbsp;in&nbsp;the&nbsp;constant_voltage&nbsp;phase&nbsp;of&nbsp;charging.&nbsp;If&nbsp;this&nbsp;value&nbsp;exceeds&nbsp;max_cv_time&nbsp;then&nbsp;charging&nbsp;is&nbsp;considered&nbsp;complete&nbsp;and&nbsp;will&nbsp;terminate.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>telemetry_speed</strong></dt>
+<dd><tt>Forces&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;to&nbsp;take&nbsp;measurements&nbsp;at&nbsp;the&nbsp;higher&nbsp;rate&nbsp;of&nbsp;approximately&nbsp;once&nbsp;every&nbsp;11ms&nbsp;whenever&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;is&nbsp;on.&nbsp;When&nbsp;this&nbsp;bit&nbsp;is&nbsp;disabled,&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;will&nbsp;slow&nbsp;down&nbsp;to&nbsp;about&nbsp;once&nbsp;every&nbsp;5s&nbsp;to&nbsp;reduce&nbsp;power&nbsp;when&nbsp;not&nbsp;charging.&nbsp;Setting&nbsp;telemetry_speed&nbsp;to&nbsp;tel_high_speed&nbsp;in&nbsp;conjunction&nbsp;with&nbsp;force_telemetry_on&nbsp;with&nbsp;no&nbsp;input&nbsp;power&nbsp;available&nbsp;will&nbsp;increase&nbsp;battery&nbsp;drain.&nbsp;(1&nbsp;bit,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'tel_high_speed':&nbsp;1<br>
+Preset&nbsp;'tel_low_speed':&nbsp;0</tt></dd>
+</dl>
+<dl><dt><strong>telemetry_valid</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;autozero&nbsp;amplifiers&nbsp;have&nbsp;had&nbsp;sufficient&nbsp;time,&nbsp;approximately&nbsp;12ms,&nbsp;to&nbsp;null&nbsp;their&nbsp;offsets.&nbsp;Battery&nbsp;charging&nbsp;is&nbsp;disabled&nbsp;until&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;warm&nbsp;up&nbsp;time&nbsp;has&nbsp;passed.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>telemetry_valid_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;telemetry&nbsp;system&nbsp;warm-up&nbsp;time&nbsp;has&nbsp;expired&nbsp;and&nbsp;valid&nbsp;telemetry&nbsp;data&nbsp;is&nbsp;available&nbsp;from&nbsp;the&nbsp;serial&nbsp;port.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_telemetry_valid_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>thermal_reg_active_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;thermal_reg_active.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_thermal_reg_active_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>thermal_reg_end_temp</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;end&nbsp;of&nbsp;the&nbsp;temperature&nbsp;region&nbsp;for&nbsp;thermal&nbsp;regulation.&nbsp;To&nbsp;prevent&nbsp;overheating,&nbsp;a&nbsp;thermal&nbsp;regulation&nbsp;feedback&nbsp;loop&nbsp;utilizing&nbsp;die_temp&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;on&nbsp;icharge_dac&nbsp;following&nbsp;a&nbsp;linear&nbsp;gradient&nbsp;from&nbsp;full&nbsp;scale&nbsp;(31)&nbsp;to&nbsp;minimum&nbsp;scale&nbsp;(0)&nbsp;between&nbsp;thermal_reg_start_temp&nbsp;and&nbsp;thermal_reg_end_temp.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;18130&nbsp;corresponds&nbsp;to&nbsp;125°C.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;die_temp_format&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;die_temp&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>thermal_reg_start_temp</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;the&nbsp;start&nbsp;of&nbsp;the&nbsp;temperature&nbsp;region&nbsp;for&nbsp;thermal&nbsp;regulation.&nbsp;To&nbsp;prevent&nbsp;overheating,&nbsp;a&nbsp;thermal&nbsp;regulation&nbsp;feedback&nbsp;loop&nbsp;utilizing&nbsp;die_temp&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;on&nbsp;icharge_dac&nbsp;following&nbsp;a&nbsp;linear&nbsp;gradient&nbsp;from&nbsp;full&nbsp;scale&nbsp;(31)&nbsp;to&nbsp;minimum&nbsp;scale&nbsp;(0)&nbsp;between&nbsp;thermal_reg_start_temp&nbsp;and&nbsp;thermal_reg_end_temp.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;17897&nbsp;corresponds&nbsp;to&nbsp;120°C.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;die_temp_format&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;die_temp&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>thermal_shutdown</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;LTC4162&nbsp;is&nbsp;in&nbsp;thermal&nbsp;shutdown&nbsp;protection&nbsp;due&nbsp;to&nbsp;an&nbsp;excessively&nbsp;high&nbsp;die&nbsp;temperature&nbsp;(typically&nbsp;150°C).&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>thermistor_voltage</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;NTC&nbsp;pin&nbsp;voltage.&nbsp;The&nbsp;thermistor&nbsp;value&nbsp;can&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;expression&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;thermistor_voltage&nbsp;/&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage).&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;higher&nbsp;temperatures&nbsp;make&nbsp;lower&nbsp;thermistor_voltage&nbsp;readings&nbsp;and&nbsp;vice-versa.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Preset&nbsp;'open_thermistor':&nbsp;21684<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>thermistor_voltage_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;thermistor_voltage&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;thermistor_voltage_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_thermistor_voltage_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>thermistor_voltage_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;thermistor&nbsp;value&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value&nbsp;for&nbsp;thermistor_voltage.&nbsp;The&nbsp;thermistor&nbsp;value&nbsp;can&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;expression&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;higher&nbsp;temperatures&nbsp;correspond&nbsp;to&nbsp;lower&nbsp;thermistor_voltage&nbsp;readings&nbsp;and&nbsp;vice-versa.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_thermistor_voltage_hi_alert&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;thermistor_voltage_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>thermistor_voltage_lo_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;thermistor_voltage&nbsp;is&nbsp;below&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;thermistor_voltage_lo_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_thermistor_voltage_lo_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>thermistor_voltage_lo_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;a&nbsp;lower&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;thermistor&nbsp;value&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value&nbsp;for&nbsp;thermistor_voltage.&nbsp;The&nbsp;thermistor&nbsp;value&nbsp;can&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;expression&nbsp;RNTC&nbsp;=&nbsp;RNTCBIAS&nbsp;×&nbsp;(21829&nbsp;-&nbsp;thermistor_voltage)&nbsp;/&nbsp;thermistor_voltage.&nbsp;Recall&nbsp;that&nbsp;the&nbsp;thermistor&nbsp;has&nbsp;a&nbsp;negative&nbsp;temperature&nbsp;coefficient&nbsp;so&nbsp;higher&nbsp;temperatures&nbsp;correspond&nbsp;to&nbsp;lower&nbsp;thermistor_voltage&nbsp;readings&nbsp;and&nbsp;vice-versa.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_thermistor_voltage_lo_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;thermistor_voltage_lo_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;NTCS0402E3103FLT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;°C&nbsp;to&nbsp;the&nbsp;thermistor&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>timer_term_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;the&nbsp;battery&nbsp;charge&nbsp;is&nbsp;in&nbsp;the&nbsp;timer_term&nbsp;state.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_timer_term_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vbat</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;per-cell&nbsp;battery&nbsp;voltage.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;battery&nbsp;voltage&nbsp;measurement&nbsp;which&nbsp;is&nbsp;cell_count&nbsp;×&nbsp;192.4µV/LSB&nbsp;at&nbsp;the&nbsp;BATSENS+&nbsp;pin.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vbat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;vbat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vbat_filt</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;is&nbsp;a&nbsp;digitally&nbsp;filtered&nbsp;version&nbsp;of&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;of&nbsp;vbat.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;battery&nbsp;voltage&nbsp;measurement&nbsp;which&nbsp;is&nbsp;cell_count&nbsp;×&nbsp;192.4µV/LSB&nbsp;at&nbsp;the&nbsp;BATSENS+&nbsp;pin.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vbat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;vbat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vbat_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vbat&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vbat_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vbat_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vbat_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;the&nbsp;per-cell&nbsp;battery&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vbat,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;cell_count&nbsp;×&nbsp;192.4µV/LSB.&nbsp;To&nbsp;compute&nbsp;the&nbsp;per-cell&nbsp;bit&nbsp;count,&nbsp;divide&nbsp;the&nbsp;desired&nbsp;trigger&nbsp;voltage&nbsp;by&nbsp;both&nbsp;cell_count&nbsp;and&nbsp;192.4µV.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vbat_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vbat_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vbat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;vbat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vbat_lo_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vbat&nbsp;is&nbsp;below&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vbat_lo_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vbat_lo_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vbat_lo_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;a&nbsp;lower&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;the&nbsp;per-cell&nbsp;battery&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vbat,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;cell_count&nbsp;×&nbsp;192.4µV/LSB.&nbsp;To&nbsp;compute&nbsp;the&nbsp;per-cell&nbsp;bit&nbsp;count,&nbsp;divide&nbsp;the&nbsp;desired&nbsp;trigger&nbsp;voltage&nbsp;by&nbsp;both&nbsp;cell_count&nbsp;and&nbsp;192.4µV.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vbat_lo_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vbat_lo_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vbat_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;per-cell&nbsp;vbat&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_dac</strong></dt>
+<dd><tt>This&nbsp;is&nbsp;the&nbsp;actual&nbsp;battery&nbsp;voltage&nbsp;setting&nbsp;applied&nbsp;to&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;digital&nbsp;to&nbsp;analog&nbsp;converter.&nbsp;The&nbsp;LTC4162&nbsp;sets&nbsp;the&nbsp;value&nbsp;of&nbsp;vcharge_dac&nbsp;based&nbsp;on&nbsp;charger_state,&nbsp;thermistor_voltage,&nbsp;and&nbsp;charger&nbsp;settings&nbsp;including&nbsp;vcharge_setting,&nbsp;vcharge_jeita_2&nbsp;through&nbsp;vcharge_jeita_6,&nbsp;jeita_t1&nbsp;through&nbsp;jeita_t6,&nbsp;thermistor_voltage&nbsp;and&nbsp;en_jeita.&nbsp;The&nbsp;charge&nbsp;voltage&nbsp;setting&nbsp;can&nbsp;be&nbsp;computed&nbsp;from&nbsp;cell_count&nbsp;×&nbsp;(vcharge_setting&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V)&nbsp;where&nbsp;vcharge_setting&nbsp;ranges&nbsp;from&nbsp;0&nbsp;to&nbsp;31&nbsp;(4.2V&nbsp;max).&nbsp;(5&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_jeita_2</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;2&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;vcharge_setting&nbsp;and&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;vcharge_jeita_2&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;31&nbsp;corresponds&nbsp;to&nbsp;4.2V.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_jeita_3</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;3&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;vcharge_setting&nbsp;and&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;vcharge_jeita_3&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;31&nbsp;corresponds&nbsp;to&nbsp;4.2V.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_jeita_4</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;4&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;vcharge_setting&nbsp;and&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;vcharge_jeita_4&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;23&nbsp;corresponds&nbsp;to&nbsp;4.1V&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_jeita_5</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;5&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;vcharge_setting&nbsp;and&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;vcharge_jeita_5&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;23&nbsp;corresponds&nbsp;to&nbsp;4.1V.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_jeita_6</strong></dt>
+<dd><tt>Sets&nbsp;the&nbsp;charge&nbsp;voltage&nbsp;to&nbsp;be&nbsp;used&nbsp;in&nbsp;JEITA&nbsp;region&nbsp;6&nbsp;as&nbsp;illustrated&nbsp;in&nbsp;the&nbsp;JEITA&nbsp;Temperature&nbsp;Qualified&nbsp;Charging&nbsp;section.&nbsp;The&nbsp;value&nbsp;corresponds&nbsp;to&nbsp;vcharge_setting&nbsp;and&nbsp;can&nbsp;be&nbsp;calculated&nbsp;using&nbsp;vcharge_jeita_6&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V.&nbsp;The&nbsp;default&nbsp;value&nbsp;of&nbsp;19&nbsp;corresponds&nbsp;to&nbsp;4.05V.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vcharge_setting</strong></dt>
+<dd><tt>Controls&nbsp;the&nbsp;final&nbsp;charge&nbsp;voltage&nbsp;regulation&nbsp;servo&nbsp;level.&nbsp;To&nbsp;maintain&nbsp;inherent&nbsp;over-charge&nbsp;protection,&nbsp;only&nbsp;Lithium&nbsp;Ion&nbsp;appropriate&nbsp;charge&nbsp;voltage&nbsp;values&nbsp;can&nbsp;be&nbsp;selected.&nbsp;The&nbsp;charge&nbsp;voltage&nbsp;setting&nbsp;can&nbsp;be&nbsp;computed&nbsp;from&nbsp;cell_count&nbsp;×&nbsp;(vcharge_setting&nbsp;×&nbsp;12.5mV&nbsp;+&nbsp;3.8125V)&nbsp;where&nbsp;vcharge_setting&nbsp;ranges&nbsp;from&nbsp;0&nbsp;to&nbsp;31&nbsp;(4.2V&nbsp;max).&nbsp;vcharge_dac&nbsp;will&nbsp;follow&nbsp;vcharge_setting&nbsp;unless&nbsp;the&nbsp;advanced&nbsp;JEITA&nbsp;temperature&nbsp;control&nbsp;system&nbsp;(en_jeita)&nbsp;has&nbsp;altered&nbsp;it.&nbsp;(5&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Preset&nbsp;'vcharge_lion_default':&nbsp;31<br>
+Format:&nbsp;vcharge_liion&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vcharge_liion&nbsp;setting.</tt></dd>
+</dl>
+<dl><dt><strong>vin</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;input&nbsp;voltage.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;input&nbsp;voltage&nbsp;measurement&nbsp;which&nbsp;is&nbsp;1.649mV/LSB.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vin_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vin&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vin_gt_4p2v</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;VIN&nbsp;pin&nbsp;voltage&nbsp;is&nbsp;at&nbsp;least&nbsp;greater&nbsp;than&nbsp;the&nbsp;switching&nbsp;regulator&nbsp;under-voltage&nbsp;lockout&nbsp;level&nbsp;(4.2V&nbsp;typical).&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vin_gt_vbat</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;the&nbsp;VIN&nbsp;pin&nbsp;voltage&nbsp;is&nbsp;sufficiently&nbsp;above&nbsp;the&nbsp;battery&nbsp;voltage&nbsp;to&nbsp;begin&nbsp;a&nbsp;charge&nbsp;cycle&nbsp;(typically&nbsp;+150mV).&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vin_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vin&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vin_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vin_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vin_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;input&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vin,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.649mV/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vin_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vin_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vin_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vin&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vin_lo_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vin&nbsp;is&nbsp;below&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vin_lo_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vin_lo_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vin_lo_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;a&nbsp;lower&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;input&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vin,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.649mV/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vin_lo_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vin_lo_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vin_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vin&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vin_ovlo</strong></dt>
+<dd><tt>Indicates&nbsp;that&nbsp;input&nbsp;voltage&nbsp;shutdown&nbsp;protection&nbsp;is&nbsp;active&nbsp;due&nbsp;to&nbsp;an&nbsp;input&nbsp;voltage&nbsp;above&nbsp;its&nbsp;protection&nbsp;shut-down&nbsp;threshold&nbsp;of&nbsp;approximately&nbsp;38.6V.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vin_uvcl_active_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;charge_status&nbsp;is&nbsp;vin_uvcl_active.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vin_uvcl_active_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vout</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;indicates&nbsp;the&nbsp;A/D&nbsp;measurement&nbsp;for&nbsp;the&nbsp;vout&nbsp;voltage.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;scaling&nbsp;factor&nbsp;for&nbsp;the&nbsp;output&nbsp;voltage&nbsp;measurement&nbsp;which&nbsp;is&nbsp;1.653mV/LSB.&nbsp;(16&nbsp;bits,&nbsp;Read&nbsp;Only)<br>
+&nbsp;<br>
+Format:&nbsp;vout_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vout&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vout_hi_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vout&nbsp;is&nbsp;above&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vout_hi_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vout_hi_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vout_hi_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;an&nbsp;upper&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;vout&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vout,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.653mV/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vout_hi_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vout_hi_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vout_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vout&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<dl><dt><strong>vout_lo_alert</strong></dt>
+<dd><tt>Alert&nbsp;that&nbsp;indicates&nbsp;that&nbsp;vout&nbsp;is&nbsp;below&nbsp;the&nbsp;value&nbsp;set&nbsp;by&nbsp;vout_lo_alert_limit.&nbsp;This&nbsp;alert&nbsp;bit&nbsp;is&nbsp;cleared&nbsp;by&nbsp;writing&nbsp;it&nbsp;back&nbsp;to&nbsp;0&nbsp;with&nbsp;the&nbsp;remaining&nbsp;bits&nbsp;in&nbsp;this&nbsp;register&nbsp;set&nbsp;to&nbsp;1s.&nbsp;It&nbsp;can&nbsp;also&nbsp;be&nbsp;cleared&nbsp;by&nbsp;clearing&nbsp;en_vout_lo_alert.&nbsp;(1&nbsp;bit,&nbsp;Read&nbsp;Only)</tt></dd>
+</dl>
+<dl><dt><strong>vout_lo_alert_limit</strong></dt>
+<dd><tt>Signed&nbsp;number&nbsp;that&nbsp;sets&nbsp;a&nbsp;lower&nbsp;limit&nbsp;that&nbsp;can&nbsp;be&nbsp;used&nbsp;to&nbsp;trigger&nbsp;an&nbsp;interrupt&nbsp;based&nbsp;on&nbsp;vout&nbsp;voltage&nbsp;out&nbsp;of&nbsp;range.&nbsp;The&nbsp;value&nbsp;is&nbsp;based&nbsp;on&nbsp;the&nbsp;A/D&nbsp;value,&nbsp;vout,&nbsp;which&nbsp;has&nbsp;a&nbsp;scaling&nbsp;factor&nbsp;of&nbsp;1.653mV/LSB.&nbsp;The&nbsp;alert&nbsp;is&nbsp;enabled&nbsp;by&nbsp;setting&nbsp;en_vout_lo_alert&nbsp;and&nbsp;can&nbsp;be&nbsp;read&nbsp;back&nbsp;and&nbsp;cleared&nbsp;at&nbsp;vout_lo_alert.&nbsp;(16&nbsp;bits,&nbsp;R/W)<br>
+&nbsp;<br>
+Format:&nbsp;vout_format&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Convert&nbsp;from&nbsp;volts&nbsp;to&nbsp;the&nbsp;vout&nbsp;ADC&nbsp;reading.</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>__abstractmethods__</strong> = frozenset([])</dl>
+
+<hr>
+Methods inherited from <a href="_abcoll.html#Mapping">_abcoll.Mapping</a>:<br>
+<dl><dt><a name="LTC4162-__contains__"><strong>__contains__</strong></a>(self, key)</dt></dl>
+
+<dl><dt><a name="LTC4162-__eq__"><strong>__eq__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="LTC4162-__ne__"><strong>__ne__</strong></a>(self, other)</dt></dl>
+
+<dl><dt><a name="LTC4162-get"><strong>get</strong></a>(self, key, default<font color="#909090">=None</font>)</dt><dd><tt>D.<a href="#LTC4162-get">get</a>(k[,d])&nbsp;-&gt;&nbsp;D[k]&nbsp;if&nbsp;k&nbsp;in&nbsp;D,&nbsp;else&nbsp;d.&nbsp;&nbsp;d&nbsp;defaults&nbsp;to&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-items"><strong>items</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-items">items</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;(key,&nbsp;value)&nbsp;pairs,&nbsp;as&nbsp;2-tuples</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-iteritems"><strong>iteritems</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-iteritems">iteritems</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;(key,&nbsp;value)&nbsp;items&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-iterkeys"><strong>iterkeys</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-iterkeys">iterkeys</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;keys&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-itervalues"><strong>itervalues</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-itervalues">itervalues</a>()&nbsp;-&gt;&nbsp;an&nbsp;iterator&nbsp;over&nbsp;the&nbsp;values&nbsp;of&nbsp;D</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-keys"><strong>keys</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-keys">keys</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;keys</tt></dd></dl>
+
+<dl><dt><a name="LTC4162-values"><strong>values</strong></a>(self)</dt><dd><tt>D.<a href="#LTC4162-values">values</a>()&nbsp;-&gt;&nbsp;list&nbsp;of&nbsp;D's&nbsp;values</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="_abcoll.html#Mapping">_abcoll.Mapping</a>:<br>
+<dl><dt><strong>__hash__</strong> = None</dl>
+
+<hr>
+Class methods inherited from <a href="_abcoll.html#Sized">_abcoll.Sized</a>:<br>
+<dl><dt><a name="LTC4162-__subclasshook__"><strong>__subclasshook__</strong></a>(cls, C)<font color="#909090"><font face="helvetica, arial"> from <a href="abc.html#ABCMeta">abc.ABCMeta</a></font></font></dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="_abcoll.html#Sized">_abcoll.Sized</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="_abcoll.html#Sized">_abcoll.Sized</a>:<br>
+<dl><dt><strong>__metaclass__</strong> = &lt;class 'abc.ABCMeta'&gt;<dd><tt>Metaclass&nbsp;for&nbsp;defining&nbsp;Abstract&nbsp;Base&nbsp;Classes&nbsp;(ABCs).<br>
+&nbsp;<br>
+Use&nbsp;this&nbsp;metaclass&nbsp;to&nbsp;create&nbsp;an&nbsp;ABC.&nbsp;&nbsp;An&nbsp;ABC&nbsp;can&nbsp;be&nbsp;subclassed<br>
+directly,&nbsp;and&nbsp;then&nbsp;acts&nbsp;as&nbsp;a&nbsp;mix-in&nbsp;class.&nbsp;&nbsp;You&nbsp;can&nbsp;also&nbsp;register<br>
+unrelated&nbsp;concrete&nbsp;classes&nbsp;(even&nbsp;built-in&nbsp;classes)&nbsp;and&nbsp;unrelated<br>
+ABCs&nbsp;as&nbsp;'virtual&nbsp;subclasses'&nbsp;--&nbsp;these&nbsp;and&nbsp;their&nbsp;descendants&nbsp;will<br>
+be&nbsp;considered&nbsp;subclasses&nbsp;of&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;by&nbsp;the&nbsp;built-in<br>
+issubclass()&nbsp;function,&nbsp;but&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;won't&nbsp;show&nbsp;up&nbsp;in<br>
+their&nbsp;MRO&nbsp;(Method&nbsp;Resolution&nbsp;Order)&nbsp;nor&nbsp;will&nbsp;method<br>
+implementations&nbsp;defined&nbsp;by&nbsp;the&nbsp;registering&nbsp;ABC&nbsp;be&nbsp;callable&nbsp;(not<br>
+even&nbsp;via&nbsp;super()).</tt></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="LTC4162_APIException">class <strong>LTC4162_APIException</strong></a>(<a href="exceptions.html#Exception">exceptions.Exception</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Bad&nbsp;data&nbsp;passed&nbsp;to&nbsp;instance&nbsp;of&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;will&nbsp;raise&nbsp;<a href="#LTC4162_APIException">LTC4162_APIException</a><br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="LTC4162_LADM.html#LTC4162_APIException">LTC4162_APIException</a></dd>
+<dd><a href="exceptions.html#Exception">exceptions.Exception</a></dd>
+<dd><a href="exceptions.html#BaseException">exceptions.BaseException</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><a name="LTC4162_APIException-__init__"><strong>__init__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__init__">__init__</a>(...)&nbsp;initializes&nbsp;x;&nbsp;see&nbsp;help(type(x))&nbsp;for&nbsp;signature</tt></dd></dl>
+
+<hr>
+Data and other attributes inherited from <a href="exceptions.html#Exception">exceptions.Exception</a>:<br>
+<dl><dt><strong>__new__</strong> = &lt;built-in method __new__ of type object&gt;<dd><tt>T.<a href="#LTC4162_APIException-__new__">__new__</a>(S,&nbsp;...)&nbsp;-&gt;&nbsp;a&nbsp;new&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;with&nbsp;type&nbsp;S,&nbsp;a&nbsp;subtype&nbsp;of&nbsp;T</tt></dl>
+
+<hr>
+Methods inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><a name="LTC4162_APIException-__delattr__"><strong>__delattr__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__delattr__">__delattr__</a>('name')&nbsp;&lt;==&gt;&nbsp;del&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__getattribute__"><strong>__getattribute__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__getattribute__">__getattribute__</a>('name')&nbsp;&lt;==&gt;&nbsp;x.name</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__getitem__"><strong>__getitem__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__getitem__">__getitem__</a>(y)&nbsp;&lt;==&gt;&nbsp;x[y]</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__getslice__"><strong>__getslice__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__getslice__">__getslice__</a>(i,&nbsp;j)&nbsp;&lt;==&gt;&nbsp;x[i:j]<br>
+&nbsp;<br>
+Use&nbsp;of&nbsp;negative&nbsp;indices&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__reduce__"><strong>__reduce__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="LTC4162_APIException-__repr__"><strong>__repr__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__repr__">__repr__</a>()&nbsp;&lt;==&gt;&nbsp;repr(x)</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__setattr__"><strong>__setattr__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__setattr__">__setattr__</a>('name',&nbsp;value)&nbsp;&lt;==&gt;&nbsp;x.name&nbsp;=&nbsp;value</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__setstate__"><strong>__setstate__</strong></a>(...)</dt></dl>
+
+<dl><dt><a name="LTC4162_APIException-__str__"><strong>__str__</strong></a>(...)</dt><dd><tt>x.<a href="#LTC4162_APIException-__str__">__str__</a>()&nbsp;&lt;==&gt;&nbsp;str(x)</tt></dd></dl>
+
+<dl><dt><a name="LTC4162_APIException-__unicode__"><strong>__unicode__</strong></a>(...)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="exceptions.html#BaseException">exceptions.BaseException</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+</dl>
+<dl><dt><strong>args</strong></dt>
+</dl>
+<dl><dt><strong>message</strong></dt>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="logger">class <strong>logger</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="logger-__init__"><strong>__init__</strong></a>(self, chip, db_filename<font color="#909090">='data_log.sqlite'</font>)</dt><dd><tt>Data&nbsp;<a href="#logger">logger</a>&nbsp;stores&nbsp;memory&nbsp;dump(s)&nbsp;of&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;to&nbsp;a&nbsp;SQLite&nbsp;database&nbsp;file.<br>
+chip&nbsp;is&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;class.<br>
+A&nbsp;new&nbsp;database&nbsp;table&nbsp;will&nbsp;be&nbsp;automatically&nbsp;created&nbsp;with&nbsp;the&nbsp;current&nbsp;timestamp.</tt></dd></dl>
+
+<dl><dt><a name="logger-interval_log"><strong>interval_log</strong></a>(self, interval_seconds, max_rows<font color="#909090">=None</font>)</dt><dd><tt>Repeatedly&nbsp;store&nbsp;dump&nbsp;of&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;memory&nbsp;to&nbsp;the&nbsp;database.<br>
+Memory&nbsp;will&nbsp;be&nbsp;recorded&nbsp;once&nbsp;per&nbsp;interval_seconds.<br>
+Data&nbsp;will&nbsp;be&nbsp;recorded&nbsp;max_rows&nbsp;times.&nbsp;&nbsp;If&nbsp;set&nbsp;to&nbsp;None,&nbsp;recording&nbsp;will&nbsp;continue&nbsp;indefinitely.</tt></dd></dl>
+
+<dl><dt><a name="logger-log"><strong>log</strong></a>(self)</dt><dd><tt>Store&nbsp;single&nbsp;dump&nbsp;of&nbsp;the&nbsp;<a href="#LTC4162">LTC4162</a>&nbsp;memory&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>print_function</strong> = _Feature((2, 6, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 65536)</td></tr></table>
+</body></html>

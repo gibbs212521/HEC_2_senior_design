@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include ".\Headers\BuckysInfo.h" 
-// Quotations mean to search in current directory and subdirectories
+// Quotations mean to search in current directory
 
 int main()
 {

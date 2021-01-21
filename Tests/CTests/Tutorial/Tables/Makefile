@@ -1,5 +1,5 @@
 DIRPATH=..\..\..\..\bin\Tests\Tutorials
-FILENAME1=test_variables
+FILENAME1=test_tables
 FILEPATH1=$(DIRPATH)\$(FILENAME1).exe
 CC=gcc
 # Code below should allow nmake and make to operate successfully

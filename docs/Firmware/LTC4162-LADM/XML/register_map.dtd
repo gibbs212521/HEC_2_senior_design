@@ -1,0 +1,31 @@
+<!ELEMENT register_map (chip+, format_definitions?)>
+<!ELEMENT chip (description, address+, command_code*)>
+<!ELEMENT address (description?)>
+<!ELEMENT command_code (description?, access+, custom_field*, custom_fields*, bit_field+)>
+<!ELEMENT access EMPTY>
+<!ELEMENT custom_field (#PCDATA)>
+<!ELEMENT custom_fields (custom_field*, custom_fields*)>
+<!ELEMENT bit_field (description, default?, custom_field*, custom_fields*, preset*, format*)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT default (#PCDATA)>
+<!ELEMENT preset (description?)>
+<!ELEMENT format EMPTY>
+<!ELEMENT format_definitions (constant_definition*, format_definition+)>
+<!ELEMENT constant_definition EMPTY>
+<!ELEMENT format_definition (description, custom_field*, custom_fields*, transformed_units?, piecewise_linear_points?)>
+<!ELEMENT transformed_units (#PCDATA)>
+<!ELEMENT piecewise_linear_points (point,point+)>
+<!ELEMENT point EMPTY>
+<!ATTLIST register_map source_revision CDATA #REQUIRED source_date CDATA #REQUIRED revision CDATA #REQUIRED date CDATA #REQUIRED>
+<!ATTLIST chip name CDATA #REQUIRED word_size CDATA #REQUIRED title CDATA #REQUIRED>
+<!ATTLIST address address_7bit CDATA #REQUIRED>
+<!ATTLIST command_code name ID #REQUIRED value CDATA #REQUIRED>
+<!ATTLIST bit_field name ID #REQUIRED size CDATA #REQUIRED offset CDATA #REQUIRED category CDATA #REQUIRED>
+<!ATTLIST custom_field name CDATA #REQUIRED value CDATA #IMPLIED>
+<!ATTLIST custom_fields name CDATA #REQUIRED value CDATA #IMPLIED>
+<!ATTLIST access mode CDATA #REQUIRED type (read | write) #REQUIRED>
+<!ATTLIST preset name CDATA #REQUIRED value CDATA #REQUIRED>
+<!ATTLIST format name IDREF #REQUIRED>
+<!ATTLIST format_definition name ID #REQUIRED signed (True | False | 1 | 0) #REQUIRED>
+<!ATTLIST constant_definition name CDATA #REQUIRED value CDATA #REQUIRED>
+<!ATTLIST point native CDATA #REQUIRED transformed CDATA #REQUIRED>
