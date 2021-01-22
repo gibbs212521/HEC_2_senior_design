@@ -1,0 +1,6 @@
+
+IMPORTANT:
+--include_path="C:/ti/ccs1011/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_20.2.4.LTS/include" --define=__MSP430FR5994__ --define=_MPU_ENABLE -g --advice:power=all
+
+ALL from Code Composer Studio's compiler:
+-vmspx --data_model=restricted --use_hw_mpy=F5 --include_path="C:/ti/ccs1011/ccs/ccs_base/msp430/include" --include_path="C:/ti/ccs1011/ccs/tools/compiler/ti-cgt-msp430_20.2.4.LTS/include" --advice:power=all --advice:hw_config=all --define=__MSP430FR5994__ --define=_MPU_ENABLE -g --printf_support=minimal --diag_warning=225 --diag_wrap=off --display_error_number --silicon_errata=CPU21 --silicon_errata=CPU22 --silicon_errata=CPU40

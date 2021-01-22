@@ -5,7 +5,7 @@
 #include <math.h>
 
 int main() 
-{ 
+{
 printf("Hello World!"); 
 printf("\nEnd Line Enacted \n\n"); 
 printf("Audio Beep Enacted \a \n"); 
@@ -51,5 +51,23 @@ printf("%s", ham);
 
 strcpy(ham, "Bucky is Awesome!\n");
 printf("%s", ham);
+
+printf("%p is the address in 0x (Hex) format with %%p.\n", &tuna);
+printf("%p is item in 0x (Hex) format with %%p.\n", tuna);
+printf("0123456789\n0123456789\rabcd\n");
+printf("NOTICE how \\r returns the cursor to the begining of its line \n\
+    and that abcd then overwrites characters in the character array.\n");
+
+//  \n      insert new-line
+//  \r      insert carriage return (Return to column 0 of current line in text) --> generally reserved for windows .txt and .csv
+//  \a      OS Alert Beep
+//  \t      insert tab
+//  \d      inline integer (decimal) substitution
+//  \f      inline float substitution
+//  \.3f    inline float substitution w/ precision of 3
+//  \c      inline character substitution
+//  \s      inline string substitution
+//  \p      inline 0x (Hex) substitution --> used for pointers / memory addresses
+
 return 0; 
 } 
