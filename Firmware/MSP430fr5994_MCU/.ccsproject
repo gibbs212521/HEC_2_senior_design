@@ -8,9 +8,10 @@
 	<codegenToolVersion value="20.2.4.LTS"/>
 	<isElfFormat value="true"/>
 	<connection value="common/targetdb/connections/TIMSP430-USB.xml"/>
-	<linkerCommandFile value="./MSP430fr5994_MCU/lnk_msp430fr5994.cmd"/>
+	<linkerCommandFile value="lnk_msp430fr5994.cmd"/>
 	<rts value="libc.a"/>
 	<createSlaveProjects value=""/>
 	<templateProperties value="id=com.ti.ccstudio.project.templates.helloWorld_msp430"/>
-	<filesToOpen value="./MSP430fr5994_MCU/msp430_proj.c"/>
+	<filesToOpen value=".msp430_proj.c"/>
+	<isTargetManual value="false"/>
 </projectOptions>
