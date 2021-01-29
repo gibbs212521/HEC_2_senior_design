@@ -1,13 +1,18 @@
 //#include <stdio.h>
 //#include <stdlib.h>
 //#include <comm_protocol.h>
+#ifndef __MC_MSP430_H
+#define __MC_MSP430_H
 #include <msp430fr5994.h>
+#endif
+
+#include <core/clock_interrupt.h>
 //#include <msp430fr5994_mockup.h>
 /// msp430fr5994_mockup.h should be used for testing without MSP430fr5994 MCU.
 
 /// Due to msp430.h, renamed msp430.c to msp430_proj.c to avoid any relation between the this file and msp430.h.
 
-void main() {
+int main(){
 //   printf("Hello World!");
    WDTCTL = WDTPW | WDTHOLD;               // Stop watchdog timer
    PM5CTL0 &= ~LOCKLPM5;                   // Disable the GPIO power-on default high-impedance mode
@@ -17,6 +22,7 @@ void main() {
 //    P1DIR |= 0x02;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=1)
 //    P1DIR |= 0x03;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=0 & 1)
 
+   main_clock_interrupt();
    for(;;) {
        volatile unsigned int i;            // volatile to prevent optimization
 
@@ -27,4 +33,5 @@ void main() {
        while(i != 0);
                                            // infinite for loop repeats to toggle off/on P1
    }
+   return 0;
 }
