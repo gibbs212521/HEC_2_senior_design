@@ -22,7 +22,7 @@ int main(void)
 // With MC_UP, timer counts up to TAxCCR0
 // ID_4 selects an internal 4x divider for the supplied clock
   TA0CTL = TASSEL_2 | MC__UP | ID__4;
-  TAxCCR0 = 10000;
+  TA0CCR0 = 10000;
 
   _enable_interrupt();
 
@@ -30,8 +30,8 @@ int main(void)
   {}
 }
 
-// Timer A1 interrupt service routine
-#pragma vector = TIMER_A1_VECTOR
+// Timer interrupt service routine
+#pragma vector = TIMER0_A1_VECTOR
 __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void)
 {
   P1OUT ^= BIT0; // Toggle P1.0
