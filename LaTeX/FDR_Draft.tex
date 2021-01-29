@@ -181,16 +181,16 @@ at The University of Texas at Tyler
 \section*{Acknowledgments}
 \pagenumbering{roman}
 \indent \indent
-We as a team wish to thank Indus Industries Inc. and Dr. Sridhar Madala for being the benefactors and sponsors of our Project.  Indus Industries develops and creates electronic devices and software to meet the needs of various industries; for instance, they provide Baylor College of Medicine critical equipment for medical research.   Dr. Sridhar Madala has been generous with our time and was critical in the initial planning phase of the project.  Dr. Madala's familiarity with FCC and international wireless transmission regulations gave clear constraints and direction to this project.  Thus, we especially thank Dr. Sridhar Madala for agreeing to be HEC-2's technical advisor.
+We as a team wish to thank Indus Instruments and Dr. Sridhar Madala for being the benefactors and sponsors of our Project.  Indus Instruments develops and creates electronic devices and software to meet the needs of various industries; for instance, they provide Baylor College of Medicine critical equipment for medical research.   Dr. Sridhar Madala has been generous with our time and was critical in the initial planning phase of the project.  Dr. Madala's familiarity with FCC and international wireless transmission regulations gave clear constraints and direction to this project.  Thus, we especially thank Dr. Sridhar Madala for agreeing to be HEC-2's technical advisor.
 
 
 \section*{Executive Summary}
 \indent \indent
-The team has designed and is prototype a managed, 30 watt wireless resonant charger for use with lithium-ion battery packs. It shall be a versatile solution to the problem of powering autonomous mobile devices fitted with moderately sized battery packs of approximately four to six 18650 cells configured for 7.4 to 14.7 volts nominal output. With an estimated cost around \$300, it fills a gap between inexpensive inductive chargers in the 5 watt range and custom 90 watt robotic power systems that have an entry level price of \$2000.\\ \indent
+The team has designed and is prototyping a managed, 30 watt wireless resonant charger for use with lithium-ion battery packs. It shall be a versatile solution to the problem of powering autonomous mobile devices fitted with moderately sized battery packs of approximately four to six 18650 cells configured for 7.4 to 14.7 volts nominal output. With an estimated cost around \$300, it fills a gap between inexpensive inductive chargers in the 5 watt range and custom 90 watt robotic power systems that have an entry level price of \$2000.\\ \indent
 
 Our charging system is made with two essential components: a transmitter and receiver. The transmitter is supplied by standard line voltage and will be responsible for safely delivering up to 30 watts of resonant power to the receiver when in range and appropriately positioned. It shall communicate status with the receiver over a Bluetooth link and shall enable or disable power transmission when requested.\\ \indent
 
-The receiver shall communicate with the transmitter and to a user GUI over Bluetooth links, and optionally with the user’s own application (i.e. a robot microcontroller) over a serial link. It will be capable of delivering requested power transmission and charging status information and beginning or ending the charging process. It shall cease charging on receipt of an error status from the charging circuit and will notify the user to take corrective action. Under normal conditions it will deliver power to the charging control IC, which would then charge the attached battery pack.\\ \indent
+The receiver shall communicate with the transmitter and to a user GUI over Bluetooth links, and optionally with the user’s own application (i.e. a robot microcontroller) over a serial link. It will be capable of delivering requested power transmission and charging status information and beginning or ending the charging process. It shall cease charging on receipt of an error status from the charging circuit and will notify the user to take corrective action. Under normal conditions it will deliver power to the charging control IC, which shall charge the attached battery pack.\\ \indent
 
 The charger may be configured to charge 7.4 to 14.7 nominal Li-Ion battery cells, which must have internal protection circuitry in accordance with UL1642 and IEC61960. Optimal configurations would include a 7.4V pack rated for 3.2A charging, a 11.1V pack rated for 2.2A charging, or a 14.8V pack rated for 1.7A charging.\\ \indent
 
@@ -255,6 +255,8 @@ This wireless charging alternative's intended market consists of hobbyists and p
 
 To best demonstrate the full potential of our project, the team has specified optional deliverables that include a mobile robot capable of charging itself for continuous wireless operation, fully integrated with a smart Li-ion battery for detailed fuel gauge and battery health status.\\ \indent %% (May be retracted at a later date)
 
+\pagebreak
+
 The team holds that a moderate power, low cost wireless charger with accessible telemetry is useful to a small but important market of robotics hobbyists and developers, who at present, are not being served by either costly, proprietary business-to-business solutions or the low power and poorly documented inductive chargers available on the hobby market.\\
 \hfill 
 \begin{figure}[h!]
@@ -288,7 +290,7 @@ The team holds that a moderate power, low cost wireless charger with accessible 
 \caption{Receiver Specifications}
 \begin{tabular} {| r | c | }
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\ Charge time \\  (4Ah Battery Pack)\\} & 5 Hours Max\\
+\parbox{0.45\linewidth}{\raggedleft \hfill \\ Charge time \\  (Per 4Ah Battery Packs)\\} & ~ 5 Hours Max\\
 \hline
 Battery pack voltage & 14.2 V  \\
 \hline
@@ -334,7 +336,7 @@ RF power output & 30 W\\
 \hline
 Max operating range & 30 cm\\
 \hline
-DC Power supply  & 12V 5A max.  \\
+DC Power supply  & 48 V 1.25 A max.  \\
 \hline
 \parbox{0.45\linewidth}{\raggedleft  Conversion Efficiency\\ DC-AC\\[0.4em]}  & 80\%\\
 \hline
@@ -387,7 +389,7 @@ Telemetry &\parbox{0.48\linewidth}{\centering Report State \\to GUI Device\\[0.4
 The design consists of two subsystems: the transmitter and the receiver. This product is expected to be used by hobbyists and prototype designers for different applications that require contactless charging. There is no similar device available in the price range from \$200 to \$400.  The expected cost of the charger system is \$300. There are some commercial chargers available right now and the cost of that system is \$2000. The price of \$300 per system will make wireless charging affordable for hobbyists and freelance hardware developers.\\
 
 \indent
-The design tools such as Altium designer and Multisim simulator are available free of charge to all group members using the provided UT Tyler license. Also, parts manufacturers are providing free simulation and evaluation tools for development. In addition to the software evaluation kits may be required for testing certain parts of the system such as the microcontroller, Bluetooth module, and the battery charger controller. Most of those evaluation modules are already purchased and they are available to team members. Evaluation kits are purchased by Indus instruments.\\
+The design tools such as Altium designer and Multisim simulator are available free of charge to all group members using the provided UT Tyler license. Also, parts manufacturers are providing free simulation and evaluation tools for development. In addition to the software evaluation kits may be required for testing certain parts of the system such as the microcontroller, Bluetooth module, and the battery charger controller. Most of those evaluation modules are already purchased and they are available to team members. Evaluation kits are purchased by Indus Instruments.\\
 
 \indent
 The system is designed such that it uses standard components that are available at any electronic components store and they can be purchased without restrictions. PCB fabrication will be given to a company located in China that is offering quick turnaround PCB fabrication and fast shipping. Components purchasing and printed circuit board assembly will be done at Indus Instruments. Indus Instruments have all the necessary equipment that can handle surface mount components.\\
@@ -397,6 +399,8 @@ All test equipment required for development and testing will be available. Indus
 
 \indent
 The final product cost is estimated at around \$300 (for small quantities). Most likely for larger quantities, it is possible to decrease the cost even more. 
+
+\pagebreak
 
 \subsection{Microcontroller}
 
@@ -426,6 +430,8 @@ The planar spiral coil design allows the project to more reduces the complexity 
 \indent \indent
 The transmitter class-E amplifier circuit was simulated at an efficiency of 98\%. The actual transmitter efficiency would be around 90\%. In the simulation, it was determined that the current required to power the class-E amplifier is 0.9 A at 30 V. The power for the transmitter will be supplied by using an external 48 V AC to DC converter followed by a step-down converter in the transmitter subsystem.\\
 
+\pagebreak
+
 \indent
 The main concern in this subsystem is the immunity of the supporting circuits to the RF electromagnetic field generated by the transmitter coil. The transmitter coil placement must be done such that the electromagnetic field has minimal effects on the electronic circuits in the transmitter. The transmitter sensitive electronic parts may require EMI shields.\\
 
@@ -443,10 +449,10 @@ There is a possibility that the receiver RF to DC stage performs with higher los
 \indent
 The excessive heat may have adverse effects on battery life and the speed of charging \cite{TPSM265R1}. A higher temperature environment requires lower charging currents to prevent further temperature rise and damage to the battery cells. Also, excessive heat generation must be minimized to avoid the use of fans and large heat-sinks. Heat-sinks and fans would increase the cost and the size of our product.   If during the prototype test phase efficiency drops below 80\% the circuit must be redesigned to achieve the target specification efficiency. \\
 
+\pagebreak
+
 \indent
 One problem that is likely to occur is the interference in the battery charging and communication link circuits caused by a strong electromagnetic field generated by the transmitter coil. Even though all good practices will be followed for the circuit board design the electromagnetic interference still may not be prevented. Charging circuit disruption can cause battery failure due to overcharging or overheating. If this problem occurs the additional EMI shielding will be required. The shielding includes placing metal boxes over sensitive electronic subcircuits and placing additional filters in series with DC power supplies for sensitive parts such as a microcontroller, Bluetooth module, and charger controller.
-
-\pagebreak
 
 \subsection{Thermal Considerations for 3.3V and 5V Voltage Regulators}
 
@@ -515,7 +521,7 @@ The expected ambient temperature is lower than the maximum temperature calculate
 The LTC4162-L is designed to manage a power path between an external input power source Vin, an output power V$_{out}$, and an installed battery pack. When external input power greater than the battery voltage is available at V$_{in}$, the LTC4162 will route V$_{in}$ to V$_{out}$ and charge the connected battery. If external power is interrupted or falls below V$_{bat}$, battery power will be automatically routed to V$_{out}$. As long as the battery has charge or a power source exists at V$_{in}$, V$_{out}$ will be supplied with power, but the voltage will range from V$_{bat}$ to V$_{in}$. In order to provide consistent voltage to the target device output power should be drawn directly from the battery. Leaving V$_{out}$ unused allows the maximum power point tracking feature to operate with optimal efficiency.\\
 
 \indent
-The LTC4162 draws power directly from Vout and has its own internal LDO linear regulators. All other components of the wireless receiver PCB must be powered by an appropriate DC-DC stage at V$_{out}$ that can convert any potential input voltage (i.e. 7.4-35 V) to the required operating voltages of 5 V and 3.3 V. These circuits will require power in order to operate and initiate charging. In the event that the battery is severely depleted and cannot power the microprocessor and Bluetooth interface, it will be necessary for the transmitter to be capable of initiating charging independently.\\
+The LTC4162 draws power directly from Vout and has its own internal LDO linear regulators. All other components of the wireless receiver PCB must be powered by an appropriate DC-DC stage at V$_{out}$ that can convert any potential input voltage (i.e. 7.4-35 V) to the required operating voltages of 5 V and 3.3 V. In the event that the battery is severely depleted and cannot power the microprocessor and Bluetooth interface, it will be necessary for the transmitter to be capable of initiating charging independently.\\
 
 \indent
 Since the LTC4162 has only an internal buck voltage regulator, the wireless power receiver subsystem must provide power to Vin that is higher than the voltage of the battery but below the maximum input voltage of 35V.\\
@@ -524,16 +530,16 @@ Since the LTC4162 has only an internal buck voltage regulator, the wireless powe
 The LTC4162 approaches 95\% efficiency at recommended switching frequency when the input voltage is no more than approximately 5V above battery charging voltage, and surpasses 90\% in less ideal configurations. Heat losses will be in the range of three watts or less. It has a $\Theta_{JC}$ of 3.4 \Big[$\frac{^\circ C}{W}$\Big] and will be soldered to a four-layer PCB. The team does not anticipate any thermal management issues with this circuit.
 
 \subsection{Battery Considerations}
-
+\indent
 Li-Ion batteries offer superb performance and high energy density, but require special attention to safety. Under normal circumstances the LTC4162-L will monitor battery voltage and avoid overcharging. A NTC thermistor will allow the LTC4162 to monitor local charging temperatures and limit current in accordance with JEIDA recommendations.\\
+
+\pagebreak
 
 \indent
 For safety reasons, the team requires stricter battery specifications than originally planned. While our charger’s thermistor can limit charging current in response to ambient temperature extremes, it cannot monitor individual cells--particularly if the battery pack is intended to be modular. While it can recognize and respond to abnormal battery voltages or short conditions, it cannot automatically determine maximum safe charging current. Any battery pack used must have a maximum charge current greater than the maximum current delivery of the charger. Battery packs must also meet UL1642 and IEC61960 standards and contain internal protection circuitry to limit charge and discharge currents and protect against thermal runaway.\\
 
 \indent
-The LTC4162 can deliver a maximum of 3.2 amps and has an efficiency of up to 95\%. Assuming optimal efficiency and 26 W output from the wireless receiver, the charging voltage must be at least $frac{25 W}{3.2 A}$ = 7.8 V in order to fully utilize the available power. Since the voltage of a typical Li-Ion cell is 3.7 V and the charging voltage is 4.2 V, the target battery pack should consist of two or more cells in series. The LTC4162 supports 1 to 8 cell series arrangements provided the input voltage is adequate. Optimal arrangements would include a 7.4V pack rated for 3.2 A charging, a 11.1 V pack rated for 2.2 A charging, or a 14.8 V pack rated for 1.7 A charging. The number of cells is set by selection pins and may be configured by a DIP switch or jumpers. It is not necessary to specify a specific number of cells for suitable battery packs, provided that they meet UL1642 and IEC61960 standards. The optimal balance of safe charging rates and performance will likely be found with packs utilizing six to eight 18650 cells or the equivalent. The power delivery estimates above are optimistic and actual power delivery from the charger may not reach these levels. As prototyping progresses, it will be possible to refine battery recommendations and expected charging times.\\
-
-\pagebreak
+The LTC4162 can deliver a maximum of 3.2 amps and has an efficiency of up to 95\%. Assuming optimal efficiency and 26 W output from the wireless receiver, the charging voltage must be at least $\frac{25 W}{3.2 A}$ = 7.8 V in order to fully utilize the available power. Since the voltage of a typical Li-Ion cell is 3.7 V and the charging voltage is 4.2 V, the target battery pack should consist of two or more cells in series. The LTC4162 supports 1 to 8 cell series arrangements provided the input voltage is adequate. Optimal arrangements would include a 7.4V pack rated for 3.2 A charging, a 11.1 V pack rated for 2.2 A charging, or a 14.8 V pack rated for 1.7 A charging. The number of cells is set by selection pins and may be configured by a DIP switch or jumpers. It is not necessary to specify a specific number of cells for suitable battery packs, provided that they meet UL1642 and IEC61960 standards. The optimal balance of safe charging rates and performance will likely be found with packs utilizing six to eight 18650 cells or the equivalent. The power delivery estimates above are optimistic and actual power delivery from the charger may not reach these levels. As prototyping progresses, it will be possible to refine battery recommendations and expected charging times.\\
 
 \indent
 Ideally, up to 25 W will be delivered to the battery pack, making the battery the largest potential source of heat in our system. Since the battery pack is intended to be a modular, removable component with flexible specifications, it will not necessary for it to be enclosed with the wireless receiver PCB and receiving coil. It will be connected by an appropriate low-loss cable and connector, and exact placement will be determined by the user application. For this reason, the team has specified that only battery packs with internal temperature monitoring and protection circuitry should be used with this charger.\\
