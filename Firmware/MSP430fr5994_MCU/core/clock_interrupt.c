@@ -17,7 +17,7 @@ int main(void)
 
 // setting CCIE bit in the TA0CCTL0 register
   TA0CCTL0 = CCIE; // TAxCCR0 interrupt enabled
-// TA0CTL specifies Timer Ax control register
+// TA0CTL specifies Timer A0 control register
 // TASSEL_2 selects SMCLK (1 MHz)
 // With MC_UP, timer counts up to TAxCCR0
 // ID_4 selects an internal 4x divider for the supplied clock
@@ -27,6 +27,7 @@ int main(void)
   _enable_interrupt();
 
   while(1) // keeps looping
+
   {}
 }
 
