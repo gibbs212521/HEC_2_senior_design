@@ -6,7 +6,7 @@
 #include <msp430fr5994.h>
 #endif
 
-#include <core/clock_interrupt.h>
+#include "core/clock_interrupt.h"
 //#include <msp430fr5994_mockup.h>
 /// msp430fr5994_mockup.h should be used for testing without MSP430fr5994 MCU.
 

@@ -6,6 +6,6 @@
 #ifndef __MC_CLKINT_H
 #define __MC_CLKINT_H
 
-void main_clock_interrupt(void)
+void main_clock_interrupt();
 
 #endif
