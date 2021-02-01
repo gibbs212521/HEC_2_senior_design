@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 short mc_bluetooth_is_connected(){
-    printf("This should check if bluetooth is currently connected to correct pairing device(s)");
+    printf("This should check if Bluetooth is currently connected to correct pairing device(s)");
     return 1;// TO-DO: flush out this method
         //  0 --> not connected
         //  1 --> connected

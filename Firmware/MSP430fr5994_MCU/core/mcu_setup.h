@@ -4,7 +4,11 @@
 #endif
 
 #ifndef __MC_CLKINT_H
-#include "clock_interrupt.h"
+#include "Interrupts/clock_interrupt.h"
+#endif
+
+#ifndef __MC_BUTINT_H
+#include "Interrupts/button_interrupt.h"
 #endif
 
 #ifndef __MC_SETUP_H

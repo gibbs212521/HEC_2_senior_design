@@ -1,4 +1,5 @@
 #include "bluetooth_task.h"
+#include <stdio.h>
 
 
 void mc_bluetooth_task(short introit){
