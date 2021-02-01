@@ -1,19 +1,13 @@
-/*
- * clock_interrupt.c
- *
- *  Created on: Jan 23, 2021
- *      Author: natashafranca
- */
+#include "clock_interrupt.h"
 
-#include <clock_interrupt.h>
-
-void main_clock_interrupt(void)
-{
+void main_clock_interrupt(){
   WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
 
   PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
 
-  P1DIR |= BIT0; // P1.0 is output pin sic 0b00000001 --> Red LED light
+  P1DIR |= 0x03;
+  //P1DIR |= BIT0 ; // P1.0 is output pin sic 0b00000001 --> Red LED light
+  P1OUT ^= 0x01; // Toggle P1.0
 
 // setting CCIE bit in the TA0CCTL0 register
   TA0CCTL0 = CCIE; // TAxCCR0 interrupt enabled
@@ -24,22 +18,26 @@ void main_clock_interrupt(void)
 // ID__4 selects an internal 4x divider for the supplied clock 
 // 1000 kHz / 4 = 250 kHz --> 250 ms period
   TA0CTL = TASSEL_2 | MC__UP | ID__4;
-//  TA0CCR0 = 10000; // Timer Limit :: Timer counts up to 10000 ticks
-  TA0CCR0 = 4; // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
+//  TA0CCR0 = 10000; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period 
+  TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period 
+//  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
+//  TA0CCR0 = 4; // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
 
   _enable_interrupt();
 
+/*
   while(1) // keeps looping for when main.c lacks an infinite loop
-
   {}
+*/
 }
 
 // Timer interrupt service routine
 //#pragma vector = TIMER0_A1_VECTOR
-#pragma vector = TIMER0_A0_VECTOR
-__interrupt void TIMERA_TIMER_OVERFLOW_ISR(void)  // Question on overflow datatype
+#pragma vector = TIMER0_A0_VECTOR   // Set Compiler to note to Vector (Memory Address for TimerA0)
+__interrupt void TIMERA_TIMER_OVERFLOW_ISR(void)  // Question on overflow datatype  /// Set interrupt error handler to respond when vector above is initiated with interrupt routine.
 {
-  P1OUT ^= BIT0; // Toggle P1.0
+  P1OUT ^= 0x03; // Toggle P1.0 & P1.1 via exlcusive or bit masking
+//P1OUT ^= BIT0; // Toggle P1.0
   /*
   Toggle Visualization
   P1OUT = 0b00011100
@@ -53,6 +51,14 @@ __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void)  // Question on overflow dataty
   P1OUT ^= BIT0; // Toggle P1.0
   P1OUT = 0b00000001 ^ 0b00000001
   P1OUT = false /// because BIT0 is high in both P1DIR and BIT0 in exclusive OR comparison (i.e. red light will turn off now)
+
+  alternatively     0x01 ^ 0x01 = 0x00
+  0b00000001  
+ ^0b00000001
+ =0b00000000
+    and             0x02 ^ 0x03 = 0x01
+  0b00000010
+ ^0b00000011
+ =0b00000001
   */
 }
-

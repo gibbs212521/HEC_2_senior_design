@@ -4,8 +4,12 @@
 #endif
 
 #ifndef __MC_CLKINT_H
-#define __MC_CLKINT_H
+#include "clock_interrupt.h"
+#endif
 
-void main_clock_interrupt();
+#ifndef __MC_SETUP_H
+#define __MC_SETUP_H
+
+short mc_setup();
 
 #endif
