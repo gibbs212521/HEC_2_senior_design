@@ -60,16 +60,17 @@ __interrupt void PORT5_PIN6_BUTTON_ISR(void)
     {
         case P5IV__NONE:    break;          // Vector  0:  No interrupt
         case P5IV__P5IFG0:  break;          // Vector  2:  P5.0 interrupt flag
-        case P5IV__P5IFG1:                  // Vector  4:  P5.1 interrupt flag
-            P5IES ^= BIT1;                  // Toggle interrupt edge
-            __bic_SR_register_on_exit(LPM4_bits); // Exit LPM4
-            P1OUT ^= 0x01;
-            break;
+        case P5IV__P5IFG1:  break;          // Vector  4:  P5.1 interrupt flag
+    
         case P5IV__P5IFG2:  break;          // Vector  6:  P5.2 interrupt flag
         case P5IV__P5IFG3:  break;          // Vector  8:  P5.3 interrupt flag
         case P5IV__P5IFG4:  break;          // Vector  10:  P5.4 interrupt flag
         case P5IV__P5IFG5:  break;          // Vector  12:  P5.5 interrupt flag
-        case P5IV__P5IFG6:  break;          // Vector  14:  P5.6 interrupt flag
+        case P5IV__P5IFG6:  
+            P5IES ^= BIT1;                  // Toggle interrupt edge
+            __bic_SR_register_on_exit(LPM4_bits); // Exit LPM4
+            P1OUT ^= 0x01;
+            break;                          // Vector  14:  P5.6 interrupt flag
         case P5IV__P5IFG7:  break;          // Vector  16:  P5.7 interrupt flag
         default: break;
     }

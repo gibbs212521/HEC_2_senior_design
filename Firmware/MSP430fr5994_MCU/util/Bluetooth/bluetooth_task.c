@@ -15,7 +15,6 @@ void mc_bluetooth_task(short introit){
     switch (introit)
     {
     case 0:
-        printf("testing");
         short * pintroit = &introit;
         mc_bluetooth_init(pintroit);
         mc_bluetooth_task(introit);

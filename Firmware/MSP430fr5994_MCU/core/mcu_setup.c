@@ -13,11 +13,6 @@ short mc_setup(){
     printf("Setting Up Micro Controller Unit Now....");
 //    main_clock_interrupt();
     set_button_interrupts();
-    if(P1IV__P1IFG7){
-        P1OUT ^= 0x01;                           // Setting MCU to only have red or green light lit when toggling.
-    }
-
-//    P5DIR = 0b01000000;
 
     return 0;
 }

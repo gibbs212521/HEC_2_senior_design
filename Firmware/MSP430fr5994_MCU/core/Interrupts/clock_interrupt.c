@@ -31,11 +31,12 @@ void main_clock_interrupt(){
 }
 
 // Timer interrupt service routine
-//#pragma vector = TIMER0_A1_VECTOR
 #pragma vector = TIMER0_A0_VECTOR   // Set Compiler to note to Vector (Memory Address for TimerA0)
 __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void)  // Question on overflow datatype  /// Set interrupt error handler to respond when vector above is initiated with interrupt routine.
 {
+//  mc_critical_tasks();
   P1OUT ^= 0x03; // Toggle P1.0 & P1.1 via exlcusive or bit masking
+
 //P1OUT ^= BIT0; // Toggle P1.0
   /*
   Toggle Visualization
