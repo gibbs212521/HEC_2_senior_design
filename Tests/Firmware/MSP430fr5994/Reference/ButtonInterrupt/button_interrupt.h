@@ -9,5 +9,3 @@
 void set_button_interrupts();
 
 #endif
-
-#define BIT_REFERENCE = BIT2 | BIT3 | BIT4 | BIT7

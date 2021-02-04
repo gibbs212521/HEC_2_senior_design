@@ -12,7 +12,7 @@ short mc_setup(){
 
     printf("Setting Up Micro Controller Unit Now....");
 //    main_clock_interrupt();
-    set_button_interrupts();
+//    set_button_interrupts();  /// <-- Requires a test-board suite before reimplementing & a method to check for test board
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.
 

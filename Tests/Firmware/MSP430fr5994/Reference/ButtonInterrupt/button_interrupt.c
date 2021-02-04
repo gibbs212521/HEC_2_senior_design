@@ -1,20 +1,12 @@
 #include "button_interrupt.h"
 
-/// TODO: Move toward Port 2 with pins 2,3,4,& 7 for interrupt 
-///         via replacing BIT6 with BIT_REFERENCE
-///     AND
-///         via replacing P5 with P2
-///     DON'T FORGET: to handle interrupt cases at bottom of c file with FUNCTIONS
-///         Assign Functions above interrupt cases
-///         Define Functions in Header File
-
 void set_button_interrupts(){
-    P2DIR = 0xFF;
-    P2OUT = 0x00;
+    P5DIR = 0xFF;
+    P5OUT = 0x00;
 
     // Configure GPIO
-    P2OUT = BIT_REFERENCE; // 0x9C;                           // Pull-up resistor on P1.1
-    P2REN = BIT_REFERENCE; // 0b10011100;                           // Select pull-up mode for P1.1
+    P5OUT = BIT6;                           // Pull-up resistor on P1.1
+    P5REN = BIT6;                           // Select pull-up mode for P1.1
     P5DIR = 0xFF ^ BIT6;                    // Set all but P1.1 to output direction
 //    P5IES = BIT6;                           // P1.1 Hi/Lo edge
     P5IFG = 0;                              // Clear all P1 interrupt flags
