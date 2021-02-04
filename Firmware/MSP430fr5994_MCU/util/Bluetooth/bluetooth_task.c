@@ -1,4 +1,5 @@
 #include "bluetooth_task.h"
+#include <stdio.h>
 
 
 void mc_bluetooth_task(short introit){
@@ -14,7 +15,7 @@ void mc_bluetooth_task(short introit){
     switch (introit)
     {
     case 0:
-        printf("testing");
+        printf("My label dislikes me");
         short * pintroit = &introit;
         mc_bluetooth_init(pintroit);
         mc_bluetooth_task(introit);

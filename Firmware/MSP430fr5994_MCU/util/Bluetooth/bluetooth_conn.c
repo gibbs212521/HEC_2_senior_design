@@ -1,4 +1,5 @@
 #include "bluetooth_conn.h"
+#include <stdio.h>
 
 
 void mc_bluetooth_connect(){

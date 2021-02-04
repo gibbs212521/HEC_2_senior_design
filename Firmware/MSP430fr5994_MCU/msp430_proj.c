@@ -11,11 +11,15 @@
 
 int main(){
    mc_setup();
+//   mc_scheduler();
+
+   /// TO-DO: Consider creating a main config struct from main program to contain / control all states in MCU.
+
+
    for(;;) {
        volatile unsigned int i;            // volatile to prevent optimization
 
-       P1OUT ^= 0x03;                      // Toggle P1.0 using exclusive-OR
-
+//       P1OUT ^= 0x03;                      // Toggle P1.0 using exclusive-OR
        i =0x1000;                         // SW Delay via do-while loop
        do i--;
        while(i != 0);
