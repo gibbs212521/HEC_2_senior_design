@@ -14,6 +14,8 @@ short mc_setup(){
 //    main_clock_interrupt();
     set_button_interrupts();
 
+/// TO-DO: We need to integrate interrupts by grade / priority levels.
+
     return 0;
 }
 
