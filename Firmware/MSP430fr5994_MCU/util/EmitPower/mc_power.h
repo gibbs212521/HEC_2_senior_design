@@ -6,7 +6,7 @@
 #ifndef __MC_POWER_H
 #define __MC_POWER_H
 
-void mc_power_on(void)
-void mc_power_off(void)
+void mc_power_on(void);
+void mc_power_off(void);
 
 #endif

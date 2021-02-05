@@ -10,4 +10,7 @@ void set_button_interrupts();
 
 #endif
 
-#define BIT_REFERENCE = BIT2 | BIT3 | BIT4 | BIT7
+//#define BIT_REFERENCE = BIT2 | BIT3 | BIT4 | BIT7
+#define BIT_REFERENCE 0b10011100
+
+/// TODO: Redefine BIT_REFERENCE to explicitly include button interrupt in variable name
