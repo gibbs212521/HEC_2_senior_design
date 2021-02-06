@@ -15,5 +15,6 @@
 #define __MC_SETUP_H
 
 short mc_setup();
+short GetVoltage();
 
 #endif
