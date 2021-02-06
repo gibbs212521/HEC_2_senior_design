@@ -30,7 +30,11 @@ void mc_bluetooth_transmit(){
     Receiver --> Computer
     FULLY_CHARGED
 
+*/
+}
 
+
+/*
     Computer --> Receiver
     OFF
     GET_CHARGE
@@ -45,7 +49,4 @@ void mc_bluetooth_transmit(){
     OFF_UNLOCK
     GET_RUNTIME             "Ask transmitter for period of time of continuous charging"
     
-
-
 */
-}
