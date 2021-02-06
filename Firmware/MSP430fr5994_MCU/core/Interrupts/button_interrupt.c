@@ -34,17 +34,17 @@ void set_button_interrupts(){
 }
 
 void button0_push(){ // Port 2 Pin 2
-    P1OUT ^= 0X03; // toggles both red and green LEDs
+    P5OUT ^= 0X06; // toggles both red and green LEDs
 }
 
 void button1_push(){ // Port 2 Pin 3
-    P1OUT ^= 0X03; // toggles both red and green LEDs
+    P5OUT ^= 0X06; // toggles both red and green LEDs
 }
 void button2_push(){ // Port 2 Pin 4
-    P1OUT ^= 0X03; // toggles both red and green LEDs
+    P5OUT ^= 0X06; // toggles both red and green LEDs
 }
 void button3_push(){ // Port 2 Pin 7
-    P1OUT ^= 0X03; // toggles both red and green LEDs
+    P5OUT ^= 0X06; // toggles both red and green LEDs
 }
 
 //#pragma vector = P2IV__P2IFG7 // Set Compiler watch Port 2 Interrupt Vector
