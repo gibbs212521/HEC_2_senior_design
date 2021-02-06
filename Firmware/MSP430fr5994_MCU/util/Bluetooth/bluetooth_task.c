@@ -24,7 +24,7 @@ void mc_bluetooth_task(short introit){
         mc_bluetooth_connect();
         break;
     case 2:
-        mc_bluetooth_transmit();
+        mc_bluetooth_transmit("STOP", 0);
         break;
     
     default:
