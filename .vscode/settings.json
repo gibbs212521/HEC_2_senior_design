@@ -2,6 +2,7 @@
     "files.associations": {
         "initializer_list": "c",
         "xstring": "c",
-        "xutility": "c"
+        "xutility": "c",
+        "xmemory": "cpp"
     }
 }

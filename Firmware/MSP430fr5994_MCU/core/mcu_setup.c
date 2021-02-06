@@ -10,6 +10,7 @@ short mc_setup(){
 //    P1DIR |= 0x02;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=1)
 //    P1DIR |= 0x03;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=0 & 1)
 
+    GetVoltage();
     printf("Setting Up Micro Controller Unit Now....");
 //    main_clock_interrupt();
 //    set_button_interrupts();  /// <-- Requires a test-board suite before reimplementing & a method to check for test board

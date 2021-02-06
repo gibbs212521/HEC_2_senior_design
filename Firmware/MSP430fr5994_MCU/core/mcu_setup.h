@@ -7,9 +7,9 @@
 #include "Interrupts/clock_interrupt.h"
 #endif
 
-#ifndef __MC_BUTINT_H
 #include "Interrupts/button_interrupt.h"
-#endif
+#include "Pins/pins.h"
+
 
 #ifndef __MC_SETUP_H
 #define __MC_SETUP_H
