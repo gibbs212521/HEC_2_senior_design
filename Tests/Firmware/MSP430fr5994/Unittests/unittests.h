@@ -1,13 +1,7 @@
 #ifndef _MC_UNITTESTS_H
 #define _MC_UNITTESTS_H
 
-#include <stdio.h>
-#include <math.h>
-
-int GetOnes(int number);
-int GetTens(int number);
-int GetHundreds(int number);
-int GetThousands(int number);
+#include "test_structs.h"
 
 struct TestStruct{
     char name[20];
@@ -25,6 +19,11 @@ struct TestStruct{
     void * setTestNumber;
 };
 
+
+int PullOnes(struct TestStruct * self);
+int PullTens(struct TestStruct * self);
+int PullHundreds(struct TestStruct * self);
+int PullThousands(struct TestStruct * self);
 struct TestStruct BuildTestStruct(struct TestStruct * self);
 
 void RunTest(int * test_num, int * test_func, int * test_comparison);
