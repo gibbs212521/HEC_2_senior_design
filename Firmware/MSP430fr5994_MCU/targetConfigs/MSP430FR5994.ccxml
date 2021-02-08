@@ -6,8 +6,8 @@
             <instance XML_version="1.2" href="drivers/msp430_emu.xml" id="drivers" xml="msp430_emu.xml" xmlpath="drivers"/>
             <platform XML_version="1.2" id="platform_0">
                 <instance XML_version="1.2" desc="MSP430FR5994_0" href="devices/MSP430FR5994.xml" id="MSP430FR5994_0" xml="MSP430FR5994.xml" xmlpath="devices"/>
-            <device HW_revision="1.0" XML_version="1.2" description="MSP430FR5994" id="MSP430FR5994_0" partnum="MSP430FR5994">
-                    <cpu HW_revision="1.0" XML_version="1.2" description="MSP430 CPU" id="MSP430" isa="MSP430FR59xx">
+            <device HW_revision="1.0" XML_version="1.2" description="MSP430FR5994" id="MSP430FR5994_0" partnum="MSP430FR5994" simulation="no">
+                    <cpu HW_revision="1.0" XML_version="1.2" description="MSP430 CPU" deviceSim="false" id="MSP430" isa="MSP430FR59xx">
                         <property Type="choicelist" Value="0" id="bypass"/>
                     </cpu>
                 </device>
