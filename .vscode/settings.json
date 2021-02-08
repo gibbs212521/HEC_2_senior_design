@@ -3,6 +3,9 @@
         "initializer_list": "c",
         "xstring": "c",
         "xutility": "c",
-        "xmemory": "cpp"
+        "xmemory": "cpp",
+        "system_error": "c",
+        "type_traits": "c",
+        "xtr1common": "c"
     }
 }

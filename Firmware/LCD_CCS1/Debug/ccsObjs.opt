@@ -1,1 +1,0 @@
-"./main.obj" "../lnk_msp430fr5994.cmd" -llibmpu_init.a -lhd44780.lib -llibmath.a -llibc.a 
