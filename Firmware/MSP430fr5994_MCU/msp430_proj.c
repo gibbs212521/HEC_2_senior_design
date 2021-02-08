@@ -10,7 +10,7 @@
 
 /// Due to msp430.h, renamed msp430.c to msp430_proj.c to avoid any relation between the this file and msp430.h.
 
-int main(){
+short main(){
    mc_setup();
    struct MCScheduler mc_scheduler;
    buildScheduler(&mc_scheduler);

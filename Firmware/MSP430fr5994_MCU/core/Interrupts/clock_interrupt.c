@@ -18,7 +18,7 @@ void main_clock_interrupt(){
 // 1000 kHz / 4 = 250 kHz --> 250 ms period
   TA0CTL = TASSEL_2 | MC__UP | ID__4;
 //  TA0CCR0 = 10000; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period 
-  TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period 
+  TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period
 //  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
 //  TA0CCR0 = 4; // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
 

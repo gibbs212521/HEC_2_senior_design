@@ -23,6 +23,7 @@ struct MCScheduler{
     short next_task;
     short task_value[9];
     // Function Pointers
+    // method names must be functionNameLikeThis()
     void (*set_current_task)(struct MCScheduler *, short);
     void (*set_last_task)(struct MCScheduler *, short);
     void (*set_next_task)(struct MCScheduler *, short);
