@@ -3,6 +3,9 @@
 #include "..\..\..\controller\app_controller.h"
 
 class MainWindow{
+
+    
+
     public:
         void setOwner(AppController * window_owner);
         int width;

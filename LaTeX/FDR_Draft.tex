@@ -63,6 +63,7 @@
 \usepackage{comment}
 \usepackage[backend=bibtex,style=numeric]{biblatex}	%	LaTeX blibliography	%% Note: ieee stle lower-cases titles past first letter (Which seems wrong)
 \bibliography{FDR_Draft}				%	REMEMBER TO RENAME THIS FILE IF MOVING TO NEW .bib
+%\bibliographystyle{ieeetr}			% INVESTIGATE FURTHER FOR AUTO ORDERING OF BIB REFERENCES
 
 %\addbibresource{hec2.bib}
 
@@ -119,7 +120,7 @@ College of Engineering and Computer Science\\
 Tyler, TX 75799\\
 \hfill \\
 \hfill \\[0.5em]
-Final Design Report Draft \\ For\\[0.5em]
+Final Design Report Draft \\ [0.25em] For\\[0.25em]
 Wireless Charger Project}}		%note left quote command vs " = \textquotedblright
 %%  FIX FONT of Sub Sub Title  >> It should fit in with the text below. <<
 \author{\large \hfill \\[0.5em] \textbf{A design project to fulfill the requirements of Senior Design}\\ \textbf{ 
@@ -183,6 +184,7 @@ at The University of Texas at Tyler
 \indent \indent
 We as a team wish to thank Indus Instruments and Dr. Sridhar Madala for being the benefactors and sponsors of our Project.  Indus Instruments develops and creates electronic devices and software to meet the needs of various industries; for instance, they provide Baylor College of Medicine critical equipment for medical research.   Dr. Sridhar Madala has been generous with our time and was critical in the initial planning phase of the project.  Dr. Madala's familiarity with FCC and international wireless transmission regulations gave clear constraints and direction to this project.  Thus, we especially thank Dr. Sridhar Madala for agreeing to be HEC-2's technical advisor.
 
+\pagebreak
 
 \section*{Executive Summary}
 \indent \indent
@@ -204,7 +206,7 @@ To best demonstrate the full potential of our project, the team is pursuing opti
 
 \listoffigures
 
-%\pagebreak
+\pagebreak
 
 \listoftables
 
@@ -243,21 +245,36 @@ To best demonstrate the full potential of our project, the team is pursuing opti
 
 \pagenumbering{arabic}
 
+%
+%	Start with defining the problem you are trying to solve and why there is still a need to solve it
+%
+%	+ (Problem) User devices need wireless recharging solutions
+%	+ (Why need to solve exists) Shortage of cost effective mid range wireless power transfer products in market.
+%
+%	Is this the only product in the market? <-- we answered this >:(
+%
+%	
+%
+
 \section{Project Description}
 \indent \indent
+Our team noted a need for users to charge medium power devices via wireless charging.  After further investigation we also determined that there is a shortage of cost effective medium power wireless chargers on the market.\\ \indent
+
 Our project is a 30 watts nominal resonant wireless charger prototype for use with 4 to 6 cell lithium ion battery packs. It is managed by a microcontroller. It may be monitored and controlled by a user GUI or directly by the target application. Unlike existing customized and proprietary robotic charging systems, our product will charge a standard battery type and be suitable for both stand-alone operations and integration into the user's own design.\\ \indent
 
 The team has been unable to discover any equivalent products to our own for retail. The most comparable product is Wibotic's Standard High Power System\cite{WiboSHPS}, a 90 watt magnetic resonance device that is marketed to businesses designing commercial drones and robotic systems. On the lower end, nearly all unbranded, low-cost wireless chargers that are available from mass online retailers supply no more than 5W via inductive charging. For a single industrial unit, we have received a price quote for approximately \$2000 USD. Individuals and small R\&D teams that search for suitable devices through online retailers will find that these low-end transmitters are not modular and are limited to one specific purpose such as charging cell phones or key-fobs.\\ \indent
 
 Our charging system employs magnetic resonance coupling to charge a lithium ion battery pack, delivering between 15 and 30 watts of power. The power transmitter and receiver communicates as a unified system that can provide battery management, protect against overcharging, and provide both diagnostic and telemetric information to the user and to an optional serial connection with the powered application’s control circuitry. The charging system may be monitored and controlled by the user either through an attached LCD interface or a GUI from either a Bluetooth connected PC or smartphone.\\ \indent
 
-This wireless charging alternative's intended market consists of hobbyists and prototype designers considering a self-docking direct electrical connection solution. This is the charging method used by the Roomba\cite{RoombaEduData}, which engages with a custom dock and charges using metal contacts. While this is a cost-effective solution for a mass-produced product, wireless charging is a superior choice for autonomous mobile devices that might have a wide variety of sizes and shapes. The benefits offered by our product's wireless charging include flexible placement of the charger, a compact charging area, greater tolerance for misalignment between the charger and the target device, and the absence of exposed electrical connections.\\ \indent
-
-To best demonstrate the full potential of our project, the team has specified optional deliverables that include a mobile robot capable of charging itself for continuous wireless operation, fully integrated with a smart Li-ion battery for detailed fuel gauge and battery health status.\\ \indent %% (May be retracted at a later date)
+This wireless charging alternative's intended market consists of hobbyists and prototype designers considering a self-docking direct electrical connection solution. This is the charging method used by the Roomba\cite{RoombaEduData}, which engages with a custom dock and charges using metal contacts. While this is a cost-effective solution for a mass-produced product, wireless charging is a superior choice for autonomous mobile devices that might have a wide variety of sizes and shapes. The benefits offered by our product's wireless charging include flexible placement of the charger, a compact charging area, greater tolerance for misalignment between the charger and the target device, and the absence of exposed electrical connections.  Additionally, this product would solve the same need for OEM producers who are interested in a ``turn-key'' wireless charging solution.\\
 
 \pagebreak
+\indent
+To best demonstrate the full potential of our project, the team has specified optional deliverables that include a mobile robot capable of charging itself for continuous wireless operation, fully integrated with a smart Li-ion battery for detailed fuel gauge and battery health status.\\ \indent %% (May be retracted at a later date)
 
-The team holds that a moderate power, low cost wireless charger with accessible telemetry is useful to a small but important market of robotics hobbyists and developers, who at present, are not being served by either costly, proprietary business-to-business solutions or the low power and poorly documented inductive chargers available on the hobby market.\\
+The team holds that a moderate power, low cost wireless charger with accessible telemetry is useful to a small but important market of robotics hobbyists and developers, who at present, are not being served by either costly, proprietary business-to-business solutions or the low power and poorly documented inductive chargers available on the hobby market.\\ \indent
+
+Below in Figure 1, the general flow of power from the AC to DC Wall Converter to the end user's device and information from the user is shown.
 \hfill 
 \begin{figure}[h!]
 \centering
@@ -266,10 +283,12 @@ The team holds that a moderate power, low cost wireless charger with accessible 
 \end{figure}
 \hfill \\
 \pagebreak
-\section{Target Specifications and Ethical Considerations}
+\section{Final Design Specifications}
+\indent
 
+Table 1 below shows the specs of the receiver subsystem in the wireless power charging system.
+\hfill
 
-\begin{multicols}{2}
 
 	% Wrap Table Example
 
@@ -285,47 +304,51 @@ The team holds that a moderate power, low cost wireless charger with accessible 
 %\newcolumntype{C}{>{\centering\arraybackslash} m{6cm} }  %# New column type
 %\newcolumntype{R}{>{\raggedleft \arraybackslash} m{6cm} }  %# New column type
 
-\begin{wraptable}{l}{0.95\linewidth}
+\begin{table}[h!]
 \centering
 \caption{Receiver Specifications}
 \begin{tabular} {| r | c | }
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\ Charge time \\  (Per 4Ah Battery Packs)\\} & ~ 5 Hours Max\\
+\parbox{0.225\linewidth}{\raggedleft \hfill \\ Charge time \\  (Per 4Ah Battery Packs)\\} & ~ 5 Hours Max\\
 \hline
 Battery pack voltage & 14.2 V  \\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Coupling Efficiency \\ Transmitter to Receiver\\[0.4em]} & 90\%\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Coupling Efficiency \\ Transmitter to Receiver\\[0.4em]} & 90\%\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  AC-DC \\ Conversion Efficiency} & 80\%\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  AC-DC \\ Conversion Efficiency} & 80\%\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Charging Controller \\  DC-DC converter} & 85\%\\[0.4em]
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Charging Controller \\  DC-DC converter} & 85\%\\[0.4em]
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Overall Receiver \\  Conversion Efficiency} & 61.2\%\\[0.4em]
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Overall Receiver \\  Conversion Efficiency} & 61.2\%\\[0.4em]
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Maximum Battery \\ Charging Current} &   \parbox{0.45\linewidth}{\centering 1.25 A (14.7 V \\ battery pack)}\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Maximum Battery \\ Charging Current} &   \parbox{0.225\linewidth}{\centering 1.25 A (14.7 V \\ battery pack)}\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Charger Subsystem \\  Charge Protocol} &  \parbox{0.45\linewidth}{\centering \hfill \\  Constant Current \\Constant Voltage \\(Li-ION Battery)}\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Charger Subsystem \\  Charge Protocol} &  \parbox{0.225\linewidth}{\centering \hfill \\  Constant Current \\Constant Voltage \\(Li-ION Battery)}\\
 \hline
-Battery Type &   \parbox{0.45\linewidth}{\centering\hfill \\  Lithium-Ion \\ (4 x18650 in Series or 2P4S Configuration)}\\
+Battery Type &   \parbox{0.25\linewidth}{\centering\hfill \\  Lithium-Ion \\ (4 x18650 in Series or 2P4S Configuration)}\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Power Negotiation} &  \parbox{0.45\linewidth}{\centering\hfill \\ Bluetooth 5 LE\\}\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Power Negotiation} &  \parbox{0.225\linewidth}{\centering\hfill \\ Bluetooth 5 LE\\}\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft \hfill \\  Transmitter Locator \\ Method \\[0.4em]} &   \parbox{0.45\linewidth}{\centering \hfill \\  RF Localization  [Bluetooth]}\\
+\parbox{0.25\linewidth}{\raggedleft \hfill \\  Transmitter Locator \\ Method \\[0.4em]} &   \parbox{0.225\linewidth}{\centering \hfill \\  RF Localization  [Bluetooth]}\\
 \hline
-Deliverable Demo &   \parbox{0.45\linewidth}{\centering \hfill \\  Self-Moving Device (Robot)}\\
+Deliverable Demo &   \parbox{0.25\linewidth}{\centering \hfill \\  Self-Moving Device (Robot)}\\
 \hline
-Telemetry &   \parbox{0.45\linewidth}{\centering \hfill \\  Report State \\to GUI Device}\\[0.4em]
+Telemetry &   \parbox{0.25\linewidth}{\centering \hfill \\  Report State \\to GUI Device}\\[0.4em]
 \hline
-LCD display &   \parbox{0.45\linewidth}{\centering \hfill \\  Diagnostic Character \\String Display}\\
+LCD display &   \parbox{0.25\linewidth}{\centering \hfill \\  Diagnostic Character \\String Display}\\
 \hline
 \end{tabular}
-\end{wraptable}
+\end{table}
  
-\vfill
-\columnbreak
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \pagebreak
+ 
+\indent 
+Table 2 below shows the specs of the transmitter subsystem in the wireless power charging system.  
 
-\begin{wraptable}{l}{0.95\linewidth}
+\hfill
+ 
+
+\begin{table}[h!]
 \centering
 \caption{Transmitter Specifications}
 \begin{tabular} {| r | c | }
@@ -334,55 +357,58 @@ Operating frequency & 13.56 MHz\\
 \hline
 RF power output & 30 W\\
 \hline
-Max operating range & 30 cm\\
+Max operating range & 5 cm\\
 \hline
 DC Power supply  & 48 V 1.25 A max.  \\
 \hline
-\parbox{0.45\linewidth}{\raggedleft  Conversion Efficiency\\ DC-AC\\[0.4em]}  & 80\%\\
+\parbox{0.275\linewidth}{\raggedleft  Conversion Efficiency\\ DC-AC\\[0.4em]}  & 80\%\\
 \hline
-Telemetry &\parbox{0.48\linewidth}{\centering Report State \\to GUI Device\\[0.4em]}\\
+Telemetry &\parbox{0.24\linewidth}{\centering Report State \\to GUI Device\\[0.4em]}\\
 \hline
 \end{tabular}
-\end{wraptable}
+\end{table}
 
+\indent
+Table 3 below shows the communication specifications. 
+\hfill
 
-
-\begin{wraptable}{l}{0.95\linewidth}
+\begin{table}[h!]
 \centering
 \caption{Communication Link Specifications}
 \begin{tabular} {| r | c | }
 \hline
-\parbox{0.45\linewidth}{\raggedleft Communication Medium \\[0.4em]} &  \parbox{0.48\linewidth}{\centering Bluetooth 5 LE}\\
+\parbox{0.275\linewidth}{\raggedleft Communication Medium \\[0.4em]} &  \parbox{0.24\linewidth}{\centering Bluetooth 5 LE}\\
 \hline
-\parbox{0.45\linewidth}{\raggedleft Protocol} &  \parbox{0.48\linewidth}{\centering TBD}\\
+\parbox{0.275\linewidth}{\raggedleft Protocol} &  \parbox{0.24\linewidth}{\centering \hfill\\[0.1em] L2CAP \\ (RFCOMM)\\[0.5em]}\\
+% L2CAP === Logical Link Control and Adaptation Protocol (Host Stack --> One Controller with multiple devices pairing)
 \hline
 \end{tabular}
-\end{wraptable}
+\end{table}
 
+\indent
+ Table 4 below shows the GUI software specifications.
+ \hfill
 
-\begin{wraptable}{l}{0.95\linewidth}
+\begin{table}[h!]
 \centering
 \caption{GUI Specifications}
 \begin{tabular} {| r | c | }
 \hline
-\parbox{0.45\linewidth}{\raggedleft GUI OS} & \parbox{0.48\linewidth}{\centering \hfill \\ WinOS, IOS, \\ Linux, \& Android}\\[0.4em]
+\parbox{0.275\linewidth}{\raggedleft GUI OS} & \parbox{0.24\linewidth}{\centering \hfill \\ WinOS, IOS, \\ Linux, \& Android}\\[0.4em]
 \hline
-\parbox{0.45\linewidth}{\raggedleft License} &    \parbox{0.48\linewidth}{\centering LGPL 3.0} \\
+\parbox{0.275\linewidth}{\raggedleft License} &    \parbox{0.24\linewidth}{\centering LGPL 3.0} \\
 \hline
-\parbox{0.45\linewidth}{\raggedleft Software Architecture} &   \parbox{0.48\linewidth}{\centering \hfill \\ Model-Controller-View (MCV) Architecture\\[0.4em]} \\
+\parbox{0.275\linewidth}{\raggedleft Software Architecture} &   \parbox{0.24\linewidth}{\centering \hfill \\ Model-Controller-View (MCV) Architecture\\[0.4em]} \\
 \hline
-\parbox{0.45\linewidth}{\raggedleft Delivery Model} &   \parbox{0.48\linewidth}{\centering \hfill \\ Open Source \\ (Free App Download)} \\[0.4em]
+\parbox{0.275\linewidth}{\raggedleft Delivery Model} &   \parbox{0.24\linewidth}{\centering \hfill \\ Open Source \\ (Free App Download)} \\[0.4em]
 \hline
 %\parbox{0.45\linewidth}{\raggedleft Deployment Model} &   \parbox{0.45\linewidth}{\centering Open Source / Free To Download App} \\
 %\hline
 \end{tabular}
-\end{wraptable}
- \hfill \\
- \vfill 
+\end{table}
 
-\end{multicols}
+\pagebreak
 
-\section{Final Design Specifications}
 \subsection{Feasibility Study}
 
 \indent \indent
@@ -405,7 +431,8 @@ The final product cost is estimated at around \$300 (for small quantities). Most
 \subsection{Microcontroller}
 
 \indent \indent
-There are four aspects to analyze: economics, technical, legal, and scheduling. A single MSP430FR5994 part costs about \$3 to \$4, while the MSP-EXP430FR5994 LaunchPad kit costs \$16.99. Considering the team only needs two of these microcontrollers (one for the transmitter and one for the receiver), this is an economic and reasonable cost. \cite{MSP430FR599x}  \cite{testKit}. On the technical side, this microcontroller’s memory, voltage supply limitations, UART and I2Cmode specifications, and overall low power consumption makes it the ideal model for our project needs \cite{MSP430FR599x}. Some of the most important standards TI’s MSP430FR5994 complies with include ANSI, JEDEC, and ESDA \cite{MSP430FR599x}. Lastly, the team already has in hands the LaunchPad kit for the microcontroller. The individual microcontrollers are also ready-to-purchase items with delivery times of less than 7 days. More testing will be done once the team has the first PCB design in hands. 
+There are four aspects to analyze: economics, technical, legal, and scheduling. A single MSP430FR5994 part costs about \$3 to \$4, while the MSP-EXP430FR5994 LaunchPad kit costs \$16.99. Considering the team only needs two of these microcontrollers (one for the transmitter and one for the receiver), this is an economic and reasonable cost. \cite{MSP430FR599x}  \cite{testKit}. On the technical side, this microcontroller’s memory, voltage supply limitations, UART and I2Cmode specifications, and overall low power consumption makes it the ideal model for our project needs \cite{MSP430FR599x}. Some of the most important standards TI’s MSP430FR5994 complies with include ANSI, JEDEC, and ESDA \cite{MSP430FR599x}. Lastly, the team already has in hands the LaunchPad kit for the microcontroller. The individual microcontrollers are also ready-to-purchase items with delivery times of less than 7 days. More testing will be done once the team has the first PCB design in hands.
+
 
 \subsection{Transmitter Coil}
 
@@ -654,7 +681,6 @@ The Wireless Power Receiver Stage (Receiver) will be controlled by an MSP430FR59
 \indent
 The Transmitter and Receiver firmware will be developed with Texas Instruments Code Composer Studio. The team has suitable Launchpad development boards and access to all necessary documentation and libraries are available. The team is composed of multiple experienced programmers in our group. The firmware requirements are limited and well-defined and completing it within our scheduled time-frame is feasible.
 
-\pagebreak
 
 \subsection{Software Requirements: GUI}
 
@@ -669,6 +695,7 @@ The GUI will be operated on multiple platforms and rely upon QT5 to operate.  Th
 \noindent
 3.) Provide alert system via push notifications and continuous monitoring of the transmitter and receiver.\\
 
+\pagebreak
 
 \subsection{Coil Considerations}
 
@@ -862,9 +889,6 @@ Quality Factor
 \end{table}
 \hfill \\
 
-\pagebreak
-\hfill \\
-\pagebreak
 
 \subsection{Specification Summary}
 
@@ -1091,6 +1115,34 @@ Free App Download
 \end{tabular}
 \end{table}
 \hfill \\
+
+\subsection{Ethical and Professional Considerations}
+
+\subsubsection{Public Health:}
+Life preserving medical equipment requires concern in the transmission of powerful RF charging signals that may interfere with the medical equipment. We will adhere to FCC standards for intentional radiators and ensure that the charger transmitter does not exceed FDA guidelines for RF emission. Our design will be informed by the guidelines of the National Council on Radiation Protection and Measurements (NCRP) and the Institute of Electrical and Electronics Engineers (IEEE).
+%This device provides a means of attention to the expulsion of battery acid or other wastes from the battery chamber.  It seeks to minimize harmful by-products in the use of batteries by properly maintaining stable temperatures and observing relationships within the battery chamber itself via a thermal sensor.\\ \indent
+ 
+\subsubsection{Safety and Welfare:}
+Our design may contribute to public safety and welfare by easing the development of robotic systems intended to handle hazardous materials, work in narrow spaces, high temperature environments, or in vacuum. We will follow industry best practices for safe charging, such as current limiting and temperature monitoring, to minimize the risk of battery failure.
+
+\pagebreak
+
+\subsubsection{Global Factors:}
+The pressures of governing bodies are to be taken into consideration in any choice this project takes; however, we are primarily concerned with the US governing bodies and then the EU bodies in order to streamline our development process to hit the largest market base possible.  Additionally, Canadian and Mexican regulations would be considered as immediate market options.\\
+In an alternate vein, there are sourcing questions that must be investigated before production in order to conform with internation laws and prevent being banned from specific global markets whether at home or abroad.
+
+\subsubsection{Societal factors}
+The source code will be educational as well as providing value to the device itself.  The design's modular intention will permit versatile implementations at work or at home.  The product should serve influenceable groups such as teenagers, helping them enter STEM related fields.\\
+The product as a whole should be considered in a way that would encourage further education in the classroom in physics.  Likewise, the production of the product should foster a community between the product's programmers and engineers.
+
+\subsubsection{Environmental factors:}
+This concern requires continual attention for any anomalies concerning the battery cells.  The device cannot account for all of these concerns, but should maintain labeling that makes the customer aware of such concerns that may be caused by their device.  The project must provide a means of emergency shut off by some interrupt port that is always active.  The operating robot, the user via a GUI, and the receiver itself must have this ability to turn off the charging feature of the receiver.
+
+\subsubsection{Economic factors:}
+The device could fulfill legal requirements for a client, and, in that case, a custom suite would be developed in the software at a premium to satisfy a client's needs.  Additionally, creating a lightweight, low-cost production process is critical in maximizing profits.  The open-source market also provides extensive free advertising momentum when capitalized successfully.  Additionally, the product would assist in producing other products, especially in research and development. \\
+
+\hfill
+
 \begin{table}[h!]
 \centering
 \caption{Ethical and Professional Considerations}
@@ -1122,7 +1174,7 @@ $\cdot$ Open-Source Capitalization\\ $\cdot$ Specialty Clientele\\ $\cdot$ Rapid
 
 
 
-%\pagebreak
+\pagebreak
 
 \section{References}
 
