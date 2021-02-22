@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Project Description}{}% 1
+\BOOKMARK [1][-]{section.2}{Target Specifications and Ethical Considerations}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Subsystem Dependencies}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Hardware Components}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Transmitter:}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Receiver:}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Robot:}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Software:}{subsection.2.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Ethical and Professional Considerations}{section.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.3.1}{Public Health:}{subsection.2.3}% 10
+\BOOKMARK [3][-]{subsubsection.2.3.2}{Safety and Welfare:}{subsection.2.3}% 11
+\BOOKMARK [3][-]{subsubsection.2.3.3}{Global Factors:}{subsection.2.3}% 12
+\BOOKMARK [3][-]{subsubsection.2.3.4}{Societal factors}{subsection.2.3}% 13
+\BOOKMARK [3][-]{subsubsection.2.3.5}{Environmental factors:}{subsection.2.3}% 14
+\BOOKMARK [3][-]{subsubsection.2.3.6}{Economic factors:}{subsection.2.3}% 15
+\BOOKMARK [1][-]{section.3}{Engineering Standards and Constraints}{}% 16
+\BOOKMARK [2][-]{subsection.3.1}{Safety Constraints Mandated by Government and Possible Risks of Wireless Power Transfer \(WPT\)}{section.3}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.1}{FDA Safety Regulations}{subsection.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.2}{Relevant FDA Safety Regulations and Standards}{section.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Safety Standards for Lithium-ion Battery Chargers}{subsection.3.2}% 20
+\BOOKMARK [3][-]{subsubsection.3.2.2}{WPT frequency plan and power limits international overview}{subsection.3.2}% 21
+\BOOKMARK [1][-]{section.4}{Evaluation of Design Alternatives }{}% 22
+\BOOKMARK [2][-]{subsection.4.1}{Primary Power Stage}{section.4}% 23
+\BOOKMARK [2][-]{subsection.4.2}{Battery Management, Power Supply, and Target Power Delivery}{section.4}% 24
