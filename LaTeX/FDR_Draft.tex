@@ -116,7 +116,13 @@
 \newcommand{\cross}[1][1pt]{\ooalign{ 	%	Creating footnote cross symbol
   \rule[1ex]{1ex}{#1}\cr% Horizontal bar
   \hss\rule{#1}{.7em}\hss\cr}}% Vertical bar
-  
+
+%\usepackage[T1]{fontspec}
+\usepackage{inconsolata}				%	converts \ttfamily to consolas font
+%\IfFileExists{zi4.sty}{\usepackage{zi4}}					%	renamed version of inconsolata
+%{\usepackage{inconsolata}}	
+%\newfontfamily{\ttconsolas}{Consolas}
+
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			PREAMBLE
 
@@ -126,7 +132,7 @@ College of Engineering and Computer Science\\
 Tyler, TX 75799\\
 \hfill \\
 \hfill \\[0.5em]
-Final Design Report Draft \\ [0.25em] For\\[0.25em]
+Final Design Report Draft \#2 \\ [0.25em] For\\[0.25em]
 Wireless Charger Project}}		%note left quote command vs " = \textquotedblright
 %%  FIX FONT of Sub Sub Title  >> It should fit in with the text below. <<
 \author{\large \hfill \\[0.5em] \textbf{A design project to fulfill the requirements of Senior Design}\\ \textbf{ 
@@ -287,12 +293,50 @@ Below in Figure 1, the general flow of power from the AC to DC Wall Converter to
 \includegraphics[width=0.84\linewidth]{black_box_power}
 \caption{Operation Story Block Diagram}
 \end{figure}
-\hfill \\
-\pagebreak
-\section{Final Design Specifications}
-\indent
 
-Table 1 below shows the specs of the receiver subsystem in the wireless power charging system.
+\indent
+The project is divided between two teams: the hardware team and the software team.
+
+\subsection{Software Team's Focus for Project}
+
+\indent \indent
+The software team is focused on two programs: the microcontrollers' firmware and the graphical user interface (GUI) software application.  The firmware operates the transmitter or receiver while the GUI allows for the user to readily monitor and interact throughout the charging process.
+
+\hfill
+\pagebreak
+\hfill
+
+\subsection{Hardware Team's Focus for Project}
+
+\indent \indent
+The hardware team is focused on producing three modular components: the receiver PCB, the transmitter PCB, and the coil module.  The image below displays how these modules operate together.
+
+%%%%%%%%%%%%%%%
+
+\begin{figure}[h!]
+\includegraphics[width=0.92\linewidth]{power_supply_diagram}
+\caption{Power Supply of Transmitter and Receiver Subsystems}
+\end{figure}
+\indent
+While the image below explicitly separates out the receiver and transmitter modules.  Note that the completed PCB boards have a power transferring coil module affixed to them individually.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.41\linewidth]{transmitter_diagram.png}
+\includegraphics[width=0.532\linewidth]{receiver_diagram.png}
+\caption{Transmitter and Receiver Block Diagrams}
+\end{figure}
+\hfill \\
+
+%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\hfill 
+\pagebreak
+\hfill
+
+\section{Final Design Specifications}
+
+\indent
+Table 1 below shows the specs of the receiver subsystem.
 \hfill
 
 
@@ -349,7 +393,7 @@ LCD display &   \parbox{0.25\linewidth}{\centering \hfill \\  Diagnostic Charact
  \pagebreak
  
 \indent 
-Table 2 below shows the specs of the transmitter subsystem in the wireless power charging system.  
+Table 2 below shows the specs of the transmitter subsystem.  
 
 \hfill
  
@@ -476,7 +520,7 @@ Heat dissipation in the Class E amplifier circuit is expected to be around 3W (b
 
 \subsection{Receiver}
 
-\noindent \noindent
+\indent \indent
 There is a possibility that the receiver RF to DC stage performs with higher losses than the losses that were determined in the simulation. According to the simulation data, the RF to DC conversion will be 81\% efficient. In the system specification, the conversion efficiency is set to 80\%. It is important to keep efficiency above 80\% to prevent excessive heat generation. If received power is 25W and efficiency is  80\% then power dissipation is 5 W.   \\
 
 \indent
@@ -545,7 +589,13 @@ From the simulation the total power dissipation is 1 W.\\
 From the recommended operating conditions the maximum junction temperature is 150$^\circ$C \cite{TPS54160}.\\
 Based on the data from the simulation and the datasheet the maximum ambient temperature can be determined\\
 T$_{A(MAX)}$ = T$_{J(MAX)}$ - R$_{TH}$*P$_{TOT}$ \\
-T$_{A(MAX)}$ = 150 – 62.5*1 = 87.5$^\circ$C\\
+T$_{A(MAX)}$ = 150 – 62.5*1 = 87.5$^\circ$C
+
+\hfill
+\pagebreak
+\hfill
+
+\indent
 The expected ambient temperature is lower than the maximum temperature calculated based on simulation data. Therefore, this part will operate within specified recommended conditions in the datasheet.
 
 \subsection{Charging Subsystem}
@@ -1183,7 +1233,7 @@ $\cdot$ Open-Source Capitalization\\ $\cdot$ Specialty Clientele\\ $\cdot$ Rapid
 
 \subsection{Product Architecture}
 
-\indent
+\indent \indent
 The wireless charger system consists of two main subsystems, the receiver and the transmitter.  The transmitter is powered by an external AC/DC 48 V power supply. The transmitter subsystem converts DC power into RF power to drive the transmitter coil. The transmitter has a microcontroller that communicates with the receiver and controls its wireless power transfer.  The receiver has a receiving coil and capacitor that completes a 13.56 MHz parallel LC resonant circuit. The magnetic field generated by the transmitter induces an electric current in the receiving coil. The received power is rectified and transferred to the battery charger circuit. Also, the receiver has a microcontroller that communicates with the transmitter and indirectly controls transmitter circuits such as the wireless power transfer circuit. The receiver also communicates with remote devices such as tablets,tw phones, or computers to provide telemetry data. \\ 
 
 \hfill
@@ -1404,7 +1454,7 @@ Below is an example of the firmware architecture.
 \subsubsection{GUI Software Architecture} The GUI Software architecture is split into three general categories: Model, Controller, and View (MCV) components.  Each general category is then subdivided into layers of functionality to maintain modularity.  The Model is critical for handling data classes and storing data into files.  The Controller is responsible for operating the visual components and model objects.  The view category is utilized strictly for showing the graphical displays and are passive elements in the design’s architecture.\\
 
 \indent
-The figure below shows the application of the Model-Controller-View (MCV) GUI Architecture
+The figure below shows the GUI 's Model-Controller-View (MCV) Architecture
 \hfill
 
 \begin{figure}[h!]
@@ -1666,8 +1716,9 @@ The proverbial main.cpp that handles all dependencies of the application’s pro
 
 \subsection{Hardware Off The Shelf Items}
 
-\indent
-The table below provides links and information on hardware incorporated in the post-production of the PCB.  Further information can be found in the BOM Appendices in Appendix NN through Appendix NN.
+\indent \indent
+The table below provides links and information on hardware incorporated in the post-production of the PCB.  Further information can be found in the BOM Appendices in Appendix C, D, and E.
+%%%%% NOTE NEED TO INCLUDE LINE ABOVE IN WORD DOC
 \hfill
 
 \begin{table}[h!]
@@ -1692,6 +1743,8 @@ LCD Display & NHD-0420DZ-FSW-FBW & \parbox{0.3\linewidth}{\raggedright  \url{htt
 \hfill
 
 \subsection{Software Off The Shelf Items}
+
+\indent \indent
 The table below includes all software used to develop hardware and the software for the wireless charger project.
 
 \begin{table}[h!]
@@ -1730,12 +1783,635 @@ GCC  & GPL 2.0 & None & \parbox{0.3\linewidth}{\raggedright \url{https://nanocad
 
 \subsection{Schematics / Wiring Diagrams / Technical Drawings}
 
+\noindent
+The schematics utilized can be found in appendices A and B with respect to the receiver, transmitter, and battery charger.\\
+
+\noindent
+The coil design and GUI wireframe can be found in appendices F and G.
+
+\subsection{Custom Software}
+
+\indent
+All code is written modularly, to inspect functions or objects individually see repository of \url{https://github.com/ttgibbs212521/HEC\_2\_senior\_design}. \\
+
+\subsubsection{Firmware Main Program} msp430\_proj.c\\
+
+{\fontfamily{ptm}\ttfamily
+\noindent
+\#ifndef \_\_MC\_MSP430\_H\\
+\#define \_\_MC\_MSP430\_H\\
+\#include <msp430fr5994.h>\\
+\#endif\\
+\#include "util/Scheduler/scheduler.h"\\
+\#include "core/mcu\_setup.h"\\
+short main()\{\\
+\indent mc\_setup();				// Setup Interrupts and Core Functions\\
+\indent struct MCScheduler mc\_scheduler;	// Instantiate Scheduler Class Object\\
+\indent buildScheduler(\&mc\_scheduler);	// Build Out Scheduler\\
+\indent mc\_scheduler.run(\&mc\_scheduler);	// Begin Utility Function Loop\\
+\indent return 1;		// Returns 1 since this point should never be reached\\
+\}\\
+}
+\pagebreak
+
+\subsubsection{GUI Software Main Program} app.cpp\\
+
+{\fontfamily{ptm}\ttfamily
+\noindent
+\#include "Core$\backslash$app\_init.h"\\
+\hfill \\
+int main()\{\\
+\indent AppController MotherController;\\
+\indent MainWindow MainWin;\\
+\indent AppModel PrimaryModel;\\
+\indent MainWin.owner = \&MotherController; // use only for signaling\\
+\indent PrimaryModel.owner = \&MotherController; // use only for signaling\\
+\hfill \\
+\indent AppController.getSettings(); // collect stable memory in .settings file\\
+\indent AppController.setModel(\&PrimaryModel);  // giving control over model\\
+\indent AppController.setUI(\&MainWin);  // giving control over window ui\\
+\indent // AppController.setChildrenControllers()  // Currently only one page\\
+\indent AppController.runApp();\\
+\indent return 0;   // emits 0 on successful closure of application\\
+\}
+}
+
+
+\hfill
+\pagebreak
+\hfill
+
+\section{Prototype Design and Fabrication}
+\subsection{Transmitter Subsystem Prototype Production}
+\subsubsection{PCB Manufacturing} The transmitter boards are manufactured at JLC PCB  factory in China. The PCB specification shown below makes this board producible by many manufacturers because it does not require special manufacturing processes.\\
+
+\noindent
+For the fabrication process, Altium PCB CAD software is used to generate bord manufacturing files (Gerber X2).\\
+ 
+\noindent
+Gerber files include the following files:\\
+Transmitter\_RevA\_Copper\_Signal\_Top.gbr          	\indent\space	TOP SIGNAL\\
+Transmitter\_RevA\_Copper\_Plane\_1.gbr               	\indent\indent\space	GROUND PLANE\\
+Transmitter\_RevA\_Copper\_Signal\_1.gbr  	        	\indent\indent	MID1 SIGNAL\\
+Transmitter\_RevA\_Copper\_Signal\_Bot.gbr           	\indent\space	BOTTOM SIGNAL\\
+Transmitter\_RevA\_Soldermask\_Top.gbr  	        	\indent\indent	TOP MASK\\
+Transmitter\_RevA\_Soldermask\_Bot.gbr   	        	\indent\indent	BOTTOM MASK\\
+Transmitter\_RevA\_Legend\_Top.gbr          	        	\indent\indent\indent\space	TOP SILK\\
+Transmitter\_RevA\_Legend\_Bot.gbr           	        	\indent\indent\indent\space	BOTTOM SILK\\
+Transmitter\_RevA\_Paste\_Top.gbr             	        	\indent\indent\indent\space\space\space	TOP PASTE\\
+Transmitter\_RevA\_Paste\_Bot.gbr             	        	\indent\indent\indent\space\space\space	BOTTOM PASTE\\
+ 
+\noindent
+Reference Drill files\\
+Transmitter\_RevA\_PTH\_Drill.gbr              	        	\indent\indent\indent\space\space	Plated through holes\\
+Transmitter\_RevA\_NPTH\_Drill.gbr            	        	\indent\indent\indent	Non-plated through holes\\
+ 
+ \noindent
+NC DRILL\\
+Transmitter\_RevA-RoundHoles.TXT         	        	\indent\indent\indent	N/C DRILL ROUND HOLES\\
+Transmitter\_RevA-SlotHoles.TXT              	        	\indent\indent\indent\space\space\space	N/C DRILL SLOT HOLES\\
+ 
+ \noindent
+The transmitter boards are manufactured using the following specification:\\
+ 
+ \noindent
+Material: FR4 (135degC Tg) RoHS COMPLIANT\\
+Board Thickness: 0.063"\\
+Surface finish: Immersion Gold (Electroless Nickel Gold - ENIG)\\
+Solder Mask Color: Green\\
+Silkscreen Color: White\\
+Min. Drill: 8 mils\\
+Min. Line Width: 8 mils\\
+Min. Spacing: 4 mils
+
+ \hfill
+ \pagebreak
+ \hfill
+ 
+ \noindent
+The layers are stacked up as follows:\\
+1. TOP SIGNAL\\
+2. GROUND PLANE\\
+3. MID1 SIGNAL\\
+4. BOTTOM SIGNAL\\
+ 
+ \noindent
+The transmitter board size is  5.702 inches (144.821 mm) X 4.203 inches (106.76 mm).\\
+
+\subsubsection{Transmitter Prototype Board Assembly} The group plans to assemble two transmitter boards. Parts for two boards are ordered using part numbers and quantities specified in the bill of materials. Quantities for small parts such as resistors, capacitors, some diodes, and some transistors are rounded to the nearest hundred because of the price break.\\
+
+\indent
+The assembly is performed manually using solder paste stencil and manual surface mount component placement. The solder paste stencil is custom made and is manufactured in the same facility as the PCB. Soldering is performed using a reflow oven. Through-hole parts are added after reflow oven soldering and soldered using standard solder pencil. All materials used in the assembly process are RoHS compliant.\\
+
+\indent
+For manual PCB assembly the group must provide detailed drawings of the PCB with visible reference designators, the bill of materials (BOM)  that includes components reference designators, component description, and part numbers.\\
+ 
+\noindent
+Required assembly documentation for the transmitter subsystem includes the following documents:\\
+1. PCB Top silk layer and top copper layer drawings (c.f. Appendix B)\\
+2. Bill of materials (c.f. Appendix D)\\
+
+\hfill
+\pagebreak
+\hfill
+ 
+ \indent
+The figure below shows the PCB Top silk layer.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\linewidth]{tx_pcb_tslk}
+\caption{Transmitter Top Silk Layer}
+\end{figure}
+
+The figure below shows the PCB Top copper layer.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\linewidth]{tx_pcb_top_metal}
+\caption{Transmitter Top Copper Layer}
+\end{figure}
+
+\hfill
+\pagebreak
+\hfill
+
+\noindent
+The assembly is performed by a professional worker. The assembly process consists of the following steps:\\
+1.    Solder paste printing on the PCB\\
+2.    Manual placement of surface mount components\\
+3.    Soldering using a reflow oven.\\
+4.    Through-hole soldering by hand using a solder iron pencil\\
+ 
+ \noindent
+All materials used in the assembly process are  RoHS compliant. Also, all tools used in this process are standard tools used for the PCB assembly process.
+
+\subsubsection{Post Assembly Inspection}
+After the boards are assembled they must be inspected for solder quality and possible assembly errors. Components values such as resistance, capacitance, and part numbers must be compared against the BOM and the board drawing. Also, the inspection step includes component polarity and solder quality inspection. After this step, the transmitter boards are ready for electrical verification and tests.\\
+
+\indent
+ The transmitter prototype design is intended to match the final hardware design. The enclosure selection may change depending on the thermal behavior of the transmitter subsystem. Also, the differences that may exist between the transmitter prototype and the final design solution are not known at this stage because the transmitter electronics performance and efficiency need to be validated. Depending on the test results the group may apply changes in the transmitter circuits.
+
+\subsection{Receiver Subsystem Prototype Production}
+\subsubsection{PCB Manufacturing} The receiver boards are manufactured at JLC PCB  factory in China. The PCB specification shown below makes this board producible by many manufacturers because it does not require special manufacturing processes.\\
+
+\noindent
+For the fabrication process, Altium PCB CAD software is used to generate bord manufacturing files (Gerber X2).\\
+ 
+\noindent
+Gerber files include the following files:\\
+HEC2\_Receiver\_RevA\_Copper\_Signal\_Top.gbr          	\indent\space	TOP SIGNAL\\
+HEC2\_Receiver\_RevA\_Copper\_Plane\_1.gbr               	\indent\indent\space	GROUND PLANE\\
+HEC2\_Receiver\_RevA\_Copper\_Signal\_1.gbr  	        	\indent\indent	MID1 SIGNAL\\
+HEC2\_Receiver\_RevA\_Copper\_Signal\_Bot.gbr           	\indent\space	BOTTOM SIGNAL\\
+HEC2\_Receiver\_RevA\_Soldermask\_Top.gbr  	        	\indent\indent	TOP MASK\\
+HEC2\_Receiver\_RevA\_Soldermask\_Bot.gbr   	        	\indent\indent	BOTTOM MASK\\
+HEC2\_Receiver\_RevA\_Legend\_Top.gbr          	        	\indent\indent\indent\space	TOP SILK\\
+HEC2\_Receiver\_RevA\_Legend\_Bot.gbr           	        	\indent\indent\indent\space	BOTTOM SILK\\
+HEC2\_Receiver\_RevA\_Paste\_Top.gbr             	        	\indent\indent\indent\space\space\space	TOP PASTE\\
+HEC2\_Receiver\_RevA\_Paste\_Bot.gbr             	        	\indent\indent\indent\space\space\space	BOTTOM PASTE
+
+\hfill
+\pagebreak
+\hfill 
+
+\noindent
+Reference Drill files\\
+HEC2\_Receiver\_RevA\_PTH\_Drill.gbr              	        	\indent\indent\indent\space\space	Plated through holes\\
+HEC2\_Receiver\_RevA\_NPTH\_Drill.gbr            	        	\indent\indent\indent	Non-plated through holes\\
+ 
+ \noindent
+NC DRILL\\
+HEC2\_Receiver.TXT         	        	\indent\indent\indent	N/C DRILL ROUND HOLES\\
+ 
+ \noindent
+The receiver board is manufactured using the following specification:\\
+ 
+ \noindent
+Material: FR4 (135degC Tg) RoHS COMPLIANT\\
+Board Thickness: 0.063"\\
+Surface finish: Immersion Gold (Electroless Nickel Gold - ENIG)\\
+Solder Mask Color: Green\\
+Silkscreen Color: White\\
+Min. Drill: 8 mils\\
+Min. Line Width: 8 mils\\
+Min. Spacing: 4 mils\\
+ 
+ \noindent
+The layers are stacked up as follows:\\
+1. TOP SIGNAL\\
+2. GROUND PLANE\\
+3. MID1 SIGNAL\\
+4. BOTTOM SIGNAL\\
+
+\noindent
+The receiver board size is matching the enclosure recommended board dimensions.\\
+
+\indent
+The receiver prototype design is intended to match the final hardware design. The enclosure selection may change depending on the thermal behavior of the receiver subsystem. Also, the differences that may exist between the transmitter prototype and the final design solution are not known at this stage because the transmitter electronics performance and efficiency need to be validated and compared to the product specification. Depending on the test results the group may apply changes in the receiver circuits.
+The receiver board size is  5.702 inches (144.821 mm) X 4.203 inches (106.76 mm).
+
+\subsubsection{Receiver Prototype Board Assembly}
+
+\indent
+The group plans to assemble two receiver boards. Parts for two boards are ordered using part numbers and quantities specified in the bill of materials. Quantities for small parts such as resistors, capacitors, some diodes, and some transistors are rounded to the nearest hundred because of the price break. The assembly is performed manually using solder paste stencil and manual surface mount component placement. The solder paste stencil is custom made and is manufactured in the same facility as the PCB. Soldering is performed using a reflow oven. Through-hole parts are added and soldered after reflow oven soldering using standard solder pencil. All components and materials used in the assembly process are RoHS compliant.
+
+\hfill
+\pagebreak
+\hfill
+
+\indent
+For manual PCB assembly the group must provide detailed drawings of the PCB with visible reference designators, the bill of materials (BOM)  that includes components reference designators, component description, and part numbers.\\
+ 
+ \noindent
+Required assembly documentation for the transmitter subsystem includes the following documents:\\
+1. PCB Top silk layer and top copper layer drawings (ic.f. Appendix A)\\
+2. Bill of materials (c.f. Appendix C)\\
+ 
+ \indent
+The figure below shows the PCB Top silk layer.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{rx_pcb_tslk}
+\caption{Receiver Top Silk Layer}
+\end{figure}
+
+\hfill
+\pagebreak
+\hfill
+
+\indent
+The figure below shows the PCB Top copper layer.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.75\linewidth]{rx_pcb_top_metal}
+\caption{Receiver Top Copper Layer}
+\end{figure}
+
+\noindent
+The assembly will be performed by a professional worker. The assembly process consists of the following steps:\\
+ 
+ \noindent
+1.    Solder paste printing on the PCB\\
+2.    Manual placement of surface mount components\\
+3.    Soldering using a reflow oven.\\
+4.    Through-hole soldering by hand using a solder iron pencil\\
+ 
+ \noindent
+All materials used in the assembly process are  RoHS compliant. Also, all tools used in this process are standard tools used for the PCB assembly process.
+ 
+ \subsubsection{Post Assembly Inspection}
+
+\indent
+After the boards are assembled they must be inspected for solder quality and possible assembly errors. Components values such as resistance, capacitance, and part numbers must be compared against the BOM and the board drawing. Also, the inspection step includes component polarity and solder quality inspection. After this step, the receiver boards are ready for electrical verification and tests.\\
+ 
+ \indent
+The receiver prototype design is intended to match the final hardware design. The enclosure selection may change depending on the thermal behavior of the receiver subsystem. Also, the differences that may exist between the receiver prototype and the final design solution are not known at this stage because the receiver electronics performance and efficiency need to be validated. Depending on the test results the group may apply changes in the receiver circuits.
+\hfill
+\pagebreak
+
+\subsection{Coil Production}
+
+\indent \indent
+The coil development process involves printing a 3-dimensional hollow plastic fixture. The interior of the fixture contains a spiral bas-relief that shall fix the coil in the specified spiral form. The coil shall be connected to the PCB board using stranded copper wire. For ideal performance conditions, the coil must withstand 600V rms as well as possess a resistance of 69.906 m$\Omega$. The coil is encased in a plastic enclosure to prevent electric shock. The plastic enclosure specification will have a size of 130mm x 110mm x 20mm. MFG alpha rated wire will be soldered to the coil and the other end of wire will be terminated with the ring terminal.  
+
+\subsection{Expenditure Report}
+
+\indent \indent
+The list below shows development tools and assembly tools cost that are used as an aid to design and produce the wireless charger system. This list does not include the cost of components that are part of the system.\\
+
+\noindent
+\textbf{Evaluation Kits for Firmware}\\
+
+\noindent
+Bluetooth Development Tools (802.15.1) RN4870 Sensor Board \\
+Manufacturer part number: RN-4870-SNSR\\
+Mouser part number: 579-RN-4870-SNSR\\
+Cost: \$91.80\\
+Ordered: 1 unit\\
+Total cost: \$91.80\\
+
+\noindent 
+Bluetooth Development Tools (802.15.1) RN4870 click\\
+Manufacturer part number: MIKROE-2543\\
+Mouser part number: 932-MIKROE-2543\\
+Cost: \$33.00\\
+Ordered: 3 units\\
+Total cost \$99.00\\
+
+\noindent
+Development Boards \& Kits - MSP430 MSP430FR5994 LaunchPad Dev Kit\\
+Manufacturer part number: MSP-EXP430FR5994\\
+Mouser part number: 595-MSP-EXP430FR5994\\
+Cost: \$20.39\\
+Ordered: 5 units\\
+Total cost \$101.95
+
+\hfill
+\pagebreak
+\hfill
+
+\noindent
+\textbf{Hardware Evaluation Kits}\\
+
+\noindent
+Power Management IC Development Tools LTC4162 DC2038= Li-ion,adjustable, MPP\\
+Manufacturer part number: DC2038A-J\\
+Mouser part number: 584-DC2038A-J\\
+Cost: \$150.00\\
+Ordered: 1 unit\\
+
+\noindent
+Battery packs for charger controller testing\\
+Battery Packs 11.1V, 6.4Ah, 72Wh battery (3s2p)\\
+Manufacturer part number: RRC2040-2\\
+Mouser part number: 328-RRC20402\\
+Ordered: 1 unit\\
+Cost: \$105.00\\
+
+\noindent
+\textbf{Solder Stencil Production}\\
+
+\noindent
+Solder paste stencils are ordered for each subsystem.\\
+Manufacturer: JLC PCB\\
+Manufacturer part number: Custom order\\
+Solder paste stencil \$7.05\\
+Total cost \$14.10
+
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Summary of Expenditures}
+\begin{tabular}{ | c | l | l | r | }
+\hline
+ & Expenditure Description &  Subsystem & Cost\\
+\hline
+1 & Hardware development kits & Receiver & \$255.00\\
+\hline
+2 & Firmware evaluation kits & Transmitter/ Receiver & \$226.75\\
+\hline
+3 & Solder paste stencils (board assembly) & Transmitter/Receiver & \$14.10\\
+\hline 
+ & TOTAL COST &  & \$495.85\\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\indent
+The tables below account for man-hours expended in development and prototyping.
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Man-Hours Expenditure Report in Development and Prototyping}
+\begin{tabular}{ | r | c | }
+\hline
+\hline
+Task Description & Man-Hours \\
+\hline
+\hline
+\hline
+\textbf{Coil Production} & \\
+\hline
+Francsico Sosa worked on coil & 8 \\
+\hline
+Franci Franulovic worked on coil & 8 \\
+\textbf{Subtotal} & \textbf{16 hours}\\
+\hline
+\hline
+\textbf{Schematic design and capture} & \\ 
+\hline
+ David Flory & 90  \\
+ \hline
+ Franci Franulovic  & 12 \\
+ \hline
+\textbf{Subtotal} & \textbf{102 hours}\\
+\hline
+\hline
+\textbf{PCB Layout Design} & \\
+ \hline
+Franci Franulovic & 10\\
+ \hline
+David Flory & 9 \\
+ \hline
+\textbf{Subtotal} & \textbf{19 hours}\\
+\hline
+\hline
+\textbf{PCB Assembly} & \\
+ \hline
+Estimated time required to assemble four prototypes & 16 \\
+ \hline
+\textbf{Subtotal} & \textbf{16 hours}\\
+\hline
+\hline
+\textbf{Post Assembly Inspection } & \\
+ \hline
+Assembly verification & 1 \\
+ \hline
+Solder quality inspection & 1 \\
+ \hline
+\textbf{Subtotal} & \textbf{2 hours}\\
+\hline
+\hline
+\textbf{GUI Software Development} & \\
+ \hline
+Chad Gibbons on GUI Software Architecture & 5\\
+ \hline
+Chad Gibbons & 2 \\
+ \hline
+\textbf{ Subtotal} & \textbf{7 hours}\\
+\hline
+\hline
+\textbf{Firmware development } & \\
+ \hline
+Natasha Franca & 25\\
+ \hline
+ Francisco Sosa & 8\\
+ \hline
+ Chad Gibbons & 32\\
+ \hline
+Chad Gibbons worked on test suite & 10\\
+ \hline
+\textbf{Subtotal} & \textbf{75 hours}\\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption*{Man-Hours Report Continued}
+\begin{tabular}{ | r | c | }
+\hline
+\hline
+\textbf{Task Description} & \textbf{Man-Hours}\\
+\hline
+\hline
+\hline
+\textbf{Learning Curves and Used Skilled Resources} & \\
+ \hline 
+David Flory on Altium &  7 \\
+ \hline
+Firmware Team studied C/C++ & 15 \\
+ \hline
+Franci Franulovic developed PCB Schematic Drawing & 11 \\
+ \hline
+Natasha Franca learned Object Oriented Programming in C & 2 \\
+ \hline
+\textbf{Subtotal} & \textbf{35 hours}\\
+\hline
+\hline
+\textbf{Subsystem Prototyping} & \\
+ \hline 
+Receiver PCB assembly & 8 \\
+ \hline
+Parts procurement & 2 \\
+ \hline
+Coil assembly  & 8\\
+ \hline
+Coil Test & 5 \\
+ \hline
+Hardware test & 17 \\
+ \hline
+Firmware test & 6\\
+ \hline
+Quality control inspection & 8 \\
+\hline
+\textbf{Subtotal} & \textbf{54 hours} \\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill 
+
+\begin{table}[h!]
+\centering
+\caption{Development and Prototyping Summary of Man-Hours}
+\begin{tabular} { | r | c | }
+\hline
+\textbf{Task Description} & \textbf{Man-Hours} \\
+\hline
+Time Learning & 35\\
+\hline
+Software development & 82 \\
+ \hline
+Hardware development & 137 \\
+ \hline
+Assembly & 36\\
+ \hline
+Quality Assurance & 36\\
+ \hline
+\textbf{Total} & \textbf{326 hours}\\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\subsection{Budget}
+
+\indent \indent
+This budget lists the expenses for development hardware, prototyping materials, and skilled labor necessary to realize and test the prototype.
+
+\hfill
+\begin{table}[h!]
+\centering
+\caption{Development and Prototyping Budget}
+\begin{tabular}{ | l | l | c | r | }
+\hline
+\textbf{Item Description} & \textbf{Price} & \textbf{Qty.}  & \textbf{Totals}\\
+\hline
+Microchip Bluetooth RN4870 Sensor Board & \$91.80 & 1 & \$91.80\\
+\hline
+Mikroe Bluetooth RN4870 click & \$33.00 & 3 & \$99.00\\
+\hline
+TI MSP430FR5994 LaunchPad Dev Kit & \$20.39 & 5 & \$101.95\\
+\hline
+Analog Devices LTC4162-L Evaluation Board & \$150.00 & 1 & \$150.00\\
+\hline
+RRC Battery Packs 11.1V, 6.4Ah, 72Wh battery (3s2p) & \$105.00 & 1 & \$105.00\\
+\hline
+16x2 Parallel LCD Display (for evaluation) & \$20.63 & 3 & \$61.89\\
+\hline
+Receiver BOM & \$77.30 & 2 & \$154.59\\
+\hline
+Transmitter BOM & \$128.78 & 2 & \$257.55\\
+\hline
+System BOM & \$136.92 & 1 & \$136.92\\
+\hline
+ &  &  & \\
+\hline
+\textbf{Total Hardware} &  &  & \textbf{\$1,158.70}\\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\subsection{Current Manufacturing Abilities}
+
+\indent \indent
+The process starts with the purchase of the necessary components. Having the PCBs’ Altium CAD Software drawings, the transmitter and receiver board files are sent for manufacturing at JLC PCB factory in China. Shipping time for the boards are around seven days. Small parts for the boards are also generated in the Altium software as a bill of materials, and those include but are not limited to resistors, capacitors, transistors, and diodes. Those can be ordered anywhere online and take up to seven days for delivery. Small parts can be purchased at local electronics stores. Hardware off-the-shelf items include power adapter, Li-Ion battery, and LCD display, and those can also be readily purchased at any local electronics store. Assembling is done by soldering the components according to the board layout, and each board takes approximately four to five hours to assemble by hand. The last setup step is to load the firmware onto the boards which requires less than one hour. In that same hour, testing the prototype can be completed if there are no issues hindering the charging process. The board would need to be troubleshooted for firmware, software, or hardware issues; the troubleshooting can take minutes or hours to fix.  
+
+\begin{table}[h!]
+\centering
+\caption{Prototype Production Timetable}
+\begin{tabular}{ | l | l | }
+\hline
+\textbf{Description} & \textbf{Time Required}\\
+\hline
+Shipping Time for PCBs and other components & 7 days\\
+\hline
+Manual receiver PCB assembly & 5 hours\\
+\hline
+Manual transmitter PCB assembly & 5 hours\\
+\hline
+Parts procurement process for each subsystem & 2 hours\\
+\hline
+Coil assembly for each subsystem & 1 hour\\
+\hline
+Coil Test & 1 hour\\
+\hline
+Hardware test & 1 hour\\
+\hline
+Firmware load and test & 1 hour\\
+\hline
+Quality control inspection & 8 hours\\
+\hline
+\textbf{Total} & \textbf{8 days} \\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
 \section{References}
 
 \section*{Software References}
 
 Block diagrams were rendered in Windows Visio Standard 2019.\\
 Multisim circuits simulated in NI Multisim V.14.2 2019.\\
+PCB Schematics rendered in Altium-365.\\
+CAD Drawings rendered in NanoCAD.\\
 %% Need it include TI-TINA simulation software.\\
 
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1799,6 +2475,10 @@ Multisim circuits simulated in NI Multisim V.14.2 2019.\\
 \includepdf[pages=4,angle=90,width=0.95\linewidth,pagecommand=\subsection{RF/DC Converter}]{./appendices/HEC2_Receiver.pdf}
 \pagebreak
 \includepdf[pages=5,angle=90,width=0.95\linewidth,pagecommand=\subsection{DC/DC Converter}]{./appendices/HEC2_Receiver.pdf}
+\pagebreak
+\includepdf[pages=6,angle=90,width=1.2\linewidth,pagecommand=\subsection{Top Copper Layer}]{./appendices/HEC2_Receiver.pdf}
+\pagebreak
+\includepdf[pages=7,angle=90,width=1.2\linewidth,pagecommand=\subsection{Top Silk Layer}]{./appendices/HEC2_Receiver.pdf}
 
 \section{Transmitter PCB Schematics}
 \hfill
@@ -1815,6 +2495,12 @@ Multisim circuits simulated in NI Multisim V.14.2 2019.\\
 \pagebreak
 \includepdf[pages=4,angle=90,width=0.95\linewidth,pagecommand=\subsection{Coil Driver}]{./appendices/HEC2_Transmitter.pdf}
 \pagebreak
+\includepdf[pages=5,angle=90,trim={0 3in 7in 3in},clip,width=0.95\linewidth,pagecommand=\subsection{Top Copper Layer}]{./appendices/HEC2_Transmitter.pdf}
+%\includepdf[pages=5,angle=90,width=1.2\linewidth,pagecommand=\subsection{Top Copper Layer}]{./appendices/HEC2_Transmitter.pdf}
+\pagebreak
+\includepdf[pages=6,angle=90,trim={0 3in 7in 3in},clip,width=0.95\linewidth,pagecommand=\subsection{Top Silk Layer}]{./appendices/HEC2_Transmitter.pdf}
+%\includepdf[pages=6,angle=90,width=1.2\linewidth,pagecommand=\subsection{Top Silk Layer}]{./appendices/HEC2_Transmitter.pdf}
+\pagebreak
 \includepdf[pages=1,angle=90,width=0.95\linewidth,pagecommand=\section{Receiver BOM}]{./appendices/Receiver_BOM_RevA.pdf}
 \pagebreak
 \includepdf[pages={2-},angle=90,width=1.2\linewidth]{./appendices/Receiver_BOM_RevA.pdf}
@@ -1824,6 +2510,24 @@ Multisim circuits simulated in NI Multisim V.14.2 2019.\\
 \includepdf[pages={2-},angle=90,width=1.2\linewidth]{./appendices/Transmitter_BOM_RevA.pdf}
 \pagebreak
 \includepdf[pages=1,angle=90,width=1.2\linewidth,pagecommand=\section{Wireless Power Transfer Module BOM}]{./appendices/Transmitter_WPT_SYSTEM_BOM_RevA.pdf}
+\pagebreak
+\section{Dimensional Coil Drawing}
+\hfill
+\begin{figure}[h!]
+\centering
+\includegraphics[angle=90,width=0.70\linewidth]{Coil_CAD}
+\caption{Dimensional Coil Drawing}
+\end{figure}
+\hfill
+\pagebreak
+\section{GUI Wireframe Diagram}
+\hfill
+\begin{figure}[h!]
+\centering
+\includegraphics[angle=90,width=0.74\linewidth]{gui_wireframe}
+\caption{GUI Wireframe Diagram}
+\end{figure}
+\hfill
 
 
 \end{appendices}
