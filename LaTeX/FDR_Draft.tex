@@ -113,7 +113,11 @@
 							%% 		Recommended pdfpages format : 									%%
 							%%		\includepdf[pages=-,width=0.9\linewidth,pagecommand={}]{./appendices/file.pdf}		%%
 
-
+\newcommand{\cross}[1][1pt]{\ooalign{ 	%	Creating footnote cross symbol
+  \rule[1ex]{1ex}{#1}\cr% Horizontal bar
+  \hss\rule{#1}{.7em}\hss\cr}}% Vertical bar
+  
+  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			PREAMBLE
 
 
@@ -1261,9 +1265,13 @@ The block diagram below illustrates the power transmission or DC to RF converter
 The schematic diagram for the microcontroller (U2: MSP430FR5994), Bluetooth module (MD1 RN4870) display connector P3, the display illumination control (U5: MCP6001T-I/OT, U6: NUD3112LT1G), and LCD contrast control (U7: MCP4531-103E/MS) can be found in appendix NN.\\
 
 \indent
-Voltage regulators are shown below
 The input power is supplied by an external AC/DC SMPS (Switched Mode Power Supply) converter. The power output of the buck SMPS is protected by a PPTC resettable fuse as short circuit protection. The fuse rating is 2.5A. A 48V power is converted to 30V which is used by the class E amplifier’s 5V buck converter and 3.3V buck converter. Each SMPS module output has overcurrent protection using resettable PPTC fuses. Both fuses are 0.5A rated.
 Both low voltage regulators (5V and 3.3V) have additional filtering at their outputs using ferrite beads and 0.1 $\mu$F capacitors.
+
+\pagebreak
+
+\indent
+Voltage regulators are shown below
 
 \hfill
 
@@ -1272,6 +1280,455 @@ Both low voltage regulators (5V and 3.3V) have additional filtering at their out
 \includegraphics[width=0.925\linewidth]{tx_smps}
 \caption{SMPS Subcircuit}
 \end{figure}
+
+\indent
+The output of the temperature-compensated crystal oscillator (Y2) is connected to the GaN FET driver (U11: LM5112) which is connected to a GaN FET ( Q1: EPC2019). the output of the class E amplifier is connected to the transmitter coil. The amplifier circuit has a peak detector (R30, R35, D20, C36 and R36) to detect the peak voltages of its output. The voltage on the peak detector will be sampled using the microcontroller’s ADC in order to validate the receiver’s presence via loading effects on the coil.\\
+
+\indent
+The coil driver circuit is shown below 
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.925\linewidth]{tx_dc_rf_driver}
+\caption{Transmitter Subcircuit}
+\end{figure}
+
+\indent
+The transmitter subsystem function control and communication circuits schematic diagram shows the microcontroller (U2: MSP430FR5994), Bluetooth module (MD1 RN4870) display connector P5, the display illumination control (U5: MCP6001T-I/OT, U6: NUD3112LT1G), and LCD contrast control (U7: MCP4531-103E/MS). The schematic diagram can be found in appendix NN.
+
+\pagebreak
+
+\subsubsection{Receiver Subsystem} The main components in the receiver microcontroller subcircuit are identical to the transmitter microcontroller subcircuit.\\
+
+\indent
+The diagram below shows connections between receiver subcircuits. 
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{controller_block.png}
+\caption{Receiver Subsystem Block Diagram}
+\end{figure}
+
+\hfill
+
+\pagebreak
+\indent
+The receiver coil and parallel capacitor are acting as resonant tank circuit at a frequency of 13.56 MHz. The received power is rectified using a full wave rectifier bridge and then supplies to the battery charger circuit. The rectifier output voltage and current are constantly sampled by the microcontroller to determine instantaneous received power. The battery pack is connected to the charger for charging and the battery pack SMbus interface is connected to the microcontroller. \\
+
+\indent
+The diagram below shows the receiver’s charging subcircuits.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{recv_coil}
+\caption{Receiver Coil Subsystem Block Diagram}
+\end{figure}
+
+\indent
+The diagram below shows the voltage regulators utilized in powering the receiver’s digital circuits and draws power from the battery pack directly.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.45\linewidth]{recv_sub_volt_reg}
+\caption{Receiver Voltage Regulator}
+\end{figure}
+
+\hfill
+\pagebreak
+
+\indent
+On the receiver, battery management and power delivery functions are performed by the LTC4162-L monolithic charging controller. It handles many important battery testing and safety procedures automatically. Batteries are tested before charging, and should abnormal charging currents or voltages be detected the LTC4162-L will cease charging without firmware intervention. If conditions fall outside the preset limits a microcontroller interrupt may be triggered via the SMBALERT line for further error handling. The microcontroller firmware may read and change the LTC4162 status over an SMBus interface at any time.\\
+
+\indent
+A RRC smart battery will handle cell monitoring, balancing, and charging capacity measurement. It will automatically limit charge and discharge current to ensure safe functioning. Any one of a family of smart batteries may be connected to a keyed cable connector that ensures correct polarity and an SMBus connection. The SMBus interface will communicate with the microcontroller firmware to provide battery charge capacity and health information to the user.\\
+
+\indent
+Charger subcircuit is realized using LTC4162EUFD-SAD integrated circuit and may be found in Appendix A.2.\\
+
+\indent
+The power receiver subcircuit consists of the receiver coil, rectifier bridge, voltage sensor, and current sensor on the DC side of the circuit and feeds into the battery charging subcircuit. The rectifier bridge is designed using silicon carbide Schottky diodes.\\
+
+\indent
+DC Voltage detector and current sensor will be used to determine received power levels which can be used as an indication of transmitter-receiver inductive coupling. DC Voltage levels and current are sampled using the MSP430FR5994 AD converter.\\
+
+\indent
+The RF receiver rectifier and power sensor are shown below and can be found in larger print in Appendix A.3.%while the subcircuits can be found in their unified state in Appendix A.3.
+
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{rx_dc_rf_conv}
+\caption{Rectifier and Power Sensor Subcircuit}
+\end{figure}
+
+\hfill
+
+\pagebreak
+
+\subsubsection{Planar Coil Inductor} The transmitter and receiver utilize identical planar coils in the wireless power transfer process with an inductance of 0.909 $\mu$H. The coils utilize copper tubing to reduce weight and costs. \\
+
+\indent
+The dimensions of the coil are shown below.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.95\linewidth]{Coil_CAD}
+\caption{Planar Coil CAD Drawing}
+\end{figure}
+
+\hfill
+
+\pagebreak
+
+\subsection{Software Architecture}
+\subsubsection{Firmware Architecture} The microcontrollers’ firmware architecture is split into two general categories: core functionality that is required for the microcontroller to operate and utilities that handle specific tasks that the microcontrollers need to complete.  The core functions primarily stem from interrupt calls and setup sequences.  The util functions will communicate through the bluetooth, display information, and handle or monitor power transmission.\\
+
+\indent
+Below is an example of the firmware architecture.
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{mcu_workflow}
+\caption{Controller Flow Chart}
+\end{figure}
+
+\hfill
+
+\subsubsection{GUI Software Architecture} The GUI Software architecture is split into three general categories: Model, Controller, and View (MCV) components.  Each general category is then subdivided into layers of functionality to maintain modularity.  The Model is critical for handling data classes and storing data into files.  The Controller is responsible for operating the visual components and model objects.  The view category is utilized strictly for showing the graphical displays and are passive elements in the design’s architecture.\\
+
+\indent
+The figure below shows the application of the Model-Controller-View (MCV) GUI Architecture
+\hfill
+
+\begin{figure}[h!]
+\centering
+\includegraphics[width=0.88\linewidth]{mcv_arch}
+\caption{High Level GUI Software Architecture Example}
+\end{figure}
+
+\hfill
+\pagebreak
+
+\subsection{Software Modules}
+
+\subsubsection{Firmware Modules} \textit{Programmed on TI's Code Composer software and tested on TI's MSP430FR5994 Launchpad Kit}\\
+
+\indent
+* = confer to both header and C files.\\
+%$\backslash$
+
+\noindent
+\textbf{
+Microcontroller Setup \\
+Location: 
+}
+\space Firmware$\backslash$MSP430FR5994\_MCU$\backslash$core$\backslash$mcu\_setup.*\\
+\textbf{
+Function: }
+Activates port settings and instantiates utility functions that operate the program.\\
+
+\noindent
+\textbf{
+Microcontroller Reset\\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$core$\backslash$mcu\_reset.*\\
+\textbf{
+Function: }
+Resets microcontroller to initial setup configuration.\\
+ 
+ \noindent
+\textbf{
+Task Queue Scheduler\\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$util$\backslash$Scheduler$\backslash$scheduler.*\\
+\textbf{
+Function: }
+Creates and operates the scheduler method class that selects the next task to be run in the main loop based on task priorities. \\
+ 
+ \noindent
+\textbf{
+Clock Interrupt\\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$core$\backslash$Interrupts$\backslash$clock\_interrupt.*\\
+\textbf{
+Function: }
+The code uses Timer A and SMCLK (1 MHz) to test clock interrupt. Once the program starts running, the timer counts up to 4 ticks to emit the clock interrupt signal every 250 ms period.  Additionally, it instantiates utility functions considered critical to repeat frequently.\\
+ 
+ \noindent
+\textbf{
+Button Interrupt\\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$core$\backslash$Interrupts$\backslash$button\_interrupt.*\\
+\textbf{
+Function: }
+Four buttons are set up within a port. The code sets up an interrupt service routine to run when a button is pushed, so that their respective function is called. \\
+ 
+ \noindent
+\textbf{
+Pin Input Voltage Reader \\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$core$\backslash$Interrupts$\backslash$pins.*\\
+\textbf{
+Function: }
+The function reads the analog 12 bit ADC input voltage at a port’s pin.\\
+ 
+ \noindent
+\textbf{
+Communication Transmission\\
+Location: 
+}
+Firmware$\backslash$MSP430FR5994\_MCU$\backslash$util$\backslash$Bluetooth$\backslash$bluetooth\_trans.*\\
+\textbf{
+Function: }
+The code permits the transmitter to communicate directly with the receiver.  Alternatively, it permits the receiver to communicate with both the transmitter and a mobile device.\\
+ 
+ \hfill
+\pagebreak
+\hfill
+
+ \noindent
+\textbf{
+Communication Received \\
+Location: 
+}
+\space Firmware$\backslash$MSP430FR5994\_MCU$\backslash$util$\backslash$Bluetooth$\backslash$bluetooth\_recv.*\\
+\textbf{
+Function: }
+The code facilitates the reception and reaction to bluetooth messages received.  
+
+\subsubsection{GUI Software Modules} \hfill \\
+%\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]
+
+\noindent
+\space \cross[0.4pt]\cross[0.4pt]\cross[0.4pt] = architecture layer ( Abstract - Base - Panel - Page - Window - App )\\
+\space * = confer to both header and C++ files\\
+ 
+ \noindent
+\textbf{
+Controllers\\
+Location: }
+Software$\backslash$controller$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_controller.*\\
+\textbf{
+Function: }
+The doer or agent component of the program.  Controllers allocate functions to particular events in the UI or manipulations to data models.\\
+ 
+ \noindent
+\textbf{
+Widget Constructor\\
+Location: }
+Software$\backslash$controller$\backslash$widget\_setter.*\\
+\textbf{
+Function: }
+The factory class that is dedicated to building widgets in a panel with the proper hierarchy of inheritance in order to give the controller mediate control of all widgets.\\
+ 
+ \noindent
+\textbf{
+Bluetooth Low Energy\\
+Location: }
+Software$\backslash$core$\backslash$Bluetooth$\backslash$Protocols$\backslash$bt\_le.*\\
+\textbf{
+Function: }
+The concrete method class handling Qt5 Bluetooth classes.\\
+ 
+ \noindent
+\textbf{
+App Initialization\\
+Location: }
+Software$\backslash$core$\backslash$app\_init.*\\
+\textbf{
+Function: }
+Configure all initial settings and ensure that the program is properly installed.\\
+ 
+ \noindent
+\textbf{
+Models\\
+Location: }
+Software$\backslash$model$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_model.*\\
+\textbf{
+Function: }
+Data classes that can be pickled into compressed and encrypted binary data files.  These models provide the stable memory of the application.\\
+ 
+ \noindent
+\textbf{
+Canvas\\
+Location: }
+Software$\backslash$ui$\backslash$CanvasTools$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_canvas.*\\
+\textbf{
+Function: }
+Concrete instances of Qt5’s QCanvas class for graphical displays of information.\\
+ 
+ \noindent
+\textbf{
+Canvas Shapes\\
+Location: }
+Software$\backslash$ui$\backslash$CanvasTools$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_canvas\_shape.*\\
+\textbf{
+Function: }
+Individual images used as graphical displays of information and placed on their respective canvases.
+\hfill
+\pagebreak
+\hfill
+ 
+ \noindent
+\textbf{
+Panels\\
+Location: }
+Software$\backslash$ui$\backslash$Panels$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_panel.*\\
+\textbf{
+Function: }
+Concrete instances of movable panels used to hold widgets or canvases in GUI.\\
+ 
+ \noindent
+\textbf{
+Toolbar Tools\\
+Location: }
+Software$\backslash$ui$\backslash$ToolbarTools$\backslash$win\_bar\_tools.*\\
+\textbf{
+Function: }
+Flushes out available toolbar icons and functions.  Can also expand or limit drop down menu options at top of window.\\
+ 
+ \noindent
+\textbf{
+Widgets\\
+Location: }
+Software$\backslash$ui$\backslash$Widgets\\
+\textbf{
+Function: }
+Too many individual modules to account for in this document.  See GitHub repository \url{https://github.com/gibbs212521/HEC\_2_senior_design} for further detail.  These modules are Abstract-Concrete constructor classes that build their respective widgets with additional custom methods or attributes.\\
+ 
+ \noindent
+\textbf{
+Windows\\
+Location: }
+Software$\backslash$ui$\backslash$Windows$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_window.*\\
+\textbf{
+Function: }
+Abstract-Concrete constructor classes that permit the appearance of various types of windows in the application (restricted in tablet/cellphone device compilation).\\
+ 
+ \noindent
+\textbf{
+Power Monitor\\
+Location: }
+Software$\backslash$util$\backslash$power\_monitor.*\\
+\textbf{
+Function: }
+Method class that ascertains whether the transmitter is sending power currently or not. Collects additional ancillary charging data.\\
+ 
+ \noindent
+\textbf{
+Ticker Class\\
+Location: }
+Software$\backslash$ui$\backslash$Ticker$\backslash$\cross[0.4pt]\cross[0.4pt]\cross[0.4pt]\_ticker.*\\
+\textbf{
+Function: }
+Collects or alters LCD ticker read out on the microcontroller.\\
+ 
+ \noindent
+\textbf{
+App Configurations\\
+Location: }
+Software$\backslash$config.h\\
+\textbf{
+Function: }
+Global variable module.  Ideally this file remains blank.\\
+ 
+ \noindent
+\textbf{
+Application’s Hidden Settings\\
+Location: }
+Software$\backslash$.settings\\
+\textbf{
+Function: }
+This file shall operate as a flat file to write or read current or most recent states in the application.\\
+ 
+ \noindent
+\textbf{
+Main Program\\
+Location: }
+Software$\backslash$app.cpp\\
+\textbf{
+Function: }
+The proverbial main.cpp that handles all dependencies of the application’s program.
+
+\pagebreak
+
+\subsection{Hardware Off The Shelf Items}
+
+\indent
+The table below provides links and information on hardware incorporated in the post-production of the PCB.  Further information can be found in the BOM Appendices in Appendix NN through Appendix NN.
+\hfill
+
+\begin{table}[h!]
+\centering
+\caption{Off The Shelf Items Utilized in Prototype}
+\begin{tabular}{ | l | l | l | }
+\hline
+Description [Name] & Part Number & Link\\
+\hline
+\parbox{0.3\linewidth}{\raggedleft Line Power Adapter: 65W 48V DC} & DT62PW480D  & 
+\parbox{0.3\linewidth}{\raggedright  \url{https://product.tdk.com/en/search/power/switching-power/ac-dc-converter/info?part_no=DT62PW480D}}\\
+\hline
+74.52 Wh Li-Ion Battery & RRC RRC2040-2 & \parbox{0.3\linewidth}{\raggedright  \url{https://www.rrc-ps.com/en/battery-packs/standard-battery-packs/products/rrc2040-2/}}\\
+\hline
+LCD Display & NHD-0420DZ-FSW-FBW & \parbox{0.3\linewidth}{\raggedright  \url{https://www.newhavendisplay.com/specs/NHD-0420DZ-FSW-FBW.pdf}}\\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\subsection{Software Off The Shelf Items}
+The table below includes all software used to develop hardware and the software for the wireless charger project.
+
+\begin{table}[h!]
+\centering
+\caption{Off The Shelf Software Items}
+\begin{tabular}{ | l | l | l | l | }
+\hline
+Name and Version & License Type & Restrictions & Link\\
+\hline
+\parbox{0.2\linewidth}{\raggedright  National Instruments Multisim 14.1} & Commercial & None & \parbox{0.3\linewidth}{\raggedright  \url{https://www.ni.com/en-us/shop/software/products/multisim.html}} \\
+\hline
+Altium 21.0.9 & Commercial & None & \parbox{0.3\linewidth}{\raggedright \url{https://www.altium.com/}}\\
+\hline
+Altium 365 & Commercial & None & \parbox{0.3\linewidth}{\raggedright \url{https://www.altium.com/altium-365}} \\
+\hline
+Gerbv 2.6A & GPL 2.0 & None & \parbox{0.3\linewidth}{\raggedright \url{http://gerbv.geda-project.org/}} \\
+\hline
+\parbox{0.2\linewidth}{\raggedright  Saturn PCB Design Inc. – PCB Toolkit ver.7.13} & \parbox{0.2\linewidth}{\raggedright  Commercial \\Freeware} & None & \parbox{0.3\linewidth}{\raggedright \url{ https://saturnpcb.com/pcb\_toolkit/}} \\
+\hline
+TI Code Composer & \parbox{0.2\linewidth}{\raggedright  Commercial \\Freeware} & None & \parbox{0.3\linewidth}{\raggedright \url{https://www.ti.com/tool/CCSTUDIO}} \\
+\hline
+Qt5 & LGPL 3 & \parbox{0.2\linewidth}{\raggedright Code must be Open Source and Free to Download}  & \parbox{0.3\linewidth}{\raggedright \url{https://doc.qt.io/qt-5/licensing.html}}\\
+\hline
+MS Visio & Personal License & No Corporate Use & \parbox{0.3\linewidth}{\raggedright  \url{https://www.microsoft.com/en-us/microsoft-365/visio/flowchart-software}} \\
+\hline
+NanoCAD & Personal License & No Corporate Use & \parbox{0.3\linewidth}{\raggedright \url{https://nanocad.com/products/nanoCAD/}} \\
+\hline
+GCC  & GPL 2.0 & None & \parbox{0.3\linewidth}{\raggedright \url{https://nanocad.com/products/nanoCAD/}} \\
+\hline
+\end{tabular}
+\end{table}
+
+\hfill
+\pagebreak
+\hfill
+
+\subsection{Schematics / Wiring Diagrams / Technical Drawings}
 
 \section{References}
 
@@ -1322,6 +1779,54 @@ Multisim circuits simulated in NI Multisim V.14.2 2019.\\
 
 %%%% 	Sections on Table of Contents and Pages Configured 	%%%%%
 
+
+\pagebreak
+
+\begin{appendices}
+\section{Receiver PCB Schematics}
+\hfill
+\begin{figure}[h!]
+\centering
+\includegraphics[angle=270, width=0.85\linewidth]{recv_pcb_img}
+\caption{Isometric Image of Receiver PCB}
+\end{figure}
+\hfill
+\pagebreak
+\includepdf[pages=2,angle=90,width=0.95\linewidth,pagecommand=\subsection{Receiver Controller}]{./appendices/HEC2_Receiver.pdf}
+\pagebreak
+\includepdf[pages=3,angle=90,width=0.95\linewidth,pagecommand=\subsection{Receiver Battery Charger}]{./appendices/HEC2_Receiver.pdf}
+\pagebreak
+\includepdf[pages=4,angle=90,width=0.95\linewidth,pagecommand=\subsection{RF/DC Converter}]{./appendices/HEC2_Receiver.pdf}
+\pagebreak
+\includepdf[pages=5,angle=90,width=0.95\linewidth,pagecommand=\subsection{DC/DC Converter}]{./appendices/HEC2_Receiver.pdf}
+
+\section{Transmitter PCB Schematics}
+\hfill
+\begin{figure}[h!]
+\centering
+\includegraphics[angle=270, width=0.68\linewidth]{trans_pcb_img}
+\caption{Isometric Image of Transmitter PCB}
+\end{figure}
+\hfill
+\pagebreak
+\includepdf[pages=2,angle=90,width=0.95\linewidth,pagecommand=\subsection{Transmitter Controller}]{./appendices/HEC2_Transmitter.pdf}
+\pagebreak
+\includepdf[pages=3,angle=90,width=0.95\linewidth,pagecommand=\subsection{DC/DC Converter}]{./appendices/HEC2_Transmitter.pdf}
+\pagebreak
+\includepdf[pages=4,angle=90,width=0.95\linewidth,pagecommand=\subsection{Coil Driver}]{./appendices/HEC2_Transmitter.pdf}
+\pagebreak
+\includepdf[pages=1,angle=90,width=0.95\linewidth,pagecommand=\section{Receiver BOM}]{./appendices/Receiver_BOM_RevA.pdf}
+\pagebreak
+\includepdf[pages={2-},angle=90,width=1.2\linewidth]{./appendices/Receiver_BOM_RevA.pdf}
+\pagebreak
+\includepdf[pages=1,angle=90,width=1.2\linewidth,pagecommand=\section{Transmitter BOM}]{./appendices/Transmitter_BOM_RevA.pdf}
+\pagebreak
+\includepdf[pages={2-},angle=90,width=1.2\linewidth]{./appendices/Transmitter_BOM_RevA.pdf}
+\pagebreak
+\includepdf[pages=1,angle=90,width=1.2\linewidth,pagecommand=\section{Wireless Power Transfer Module BOM}]{./appendices/Transmitter_WPT_SYSTEM_BOM_RevA.pdf}
+
+
+\end{appendices}
 
 
 %\pagebreak
