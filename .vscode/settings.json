@@ -6,6 +6,8 @@
         "xmemory": "cpp",
         "system_error": "c",
         "type_traits": "c",
-        "xtr1common": "c"
+        "xtr1common": "c",
+        "scheduler.h": "c",
+        "msp430fr5994.h": "c"
     }
 }

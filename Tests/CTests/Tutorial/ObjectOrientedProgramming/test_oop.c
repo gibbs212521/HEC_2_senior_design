@@ -23,8 +23,11 @@ struct Test createTestItem(void){
 int main(){
     struct MCScheduler mc_scheduler;
     buildScheduler(&mc_scheduler);
-    printf("Scheduler data: %d\n", mc_scheduler.next_task);
+    short task_id = mc_scheduler.next_task;
+    printf("Scheduler data: %d\n", task_id);
     printf("Scheduler data: %d\n", __LCD_TASK__);
+    mc_scheduler.set_task_string(&mc_scheduler, task_id);
+    printf("Scheduler task name %s\n", mc_scheduler.task_name);
     struct Test t1;
     t1 = createTestItem();
     printf("\n\n%d\n",t1.value);
