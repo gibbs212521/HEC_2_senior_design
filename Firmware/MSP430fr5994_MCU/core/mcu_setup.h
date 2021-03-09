@@ -15,4 +15,6 @@
 short mc_setup();
 short GetVoltage();
 
+#define _BUILDING_TRANSMITTER_ 1;
+
 #endif

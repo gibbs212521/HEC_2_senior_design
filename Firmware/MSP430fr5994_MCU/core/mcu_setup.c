@@ -11,7 +11,14 @@ short mc_setup(){
     PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
                                            // to activate previously configured port settings
 //    P1DIR |= 0x03;                          // Set P1 to null output direction sic b'00000000
-
+    if(_BUILDING_TRANSMITTER_==1){
+        P5DIR = 0x03;  // Set Port 5 Direction to bits 0 & 1.
+        P5OUT |= 0x01; // Set Port 5 Bit 1 to High
+        // BuildTransmitter();
+    } else {
+        P5DIR = 0x03;
+        // BuildReceiver();
+    }
 //    P1DIR |= 0x01;                          // Set P1.0 to output direction sic b'00000001' (n.b. bit#=0)
 //    P1DIR |= 0x02;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=1)
 //    P1DIR |= 0x03;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=0 & 1)
@@ -19,7 +26,7 @@ short mc_setup(){
    GetVoltage();
 //    SetDir(&P1DIR, 0x01);
     printf("Setting Up Micro Controller Unit Now....");
-//    main_clock_interrupt();
+   main_clock_interrupt();
 //    set_button_interrupts();  /// <-- Requires a test-board suite before reimplementing & a method to check for test board
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.

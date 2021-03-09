@@ -9,21 +9,12 @@
 
 short main(){
    mc_setup();
-   // struct MCScheduler mc_scheduler;
-   // buildScheduler(&mc_scheduler);
+   struct MCScheduler mc_scheduler;
+   buildScheduler(&mc_scheduler);
+   // mc_scheduler.check_shutdown_interrupt = SOME_SHUTDOWN_INTERRUPT
+   // mc_scheduler.check_button_interrupt = SOME_BUTTON_INTERRUPT
+   // mc_scheduler.check_timer_interrupt = SOME_TIMER_INTERRUPT
+   mc_scheduler.runMC(&mc_scheduler);
 
-
-   /// TO-DO: Consider creating a main config struct from main program to contain / control all states in MCU.
-
-
-//    for(;;) {
-//       mc_scheduler.select_next_task(&mc_scheduler);
-//       volatile unsigned int i;            // volatile to prevent optimization
-// //       P1OUT ^= 0x03;                      // Toggle P1.0 using exclusive-OR
-//       i =0x1000;                         // SW Delay via do-while loop
-//       do i--;
-//       while(i != 0);
-//                                            // infinite for loop repeats to toggle off/on P1
-//    }
    return 0;
 }

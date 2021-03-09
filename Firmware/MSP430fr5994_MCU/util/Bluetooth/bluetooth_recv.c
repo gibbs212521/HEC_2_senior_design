@@ -61,6 +61,3 @@ void mc_bluetooth_receive(char msg[5], int * message_data){
                mc_bluetooth_receive_define_angle(message_data);
            }
 }
-
-
-

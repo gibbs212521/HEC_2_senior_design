@@ -8,6 +8,12 @@
         "type_traits": "c",
         "xtr1common": "c",
         "scheduler.h": "c",
-        "msp430fr5994.h": "c"
+        "msp430fr5994.h": "c",
+        "mcu_setup.h": "c",
+        "test_oop.h": "c",
+        "bluetooth_task.h": "c",
+        "power_task.h": "c",
+        "lcd_task.h": "c",
+        "comm_protocol.h": "c"
     }
 }

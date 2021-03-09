@@ -1,20 +1,68 @@
+#include <stdio.h>
+
 #include "scheduler.h"
 
 
 /// Set Functions
-void _set_next_task_(struct MCScheduler* self, short next_task){
+
+void _set_task_string_(struct MCScheduler * self, short task_number){
+    switch(task_number){
+        case __BLUETOOTH_TASK__ :
+            self->task_name = "BLUETOOTH TASK       ";
+            break;
+        case __LCD_TASK__ :
+            self->task_name = "LCD TASK             ";
+            break;
+        case __POWER_TASK__ : 
+            self->task_name = "CHARGING TASK        ";
+            break;
+        case __CONTROLLER_COMM_TASK__ : 
+            self->task_name = "COMM CONTROLLER      ";
+            break;
+        case __LOCAL_COMM_TASK__ : 
+            self->task_name = "COMM LOCAL DEVICE    ";
+            break;
+        case __GUI_COMM_TASK__ : 
+            self->task_name = "COMM GUI             ";
+            break;
+        case __STATUS_CHECK_TASK__ : 
+            self->task_name = "STATUS TASK          ";
+            break;
+        case __AUX_TASK__ : 
+            self->task_name = "AUXILIARY TASK       ";
+            break;
+        case __BUTTON_INTERRUPT_ : 
+            self->task_name = "BUTTON INTERRUPT     ";
+            break;
+        case __TIMER_INTERRUPT_ : 
+            self->task_name = "TIMER INTERRUPT TASK ";
+            break;
+        case __SHUTDOWN_INTERRUPT_ : 
+            self->task_name = "SHUTDOWN INTERRUPT   ";
+            break;
+        case __NO_TASK__ : 
+            self->task_name = "NO TASK              ";
+            break;
+        default : 
+            self->task_name = "ERROR TASK NOT FOUND ";
+            break;
+    } 
+}
+
+void _set_next_task_(struct MCScheduler * self, short next_task){
     self->next_task = next_task;
     return;
 }
-void _set_last_task_(struct MCScheduler* self, short last_task){
+void _set_last_task_(struct MCScheduler * self, short last_task){
     self->last_task = last_task;
     return;
 }
-void _set_current_task_(struct MCScheduler* self, short current_task){
+void _set_current_task_(struct MCScheduler * self, short current_task){
     self->current_task = current_task;
+    self->set_task_string(self, current_task);
     return;
 }
-void _adjust_task_value_(struct MCScheduler* self, short task, short value){
+void _adjust_task_value_(struct MCScheduler * self, short task, short value){
     self->task_value[task] = value;
     return;
 }
@@ -26,32 +74,75 @@ short _get_next_task_(struct MCScheduler * self){
 short _get_last_task_(struct MCScheduler * self){
     return self->last_task;
 }
+
 short _get_current_task_(struct MCScheduler * self){
     return self->current_task;
 }
-void _set_task_string_(struct MCScheduler * self, short task_number){
-    switch(task_number){
-        case 0 : self->task_name =  "BLUETOOTH TASK       ";
+
+void _mc_status_check_(struct MCScheduler * self){
+    /// CHECK IMPORTANT REGISTERS
+    if (0==1){
+        self->__shutdown__ = 1;
+    }
+}
+
+void __run_task__(struct MCScheduler * self){
+    self->set_current_task(self, self->next_task);
+    self->set_next_task(self, __NO_TASK__);
+    switch(self->current_task){
+        case __BLUETOOTH_TASK__ :
+            mc_bluetooth_task(&self->bluetooth_introit);
             break;
-        case 1 : self->task_name =  "LCD TASK             ";
+        case __LCD_TASK__ :
+            mc_lcd_task();
             break;
-        case 2 : self->task_name =  "CHARGING TASK        ";
+        case __POWER_TASK__ : 
+            mc_power_task();
             break;
-        case 3 : self->task_name =  "COMM CONTROLLER      ";
+        case __CONTROLLER_COMM_TASK__ :
+            mc_comm_controller();
             break;
-        case 4 : self->task_name =  "COMM LOCAL DEVICE    ";
+        case __LOCAL_COMM_TASK__ :
+            mc_comm_local();
             break;
-        case 5 : self->task_name =  "COMM GUI             ";
+        case __GUI_COMM_TASK__ : 
+            mc_comm_gui();
             break;
-        case 6 : self->task_name =  "STATUS TASK          ";
+        case __STATUS_CHECK_TASK__ : 
+            self->statusCheck(self);
             break;
-        case 7 : self->task_name =  "AUXILIARY TASK       ";
+        case __AUX_TASK__ : 
+            /// I don't know what do here ??;
             break;
-        case 15 : self->task_name = " NO TASK             ";
+        case __BUTTON_INTERRUPT_ : 
+            // self->check_button_interrupt();
             break;
-        default : self->task_name = "ERROR TASK NOT FOUND ";
+        case __TIMER_INTERRUPT_ : 
+            // self->check_timer_interrupt();
+            break;
+        case __SHUTDOWN_INTERRUPT_ : 
+            // self->check_shutdown_interrupt(self);
+            break;
+        case __NO_TASK__ : 
+            printf("There is no task running... sorry mate \n");
+            break;
+        default :
+            printf("Some error is occuring");
             break;
     } 
+}
+
+void _run_micro_controller_(struct MCScheduler * self){
+    for(;;){
+        self->select_next_task(self);
+        // self->check_shutdown_interrupt(self);
+        // self->check_timer_interrupt();
+        // self->check_button_interrupt();
+        self->runTask(self);
+        if(self->__shutdown__ == 1)
+            break;
+        
+    }
 }
 
 /// Allocation Functions
@@ -73,8 +164,9 @@ void _select_next_task_(struct MCScheduler *self){
     _set_next_task_(self, sequential_task);
 }
     
-void buildScheduler(struct MCScheduler *self){
+void buildScheduler(struct MCScheduler * self){
     self->task_name = self->base_task_name;
+    self->__shutdown__ = 0;
     short i, task_list[9]={10,8,9,7,6,5,3,2,1};
     for(i=0;i<=9;i++){
         self->task_value[i]=task_list[i];
@@ -90,9 +182,12 @@ void buildScheduler(struct MCScheduler *self){
     self->adjust_task_value = _adjust_task_value_;
     self->select_next_task = _select_next_task_;
     self->set_task_string = _set_task_string_;
+    self->runTask = __run_task__;
+    self->runMC = _run_micro_controller_;
+    self->statusCheck = _mc_status_check_;
     /// Setting Variables
     self->set_current_task(self, __BLUETOOTH_TASK__);
     self->set_last_task(self, __NO_TASK__);
     self->set_next_task(self, __LCD_TASK__);
     return;
-};
+}
