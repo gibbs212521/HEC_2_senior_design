@@ -36,10 +36,10 @@ void set_button_interrupts(short transmitter_built){
 
 
 void button0_push(){ // Port 2 Pin 2
-    P5OUT ^= 0X01;
+    P5OUT ^= 0X01;  /// Enables Transmitter's Coil
 }
 
-// void button0_push(){
+// void button0_push(){ /// Consider for Receiver
 //     P5DIR |= 0x08;
 //     P5OUT ^= 0x08;
 // }

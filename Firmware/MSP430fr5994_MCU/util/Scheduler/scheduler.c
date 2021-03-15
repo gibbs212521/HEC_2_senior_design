@@ -161,8 +161,9 @@ void _select_next_task_(struct MCScheduler *self){
             sequential_task = iterator;
         }
         self->task_value[iterator] += 1;
-        printf(" %d   \n", sequential_task);
-        printf(" %d   \n", iterator);
+        // printf(" seq. task  %d   \n", sequential_task);
+        // printf(" task value %d   \n", sequential_task_value);
+        // printf(" iterator   %d   \n", iterator);
     }
     self->set_task_string(self, sequential_task);
     printf("\n Your Next Task is %s   \n", self->task_name);
