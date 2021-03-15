@@ -6,6 +6,8 @@
 #ifndef __MC_SETUP_H
 #define __MC_SETUP_H
 
+#define COMPILE_TRANSMITTER
+
 // #include "Interrupts/clock_interrupt.h"
 // #include "Interrupts/button_interrupt.h"
 // #include "Pins/pins.h"
@@ -13,7 +15,6 @@
 #include "Builds/build_receiver.h"
 #include "Builds/build_transmitter.h"
 #include "mc_tests.h"
-
 
 short mc_setup();
 // short GetVoltage();

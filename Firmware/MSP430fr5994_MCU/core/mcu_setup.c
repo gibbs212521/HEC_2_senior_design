@@ -1,6 +1,5 @@
 #include "mcu_setup.h"
 
-
 short mc_setup(){
     WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
     PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit

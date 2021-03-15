@@ -34,16 +34,21 @@ void set_button_interrupts(short transmitter_built){
 }
 
 
+//#ifdef COMPILE_TRANSMITTER
 
 void button0_push(){ // Port 2 Pin 2
     P5OUT ^= 0X01;  /// Enables Transmitter's Coil
 }
 
-// void button0_push(){ /// Consider for Receiver
-//     P5DIR |= 0x08;
-//     P5OUT ^= 0x08;
-// }
-
+//#endif
+//
+//#ifndef COMPILE_TRANSMITTER
+//
+//void button0_push(){ /// Consider for Receiver
+//    P5OUT ^= 0x08;
+//}
+//
+//#endif
 
 void button1_push(){ // Port 2 Pin 3
    P5OUT ^= 0X06; // toggles both red and green LEDs
