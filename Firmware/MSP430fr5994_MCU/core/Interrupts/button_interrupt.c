@@ -8,7 +8,7 @@
 ///         Assign Functions above interrupt cases
 ///         Define Functions in Header File
 
-void set_button_interrupts(){
+void set_button_interrupts(short transmitter_built){
     P2DIR = 0xFF;
     P2OUT = 0x00;
 
@@ -25,27 +25,35 @@ void set_button_interrupts(){
     // previously configured port settings
     PM5CTL0 &= ~LOCKLPM5;
 
-    while(1)
-    {
-        __bis_SR_register(LPM4_bits | GIE); // Enter LPM4 w/interrupt
-        __no_operation();                   // For debugger
-//        P1OUT ^= BIT0;                      // P1.0 = toggle Breaks interrupt
-    }
+//     while(1)
+//     {
+//         __bis_SR_register(LPM4_bits | GIE); // Enter LPM4 w/interrupt
+//         __no_operation();                   // For debugger
+// //        P1OUT ^= BIT0;                      // P1.0 = toggle Breaks interrupt
+//     }
 }
+
+
 
 void button0_push(){ // Port 2 Pin 2
     P5OUT ^= 0X01;
 }
 
-//void button1_push(){ // Port 2 Pin 3
-//    P5OUT ^= 0X06; // toggles both red and green LEDs
-//}
-//void button2_push(){ // Port 2 Pin 4
-//    P5OUT ^= 0X06; // toggles both red and green LEDs
-//}
-//void button3_push(){ // Port 2 Pin 7
-//    P5OUT ^= 0X06; // toggles both red and green LEDs
-//}
+// void button0_push(){
+//     P5DIR |= 0x08;
+//     P5OUT ^= 0x08;
+// }
+
+
+void button1_push(){ // Port 2 Pin 3
+   P5OUT ^= 0X06; // toggles both red and green LEDs
+}
+void button2_push(){ // Port 2 Pin 4
+   P5OUT ^= 0X06; // toggles both red and green LEDs
+}
+void button3_push(){ // Port 2 Pin 7
+   P5OUT ^= 0X06; // toggles both red and green LEDs
+}
 
 //#pragma vector = P2IV__P2IFG7 // Set Compiler watch Port 2 Interrupt Vector
 #pragma vector = PORT2_VECTOR // Set Compiler watch Port 2 Interrupt Vector

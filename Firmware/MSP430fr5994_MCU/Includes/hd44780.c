@@ -1,4 +1,4 @@
-#include "lcd.h"
+#include "hd44780.h"
 
 
 #ifdef HD44780_PARALLEL_MODE

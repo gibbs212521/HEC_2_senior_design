@@ -127,7 +127,7 @@ void __run_task__(struct MCScheduler * self){
             printf("There is no task running... sorry mate \n");
             break;
         default :
-            printf("Some error is occuring");
+            printf("Some error is occuring\n");
             break;
     } 
 }
@@ -148,19 +148,24 @@ void _run_micro_controller_(struct MCScheduler * self){
 /// Allocation Functions
 
 void _select_next_task_(struct MCScheduler *self){
-    _set_last_task_(self, self->current_task);
-    _set_current_task_(self, __NO_TASK__);
+    self->set_last_task(self, self->current_task);
+    self->set_current_task(self, __NO_TASK__);
+    // printf(" %d   \n", *self->task_value);
     self->task_value[self->last_task] -= __NUM_OF_TASKS__;
-    short iterator;
-    short sequential_task;
-    short sequential_task_value=0;
+    volatile short iterator = 0;
+    volatile short sequential_task;
+    volatile short sequential_task_value=0;
     // Looping Through Tasks such that (iterator :: __TASK_VALUE__)  c.f. scheduler.h
     for(iterator=0;iterator<=9;iterator++){
         if(self->task_value[iterator] > sequential_task_value){
             sequential_task = iterator;
         }
         self->task_value[iterator] += 1;
+        printf(" %d   \n", sequential_task);
+        printf(" %d   \n", iterator);
     }
+    self->set_task_string(self, sequential_task);
+    printf("\n Your Next Task is %s   \n", self->task_name);
     _set_next_task_(self, sequential_task);
 }
     

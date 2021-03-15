@@ -14,6 +14,11 @@
         "bluetooth_task.h": "c",
         "power_task.h": "c",
         "lcd_task.h": "c",
-        "comm_protocol.h": "c"
+        "comm_protocol.h": "c",
+        "pins.h": "c",
+        "mc_test_lcd.h": "c",
+        "lcd.h": "c",
+        "build_transmitter.h": "c",
+        "button_interrupt.h": "c"
     }
 }

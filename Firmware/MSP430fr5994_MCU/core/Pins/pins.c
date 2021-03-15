@@ -31,8 +31,8 @@ short GetVoltage()
 
         printf("The pin voltage is %d V \n", ADC12MEM0);
 
-//        __bis_SR_register(LPM0_bits | GIE); // LPM0, ADC12_ISR will force exit
-//        __no_operation();                   // For debugger
+        __bis_SR_register(LPM0_bits | GIE); // LPM0, ADC12_ISR will force exit
+        __no_operation();                   // For debugger
     }
 
     return 0;

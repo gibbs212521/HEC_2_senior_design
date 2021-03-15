@@ -7,9 +7,10 @@
 #ifndef _MC_LCD_TEST_H
 #define _MC_LCD_TEST_H
 
-#include "lcd.h"                    //  lcd library
+#include "hd44780.h"                    //  lcd library
+#include <stdint.h>
 #include "ctype.h"
 
-void setUpLCD();
+void testLCD();
 
 #endif

@@ -1,4 +1,5 @@
 #include "lcd_task.h"
+#include <stdio.h>
 
 void mc_lcd_task(){
     printf("I Don't know if I should create a class or not?");

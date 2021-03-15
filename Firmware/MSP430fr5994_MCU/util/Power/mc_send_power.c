@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "mc_power.h"
+#include "mc_send_power.h"
 
 void mc_power_on(void){
     /// Turns on power in transmitter for oscillator
