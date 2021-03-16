@@ -134,6 +134,10 @@ void __run_task__(struct MCScheduler * self){
 
 void _run_micro_controller_(struct MCScheduler * self){
     for(;;){
+        // Check for Interrupt
+        _enable_interrupt();
+        // __bis_SR_register(LPM4_bits | GIE); // Enter LPM4 w/interrupt
+        // __no_operation();                   // For debugger
         self->select_next_task(self);
         // self->check_shutdown_interrupt(self);
         // self->check_timer_interrupt();

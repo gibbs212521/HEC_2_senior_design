@@ -20,9 +20,6 @@ void main_clock_interrupt(){
     TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period
 //  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
 //  TA0CCR0 = 4; // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
-
-    _enable_interrupt();
-
 }
 
 // Timer interrupt service routine
@@ -30,7 +27,6 @@ void main_clock_interrupt(){
 __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void){  // Question on overflow datatype  /// Set interrupt error handler to respond when vector above is initiated with interrupt routine.
 //  mc_critical_tasks();
     P5OUT ^= 0x03; // Toggle P1.0 & P1.1 via exlcusive or bit masking
-
 //P1OUT ^= BIT0; // Toggle P1.0
   /*
   Toggle Visualization
