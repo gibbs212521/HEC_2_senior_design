@@ -20,6 +20,7 @@
         "lcd.h": "c",
         "build_transmitter.h": "c",
         "button_interrupt.h": "c",
-        "clock_interrupt.h": "c"
+        "clock_interrupt.h": "c",
+        "build_receiver.h": "c"
     }
 }

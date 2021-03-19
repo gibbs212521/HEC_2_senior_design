@@ -31,6 +31,13 @@ short mc_setup(){
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.
 
+/// PUT AUXILIARY CODE BELOW
+
+
+
+
+/// PUT AUXILIARY CODE ABOVE
+
     return 0;
 }
 

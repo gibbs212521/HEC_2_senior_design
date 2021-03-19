@@ -32,7 +32,7 @@ void testLCD(){
     }
 }
 // Directive for timer interrupt
-#pragma vector = TIMER0_A1_VECTOR;
+#pragma vector = TIMER0_A1_VECTOR
 __interrupt void timer_0_a1_isr( void ){                     // Timer 0 A1 interrupt service
   switch( TA0IV )                                                        // Determine interrupt source
   {
