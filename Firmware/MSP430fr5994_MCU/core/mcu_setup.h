@@ -3,13 +3,27 @@
 #include <msp430fr5994.h>
 #endif
 
-#ifndef __MC_CLKINT_H
-#include "clock_interrupt.h"
-#endif
 
 #ifndef __MC_SETUP_H
 #define __MC_SETUP_H
 
+
+// #include "Pins/pins.h"
+#include <ctype.h>
+
+#ifndef COMPILE_TRANSMITTER
+// #define COMPILE_TRANSMITTER  /// COMMENT TO BUILD (COMPILE) RECEIVER
+#include "Pins/pins.h"
+#include "Builds/build_receiver.h"
+#include "Builds/build_transmitter.h"
+#include "Interrupts/clock_interrupt.h"
+#include "Interrupts/button_interrupt.h"
+#endif
+
+ #include "mc_tests.h"
+
+
 short mc_setup();
+
 
 #endif

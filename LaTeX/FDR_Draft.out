@@ -1,0 +1,24 @@
+\BOOKMARK [1][-]{section.1}{Project Description}{}% 1
+\BOOKMARK [1][-]{section.2}{Final Design Specifications}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Feasibility Study}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Microcontroller}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Transmitter Coil}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Transmitter}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Receiver}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Thermal Considerations for 3.3V and 5V Voltage Regulators}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.7}{Charging Subsystem}{section.2}% 9
+\BOOKMARK [2][-]{subsection.2.8}{Battery Considerations}{section.2}% 10
+\BOOKMARK [2][-]{subsection.2.9}{Microcontroller Considerations}{section.2}% 11
+\BOOKMARK [2][-]{subsection.2.10}{Firmware Requirements: Transmitter}{section.2}% 12
+\BOOKMARK [2][-]{subsection.2.11}{Firmware Requirements: Receiver}{section.2}% 13
+\BOOKMARK [2][-]{subsection.2.12}{Software Requirements: GUI}{section.2}% 14
+\BOOKMARK [2][-]{subsection.2.13}{Coil Considerations}{section.2}% 15
+\BOOKMARK [2][-]{subsection.2.14}{Specification Summary}{section.2}% 16
+\BOOKMARK [2][-]{subsection.2.15}{Ethical and Professional Considerations}{section.2}% 17
+\BOOKMARK [3][-]{subsubsection.2.15.1}{Public Health:}{subsection.2.15}% 18
+\BOOKMARK [3][-]{subsubsection.2.15.2}{Safety and Welfare:}{subsection.2.15}% 19
+\BOOKMARK [3][-]{subsubsection.2.15.3}{Global Factors:}{subsection.2.15}% 20
+\BOOKMARK [3][-]{subsubsection.2.15.4}{Societal factors}{subsection.2.15}% 21
+\BOOKMARK [3][-]{subsubsection.2.15.5}{Environmental factors:}{subsection.2.15}% 22
+\BOOKMARK [3][-]{subsubsection.2.15.6}{Economic factors:}{subsection.2.15}% 23
+\BOOKMARK [1][-]{section.3}{References}{}% 24

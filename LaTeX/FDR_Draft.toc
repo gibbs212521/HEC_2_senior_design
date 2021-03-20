@@ -1,0 +1,50 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {I}Project Description}{1}{section.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {II}Final Design Specifications}{3}{section.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.A}Feasibility Study}{5}{subsection.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.B}Microcontroller}{6}{subsection.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.C}Transmitter Coil}{6}{subsection.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.D}Transmitter}{6}{subsection.2.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.E}Receiver}{7}{subsection.2.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.F}Thermal Considerations for 3.3V and 5V Voltage Regulators}{8}{subsection.2.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.G}Charging Subsystem}{10}{subsection.2.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.H}Battery Considerations}{10}{subsection.2.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.I}Microcontroller Considerations}{12}{subsection.2.9}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.J}Firmware Requirements: Transmitter}{13}{subsection.2.10}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.K}Firmware Requirements: Receiver}{13}{subsection.2.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.L}Software Requirements: GUI}{14}{subsection.2.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.M}Coil Considerations}{15}{subsection.2.13}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.N}Specification Summary}{16}{subsection.2.14}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {II.O}Ethical and Professional Considerations}{17}{subsection.2.15}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.1}Public Health:}{17}{subsubsection.2.15.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.2}Safety and Welfare:}{17}{subsubsection.2.15.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.3}Global Factors:}{18}{subsubsection.2.15.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.4}Societal factors}{18}{subsubsection.2.15.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.5}Environmental factors:}{18}{subsubsection.2.15.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsubsection}{\numberline {II.6}Economic factors:}{18}{subsubsection.2.15.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {III}References}{19}{section.3}%

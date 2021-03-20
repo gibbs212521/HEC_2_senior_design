@@ -1,0 +1,50 @@
+13.56 MHz Transmitter Rev.A
+
+BOARD SIZE:  5.702 INCH (144.821 mm) X 4.203 INCH (106.76 mm)
+Layers: 4
+PCB Layers Stack-up 
+
+1. Transmitter_RevA_Copper_Signal_Top.gbr  	TOP SIGNAL
+2. Transmitter_RevA_Copper_Plane_1.gbr		GROUND PLANE
+3. Transmitter_RevA_Copper_Signal_1.gbr		MID1 SIGNAL
+4. Transmitter_RevA_Copper_Signal_Bot.gbr	BOTTOM SIGNAL
+
+Material: FR4 (135degC Tg) RoHS COMPLIANT
+Board Thickness: 0.063"
+Surface finish: Immersion Gold (Electroless Nickel Gold - ENIG)
+Solder Mask Color: Red
+Silkscreen Color: White
+Min. Drill: 8 mils
+Min. Line Width: 8 mils
+Min. Spacing: 4 mils
+
+GERBER FILES
+
+File Name		Layer
+
+Transmitter_RevA_Copper_Signal_Top.gbr  TOP SIGNAL
+Transmitter_RevA_Copper_Plane_1.gbr	GROUND PLANE
+Transmitter_RevA_Copper_Signal_1.gbr	MID1 SIGNAL
+Transmitter_RevA_Copper_Signal_Bot.gbr	BOTTOM SIGNAL
+Transmitter_RevA_Soldermask_Top.gbr	TOP MASK
+Transmitter_RevA_Soldermask_Bot.gbr	BOTTOM MASK
+Transmitter_RevA_Legend_Top.gbr		TOP SILK
+Transmitter_RevA_Legend_Bot.gbr		BOTTOM SILK
+Transmitter_RevA_Paste_Top.gbr		TOP PASTE
+Transmitter_RevA_Paste_Bot.gbr		BOTTOM PASTE
+
+Transmitter_RevA_PTH_Drill.gbr		PTH DRILL - FOR REFERENCE ONLY
+Transmitter_RevA_NPTH_Drill.gbr		NPTH DRILL - FOR REFERENCE ONLY
+
+
+DRILL
+
+Transmitter_RevA-RoundHoles.TXT		N/C DRILL ROUND HOLES
+Transmitter_RevA-SlotHoles.TXT		N/C DRILL SLOT HOLES
+
+
+
+
+
+
+
