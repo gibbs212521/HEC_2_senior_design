@@ -136,8 +136,6 @@ void _run_micro_controller_(struct MCScheduler * self){
     for(;;){
         // Check for Interrupt
         _enable_interrupt();
-        // __bis_SR_register(LPM4_bits | GIE); // Enter LPM4 w/interrupt
-        // __no_operation();                   // For debugger
         self->select_next_task(self);
         // self->check_shutdown_interrupt(self);
         // self->check_timer_interrupt();
@@ -153,16 +151,16 @@ void _run_micro_controller_(struct MCScheduler * self){
 
 void _select_next_task_(struct MCScheduler *self){
     self->set_last_task(self, self->current_task);
-    self->set_current_task(self, __NO_TASK__);
+    // self->set_current_task(self, __NO_TASK__);
     // printf(" %d   \n", *self->task_value);
     self->task_value[self->last_task] -= __NUM_OF_TASKS__;
-    volatile short iterator = 0;
-    volatile short sequential_task;
-    volatile short sequential_task_value=0;
+    short iterator = 0;
+    short sequential_task;
+    short sequential_task_value=0;
     // Looping Through Tasks such that (iterator :: __TASK_VALUE__)  c.f. scheduler.h
-    for(iterator=0;iterator<=9;iterator++){
+    for(iterator=0;iterator<=__NUM_OF_TASKS__;iterator++){
         if(self->task_value[iterator] > sequential_task_value){
-            sequential_task = iterator;
+            sequential_task = iterator-1;
         }
         self->task_value[iterator] += 1;
         // printf(" seq. task  %d   \n", sequential_task);
@@ -177,8 +175,8 @@ void _select_next_task_(struct MCScheduler *self){
 void buildScheduler(struct MCScheduler * self){
     self->task_name = self->base_task_name;
     self->__shutdown__ = 0;
-    short i, task_list[9]={10,8,9,7,6,5,3,2,1};
-    for(i=0;i<=9;i++){
+    short i, task_list[8]={9,7,8,6,4,5,3,2};
+    for(i=0;i<=__NUM_OF_TASKS__;i++){
         self->task_value[i]=task_list[i];
     }
     /// Define Get Function Pointers

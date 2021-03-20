@@ -24,7 +24,7 @@
 #define __TIMER_INTERRUPT_ 0x0D
 #define __SHUTDOWN_INTERRUPT_ 0x0E
 #define __NO_TASK__  0x0F
-#define __NUM_OF_TASKS__  0x09
+#define __NUM_OF_TASKS__  0x08
 
 struct MCScheduler{
     short __shutdown__;

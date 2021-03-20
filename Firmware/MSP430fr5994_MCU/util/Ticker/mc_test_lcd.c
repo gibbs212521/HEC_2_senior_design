@@ -27,9 +27,9 @@ void testLCD(){
     TA0CTL   = (TASSEL_2 | MC_2 | TACLR);  //SMCLK, Continuous mode
     __bis_SR_register( GIE );                            // Enable global interrupts
     hd44780_clear_screen();                             // Clear display content
-    while( 1 ){              
+    // while( 1 ){              
         hd44780_write_string( "HEC project!  ", 1, 1, NO_CR_LF );
-    }
+    // }
 }
 // Directive for timer interrupt
 #pragma vector = TIMER0_A1_VECTOR

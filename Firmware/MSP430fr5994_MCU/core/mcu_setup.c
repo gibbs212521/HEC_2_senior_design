@@ -13,6 +13,7 @@ short mc_setup(){
 
     short RUN_MCU_TESTS = 0;
 
+
     if ( BUILDING_TRANSMITTER == 1 ) {
         buildTransmitter();
    } else {
@@ -23,11 +24,13 @@ short mc_setup(){
         return runTests(BUILDING_TRANSMITTER);
     };
 
+/// General Build
+    ConfigureADC12Pins(BUILDING_TRANSMITTER); // ADC SENSORS
     set_button_interrupts(BUILDING_TRANSMITTER);
-//    setUpLCD();
-//    GetVoltage();
+    // setUpLCD();
     main_clock_interrupt();
-//    set_button_interrupts();  /// <-- Requires a test-board suite before reimplementing & a method to check for test board
+
+    runTests(BUILDING_TRANSMITTER);
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.
 

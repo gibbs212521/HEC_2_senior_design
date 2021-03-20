@@ -50,18 +50,23 @@ void set_button_interrupts(short build_transmitter){
 
 void button0_push(){ // Port 2 Pin 2
     if (_compile_transmitter == 0x01){
-    P5OUT ^= 0X01;  /// Enables Transmitter's Coil
-    P1OUT ^= 0x03;
+    P5OUT |= 0X01;  /// Enables Transmitter's Coil
+    // P1OUT ^= 0x03;
     } else {
     P5OUT ^= 0x08;
-    P1OUT ^= 0x01;
+    // P1OUT ^= 0x01;
     };
 }
 
 
-void button1_push(){ // Port 2 Pin 3
-   P5OUT ^= 0X06; // toggles both red and green LEDs
-   P1OUT &= ~0x03;
+void button1_push(){ // Port 2 Pin 2
+    if (_compile_transmitter == 0x01){
+    P5OUT &= ~0X01;  /// Disables Transmitter's Coil
+    // P1OUT ^= 0x03;
+    } else {
+    P5OUT ^= 0x08;
+    // P1OUT ^= 0x01;
+    };
 }
 void button2_push(){ // Port 2 Pin 4
    P5OUT ^= 0X06; // toggles both red and green LEDs

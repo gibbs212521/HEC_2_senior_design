@@ -13,17 +13,17 @@
 
 #ifndef COMPILE_TRANSMITTER
 // #define COMPILE_TRANSMITTER  /// COMMENT TO BUILD (COMPILE) RECEIVER
+#include "Pins/pins.h"
 #include "Builds/build_receiver.h"
 #include "Builds/build_transmitter.h"
 #include "Interrupts/clock_interrupt.h"
 #include "Interrupts/button_interrupt.h"
 #endif
 
-// #include "mc_tests.h"
+ #include "mc_tests.h"
 
 
 short mc_setup();
-// short GetVoltage();
 
 
 #endif

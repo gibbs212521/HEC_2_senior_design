@@ -21,6 +21,8 @@
         "build_transmitter.h": "c",
         "button_interrupt.h": "c",
         "clock_interrupt.h": "c",
-        "build_receiver.h": "c"
+        "build_receiver.h": "c",
+        "mc_tests.h": "c",
+        "ctype.h": "c"
     }
 }
