@@ -19,7 +19,7 @@
 #ifndef __MC_BLUETOOTH_H
 #define __MC_BLUETOOTH_H
 
-void mc_bluetooth_task(short introit);
+void mc_bluetooth_task(short * pintroit);
 /*
     This method should be done functionally.
 */
