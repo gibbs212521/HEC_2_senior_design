@@ -6,7 +6,7 @@
 #ifndef __MC_BUTINT_H
 #define __MC_BUTINT_H
 
-void set_button_interrupts();
+void set_button_interrupts(short build_transmitter);
 void button0_push();
 void button1_push();
 void button2_push();

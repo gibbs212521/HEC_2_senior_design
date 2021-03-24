@@ -2,15 +2,30 @@
 #include <stdio.h>
 #include <msp430fr5994.h>
 
-short GetVoltage()
-{
+
+short _compile_transmitter_pins = 0x00;
+
+short ConfigureADC12Pins(short build_transmitter){
+    if (build_transmitter==0x01){
+        P1OUT |= 0x03;
+        _compile_transmitter_pins = 0x01;
+    }
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
 
     // GPIO Setup
-    P1OUT &= ~BIT0;                         // Clear LED to start
-    P1DIR |= BIT0;                          // Set P3.0/LED to output
-    P3SEL1 |= BIT1;                         // Configure P3.1 for ADC
+                    // Configure P3.0 for ADC  (ADC12)
+    P3SEL1 |= BIT0;
+    P3SEL0 |= BIT0;
+                    // Configure P3.1 for ADC  (ADC13)
+    P3SEL1 |= BIT1;
     P3SEL0 |= BIT1;
+                    // Configure P3.2 for ADC  (ADC14)
+    P3SEL1 |= BIT2;
+    P3SEL0 |= BIT2;
+                    // Configure P3.3 for ADC  (ADC15)
+    P3SEL1 |= BIT3;
+    P3SEL0 |= BIT3;
+
 
     // Disable the GPIO power-on default high-impedance mode to activate
     // previously configured port settings
@@ -24,18 +39,42 @@ short GetVoltage()
     ADC12MCTL0 |= ADC12INCH_12;              // A1 ADC input select; Vref=AVCC
     ADC12IER0 |= ADC12IE12;                  // Enable ADC conv complete interrupt
 
-    while (1)
-    {
-        __delay_cycles(5000);
-        ADC12CTL0 |= ADC12ENC | ADC12SC;    // Start sampling/conversion
+    // while (1)
+    // {
+    //     __delay_cycles(5000);
+    //     ADC12CTL0 |= ADC12ENC | ADC12SC;    // Start sampling/conversion
+    //     printf("The pin voltage is %d V \n", ADC12MEM0);
 
-        printf("The pin voltage is %d V \n", ADC12MEM0);
-
-//        __bis_SR_register(LPM0_bits | GIE); // LPM0, ADC12_ISR will force exit
-//        __no_operation();                   // For debugger
-    }
+    //     __bis_SR_register(LPM0_bits | GIE); // LPM0, ADC12_ISR will force exit
+    //     __no_operation();                   // For debugger
+    // }
 
     return 0;
+}
+
+// use (_compile_transmitter_pins) in if logic to multi-build
+
+void GetADC(){
+    ADC12CTL0 |= ADC12ENC | ADC12SC;    // Start sampling/conversion
+    __delay_cycles(1000);
+}
+
+short GetADC_12(){
+    GetADC();
+    return ADC12MEM12;
+}
+
+short GetADC_13(){
+    GetADC();
+    return ADC12MEM13;
+}
+short GetADC_14(){
+    GetADC();
+    return ADC12MEM14;
+}
+short GetADC_15(){
+    GetADC();
+    return ADC12MEM15;
 }
 
 #if defined(__TI_COMPILER_VERSION__) || defined(__IAR_SYSTEMS_ICC__)
@@ -56,13 +95,13 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
         case ADC12IV__ADC12LOIFG:  break;   // Vector  8:  ADC12BLO
         case ADC12IV__ADC12INIFG:  break;   // Vector 10:  ADC12BIN
         case ADC12IV__ADC12IFG0:            // Vector 12:  ADC12MEM0 Interrupt
-            if (ADC12MEM0 >= 0x7ff)         // ADC12MEM0 = A1 > 0.5AVcc?
-                P1OUT |= BIT0;              // P1.0 = 1
-            else
-                P1OUT &= ~BIT0;             // P1.0 = 0
+            // if (ADC12MEM0 >= 0x7ff)         // ADC12MEM0 = A1 > 0.5AVcc?
+            //     P1OUT |= BIT0;              // P1.0 = 1
+            // else
+            //     P1OUT &= ~BIT0;             // P1.0 = 0
 
-                // Exit from LPM0 and continue executing main
-                __bic_SR_register_on_exit(LPM0_bits);
+            //     // Exit from LPM0 and continue executing main
+            //     __bic_SR_register_on_exit(LPM0_bits);
             break;
         case ADC12IV__ADC12IFG1:   break;   // Vector 14:  ADC12MEM1
         case ADC12IV__ADC12IFG2:   break;   // Vector 16:  ADC12MEM2

@@ -9,31 +9,31 @@ void mc_bluetooth_receive_off(){
     printf("Device is not charging \n");
 }
 
-void mc_bluetooth_receive_error(int * error){
+void mc_bluetooth_receive_error(short error){
     printf("There is an error \n");
 }
 
-void mc_bluetooth_receive_risk(int * risk){
+void mc_bluetooth_receive_risk(short risk){
     printf("There is a safety issue \n");
 }
 
-void mc_bluetooth_receive_get_charge(int * charge){
+void mc_bluetooth_receive_get_charge(short charge){
     printf("Device charge is %d %% \n", charge);
 }
 
-void mc_bluetooth_receive_get_recharge_time(int * time){
+void mc_bluetooth_receive_get_recharge_time(short time){
     printf("Device recharge time is %d minutes \n", time);
 }
 
-void mc_bluetooth_receive_define_distance(int * distance){
+void mc_bluetooth_receive_define_distance(short distance){
     printf("Device distance is %d cm \n", distance);
 }
 
-void mc_bluetooth_receive_define_angle(int * angle){
+void mc_bluetooth_receive_define_angle(short angle){
     printf("Device angle is %d degrees \n", angle);
 }
 
-void mc_bluetooth_receive(char msg[5], int * message_data){
+void mc_bluetooth_receive(char msg[5], short message_data){
 
 
            if (strcmp(msg, " ON ")){
@@ -61,6 +61,3 @@ void mc_bluetooth_receive(char msg[5], int * message_data){
                mc_bluetooth_receive_define_angle(message_data);
            }
 }
-
-
-

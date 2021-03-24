@@ -7,10 +7,10 @@ int main(){
     MainWin.owner = &MotherController; // use only for signaling
     PrimaryModel.owner = &MotherController; // use only for signaling
 
-    AppController.getSettings();    // collect stable memory in .settings file
-    AppController.setModel(&PrimaryModel);  // giving control over model
-    AppController.setUI(&MainWin);  // giving control over window ui
-    // AppController.setChildrenControllers()  // Currently only one page
-    AppController.runApp();
+    MotherController.getSettings();    // collect stable memory in .settings file
+    MotherController.setModel(&PrimaryModel);  // giving control over model
+    MotherController.setUI(&MainWin);  // giving control over window ui
+    // MotherController.setChildrenControllers()  // Currently only one page
+    MotherController.runApp();
     return 0;   // emits 0 on successful closure of application
 }

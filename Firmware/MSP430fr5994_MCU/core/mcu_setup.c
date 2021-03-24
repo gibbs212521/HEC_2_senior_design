@@ -1,28 +1,45 @@
 #include "mcu_setup.h"
-#include <stdio.h>
 
-
-//%void SetDir(extern volatile unsigned char (*pCMD), int pins){
-//%    *pCMD |= pins;
-//}
+#ifdef COMPILE_TRANSMITTER
+short BUILDING_TRANSMITTER = 1;
+#endif
+#ifndef COMPILE_TRANSMITTER
+short BUILDING_TRANSMITTER = 0;
+#endif
 
 short mc_setup(){
     WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
     PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
-                                           // to activate previously configured port settings
-//    P1DIR |= 0x03;                          // Set P1 to null output direction sic b'00000000
 
-//    P1DIR |= 0x01;                          // Set P1.0 to output direction sic b'00000001' (n.b. bit#=0)
-//    P1DIR |= 0x02;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=1)
-//    P1DIR |= 0x03;                          // Set P1.1 to output direction sic b'00000010' (n.b. bit#=0 & 1)
-    setUpLCD();
-//    GetVoltage();
-//    SetDir(&P1DIR, 0x01);
-    printf("Setting Up Micro Controller Unit Now....");
-//    main_clock_interrupt();
-//    set_button_interrupts();  /// <-- Requires a test-board suite before reimplementing & a method to check for test board
+    short RUN_MCU_TESTS = 0;
+
+
+    if ( BUILDING_TRANSMITTER == 1 ) {
+        buildTransmitter();
+   } else {
+        buildReceiver();
+   };
+
+    if ( RUN_MCU_TESTS == 1 ){
+        return runTests(BUILDING_TRANSMITTER);
+    };
+
+/// General Build
+    ConfigureADC12Pins(BUILDING_TRANSMITTER); // ADC SENSORS
+    set_button_interrupts(BUILDING_TRANSMITTER);
+    // setUpLCD();
+    main_clock_interrupt();
+
+    runTests(BUILDING_TRANSMITTER);
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.
+
+/// PUT AUXILIARY CODE BELOW
+
+
+
+
+/// PUT AUXILIARY CODE ABOVE
 
     return 0;
 }
