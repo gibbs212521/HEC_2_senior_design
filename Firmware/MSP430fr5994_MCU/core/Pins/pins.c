@@ -7,7 +7,7 @@ short _compile_transmitter_pins = 0x00;
 
 short ConfigureADC12Pins(short build_transmitter){
     if (build_transmitter==0x01){
-        P1OUT |= 0x03;
+        // P1OUT |= 0x03;
         _compile_transmitter_pins = 0x01;
     }
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
@@ -56,7 +56,8 @@ short ConfigureADC12Pins(short build_transmitter){
 
 void GetADC(){
     ADC12CTL0 |= ADC12ENC | ADC12SC;    // Start sampling/conversion
-    __delay_cycles(1000);
+    // __delay_cycles(1000);
+    _no_operation();
 }
 
 short GetADC_12(){

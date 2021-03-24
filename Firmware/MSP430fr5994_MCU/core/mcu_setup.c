@@ -7,11 +7,19 @@ short BUILDING_TRANSMITTER = 1;
 short BUILDING_TRANSMITTER = 0;
 #endif
 
+#ifdef RUN_TESTS
+short RUN_MCU_TESTS = 1;
+#endif
+#ifndef RUN_TESTS
+short RUN_MCU_TESTS = 0;
+#endif
+
 short mc_setup(){
     WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
     PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
 
-    short RUN_MCU_TESTS = 0;
+    // P3DIR |= 0x80;
+    
 
 
     if ( BUILDING_TRANSMITTER == 1 ) {
@@ -19,10 +27,9 @@ short mc_setup(){
    } else {
         buildReceiver();
    };
-
-    if ( RUN_MCU_TESTS == 1 ){
-        return runTests(BUILDING_TRANSMITTER);
-    };
+    if ( RUN_MCU_TESTS == 1 ) {
+//        return runTests(BUILDING_TRANSMITTER);
+   }
 
 /// General Build
     ConfigureADC12Pins(BUILDING_TRANSMITTER); // ADC SENSORS
@@ -30,12 +37,11 @@ short mc_setup(){
     // setUpLCD();
     main_clock_interrupt();
 
-    runTests(BUILDING_TRANSMITTER);
+    // runTests(BUILDING_TRANSMITTER);
 
 /// TO-DO: We need to integrate interrupts by grade / priority levels.
 
 /// PUT AUXILIARY CODE BELOW
-
 
 
 

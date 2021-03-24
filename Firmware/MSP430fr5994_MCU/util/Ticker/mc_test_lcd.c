@@ -7,16 +7,22 @@ void testLCD(){
     // WDTCTL= WDTPW + WDTSSEL_0 + WDTTMSEL + WDTIS_2; // Setup Watch dog timer for 0.5 second tick using 16MHz DCO on MSP430FR5994
     // SFRIE1 |= WDTIE;// Set range to calibrated 1MHz
     // Unlock the system.
-    // P4DIR |= 0x0E;  // Allows attention to Port 4 Pins 1, 2, & 3
-    // P2DIR |= 0x60;  // Allows attention to Port 2 Pins 5 & 6
-    // NOTE Skip 1 pin
-    // P3DIR |= 0x78;  // Allows attention to Port 3 Pisn 4, 5, & 6  
-    P4DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
+    P3DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
     P8DIR |= 0x01;      // Enables LCD ENABLE PIN
     P7DIR |= 0x1C;      // Enables LCD RS, RW, & B
-    P4OUT &= ~0xFF;     // Below sets all pins to LOW
+
+    P3OUT &= ~0xFF;     // Below sets all pins to LOW
     P8OUT &= ~0x01;
     P7OUT &= ~0x1C;
+
+    // P4DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
+    // P8DIR |= 0x01;      // Enables LCD ENABLE PIN
+    // P7DIR |= 0x1C;      // Enables LCD RS, RW, & B
+
+    // P4OUT &= ~0xFF;     // Below sets all pins to LOW
+    // P8OUT &= ~0x01;
+    // P7OUT &= ~0x1C;
+    
 
 
 

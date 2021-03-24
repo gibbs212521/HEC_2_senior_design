@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "scheduler.h"
 
 
@@ -134,6 +132,7 @@ void __run_task__(struct MCScheduler * self){
 
 void _run_micro_controller_(struct MCScheduler * self){
     for(;;){
+        __no_operation();
         // Check for Interrupt
         _enable_interrupt();
         self->select_next_task(self);
@@ -197,5 +196,7 @@ void buildScheduler(struct MCScheduler * self){
     self->set_current_task(self, __BLUETOOTH_TASK__);
     self->set_last_task(self, __NO_TASK__);
     self->set_next_task(self, __LCD_TASK__);
+    resetCommUART();
+    UCA0TXBUF = 'A';
     return;
 }

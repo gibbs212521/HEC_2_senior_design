@@ -23,6 +23,9 @@
         "clock_interrupt.h": "c",
         "build_receiver.h": "c",
         "mc_tests.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "stdio.h": "c",
+        "bluetooth_init.h": "c",
+        "stdlib.h": "c"
     }
 }

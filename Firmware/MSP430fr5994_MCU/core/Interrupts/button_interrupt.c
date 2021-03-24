@@ -1,4 +1,5 @@
 #include "button_interrupt.h"
+#include <stdio.h>
 
 /// TODO: Move toward Port 2 with pins 2,3,4,& 7 for interrupt 
 ///         via replacing BIT6 with BIT_REFERENCE
@@ -51,11 +52,11 @@ void set_button_interrupts(short build_transmitter){
 void button0_push(){ // Port 2 Pin 2
     if (_compile_transmitter == 0x01){
     P5OUT |= 0X01;  /// Enables Transmitter's Coil
-    // P1OUT ^= 0x03;
     } else {
     P5OUT ^= 0x08;
-    // P1OUT ^= 0x01;
     };
+    P1OUT ^= 0x01;
+    printf("\nTEST THIS OUT\n");
 }
 
 
@@ -75,8 +76,8 @@ void button3_push(){ // Port 2 Pin 7
    P5OUT ^= 0X06; // toggles both red and green LEDs
 }
 
-//#pragma vector = P2IV__P2IFG7 // Set Compiler watch Port 2 Interrupt Vector
-#pragma vector = PORT2_VECTOR // Set Compiler watch Port 2 Interrupt Vector
+// #pragma vector = PORT2_VECTOR // Set Compiler watch Port 2 Interrupt Vector
+#pragma vector = P2IV_2 // Set Compiler watch Port 2 Interrupt Vector
 __interrupt void PORT2_BUTTON_ISR(void){
     switch(__even_in_range(P2IV, P2IV__P2IFG7))
     {

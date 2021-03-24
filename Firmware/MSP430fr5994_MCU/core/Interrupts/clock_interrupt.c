@@ -4,6 +4,7 @@ void main_clock_interrupt(){
 //  WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
 //  PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
 
+    P1DIR |= 0x03;
     P5DIR |= 0x03;
     P5OUT &= ~0x03; // Sets Pin 2 of Port 5 to LOW
 
@@ -14,20 +15,24 @@ void main_clock_interrupt(){
 // SMCLK --> SM === Subsystem Master  :: Subsystem Master Clock
 // With MC__UP, timer counts up to TAxCCR0
 // ID__4 selects an internal 4x divider for the supplied clock 
+// ID_0 selects an internal 1x divider for the supplied clock 
 // 1000 kHz / 4 = 250 kHz --> 250 ms period
-    TA0CTL = TASSEL_2 | MC__UP | ID__4;
-//  TA0CCR0 = 10000; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period 
-    TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 10000 ticks  --> 0.25 second period
+// TAIE === Timer A Interrupt Enabled Bit
+    TA0CTL = TASSEL_2 | MC__UP | ID__4 | TAIE;
+    // TA0CCR0 = 500; // Timer Limit :: Timer counts up to 500 ticks   --> 0.25 second period
+    TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 62500 ticks
+    // TA0CCR0 = 10500; // Timer Limit :: Timer counts up to 10500 ticks
 //  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
-//  TA0CCR0 = 4; // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
+//  Divide 10,500 by 1,000,000 & Multiply by 4  --> 0.05 second period 
+// Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
 }
 
 // Timer interrupt service routine
 #pragma vector = TIMER0_A0_VECTOR   // Set Compiler to note to Vector (Memory Address for TimerA0)
 __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void){  // Question on overflow datatype  /// Set interrupt error handler to respond when vector above is initiated with interrupt routine.
 //  mc_critical_tasks();
-    P5OUT ^= 0x03; // Toggle P1.0 & P1.1 via exlcusive or bit masking
-//P1OUT ^= BIT0; // Toggle P1.0
+    P3OUT ^= 0x80;
+    P1OUT ^= 0x02;; // Toggle P1.0
   /*
   Toggle Visualization
   P1OUT = 0b00011100

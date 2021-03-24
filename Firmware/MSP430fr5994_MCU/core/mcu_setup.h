@@ -12,7 +12,10 @@
 #include <ctype.h>
 
 #ifndef COMPILE_TRANSMITTER
+#ifndef RUN_TESTS
 // #define COMPILE_TRANSMITTER  /// COMMENT TO BUILD (COMPILE) RECEIVER
+#define RUN_TESTS            /// COMMENT TO BUILD PRODUCTION CODE 
+#endif
 #include "Pins/pins.h"
 #include "Builds/build_receiver.h"
 #include "Builds/build_transmitter.h"
