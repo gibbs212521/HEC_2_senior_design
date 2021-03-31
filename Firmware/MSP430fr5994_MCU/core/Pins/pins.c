@@ -24,18 +24,30 @@ short ConfigureADC12Pins(short build_transmitter){
     P3SEL1 |= BIT3;
     P3SEL0 |= BIT3;
 
-
     // Disable the GPIO power-on default high-impedance mode to activate
     // previously configured port settings
     // PM5CTL0 &= ~LOCKLPM5;
 
-    // Configure ADC12
+    
+
+    // General ADC Configuration
     ADC12CTL0 &= ~ADC12ENC;
-    ADC12CTL0 = ADC12SHT0_2 | ADC12ON;      // Sampling time, S&H=16, ADC12 on
-    ADC12CTL1 = ADC12SHP;                   // Use sampling timer
-    ADC12CTL2 |= ADC12RES_2;                // 12-bit conversion results
-    ADC12MCTL0 |= ADC12INCH_12;              // A1 ADC input select; Vref=AVCC
-    ADC12IER0 |= ADC12IE12;                  // Enable ADC conv complete interrupt
+    ADC12CTL0 = ADC12SHT0_3 | ADC12ON;      // Sampling time, S&H=16, ADC12 on
+    ADC12CTL1 = ADC12SHP;// | ADC12SSEL_3;                   // Use sampling timer
+    ADC12CTL2 |= ADC12RES_1;//ADC12RES_2;                // 12-bit conversion results
+    // ADC12CTL3 |= 0x000F;
+    // Enable ADC conv complete interrupt (ADC Pin 0-15)
+    ADC12IER0 = ADC12IE12 | ADC12IE13 | ADC12IE14 | ADC12IE15;
+    
+    // Configure ADC12 and/or ADC13
+    ADC12MCTL12 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_15;//ADC12INCH_12;// ADC12INCH_12 | ADC12INCH_13 | ADC12INCH_14 | ADC12INCH_15;//ADC12INCH_12;              // A1 ADC input select; Vref=AVCC
+    // ADC12MCTL13 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_13;//  ADC12INCH_12 | ADC12INCH_13 | ADC12INCH_14 | ADC12INCH_15;//ADC12INCH_13;              // A1 ADC input select; Vref=AVCC
+    
+    // // Configure ADC14
+    // ADC12MCTL14 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_14;//  ADC12INCH_12 | ADC12INCH_13 | ADC12INCH_14 | ADC12INCH_15;//ADC12INCH_14;              // A1 ADC input select; Vref=AVCC
+
+    // // Configure ADC15
+    // ADC12MCTL15 = ADC12EOS | ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_15;//  ADC12INCH_12 | ADC12INCH_13 | ADC12INCH_14 | ADC12INCH_15;//ADC12INCH_15;              // A1 ADC input select; Vref=AVCC
 
     // while (1)
     // {
@@ -101,6 +113,8 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
 
             //     // Exit from LPM0 and continue executing main
             //     __bic_SR_register_on_exit(LPM0_bits);
+            P5OUT ^= 0x04;
+            __bic_SR_register_on_exit(LPM4_bits);
             break;
         case ADC12IV__ADC12IFG1:   break;   // Vector 14:  ADC12MEM1
         case ADC12IV__ADC12IFG2:   break;   // Vector 16:  ADC12MEM2
@@ -113,10 +127,19 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
         case ADC12IV__ADC12IFG9:   break;   // Vector 30:  ADC12MEM9
         case ADC12IV__ADC12IFG10:  break;   // Vector 32:  ADC12MEM10
         case ADC12IV__ADC12IFG11:  break;   // Vector 34:  ADC12MEM11
-        case ADC12IV__ADC12IFG12:  break;   // Vector 36:  ADC12MEM12
-        case ADC12IV__ADC12IFG13:  break;   // Vector 38:  ADC12MEM13
-        case ADC12IV__ADC12IFG14:  break;   // Vector 40:  ADC12MEM14
-        case ADC12IV__ADC12IFG15:  break;   // Vector 42:  ADC12MEM15
+        case ADC12IV__ADC12IFG12:  
+            __bic_SR_register_on_exit(LPM4_bits);
+            break;   // Vector 36:  ADC12MEM12
+        case ADC12IV__ADC12IFG13:  
+            __bic_SR_register_on_exit(LPM4_bits);
+            break;   // Vector 38:  ADC12MEM13
+        case ADC12IV__ADC12IFG14:  
+            __bic_SR_register_on_exit(LPM4_bits);
+            break;   // Vector 40:  ADC12MEM14
+        case ADC12IV__ADC12IFG15:  
+            __bic_SR_register_on_exit(LPM4_bits);
+            // P5OUT ^= 0x04;
+            break;   // Vector 42:  ADC12MEM15
         case ADC12IV__ADC12IFG16:  break;   // Vector 44:  ADC12MEM16
         case ADC12IV__ADC12IFG17:  break;   // Vector 46:  ADC12MEM17
         case ADC12IV__ADC12IFG18:  break;   // Vector 48:  ADC12MEM18
@@ -136,6 +159,7 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
         case ADC12IV__ADC12RDYIFG: break;   // Vector 76:  ADC12RDY
         default: break;
      }
+    __bic_SR_register_on_exit(LPM4_bits);
 }
 
 
