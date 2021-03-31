@@ -1,60 +1,71 @@
 #include "mc_test_lcd.h"
+#include "stdio.h"
 
 void testLCD(){
     
-
-
-    // WDTCTL= WDTPW + WDTSSEL_0 + WDTTMSEL + WDTIS_2; // Setup Watch dog timer for 0.5 second tick using 16MHz DCO on MSP430FR5994
-    // SFRIE1 |= WDTIE;// Set range to calibrated 1MHz
-    // Unlock the system.
-    P3DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
-    P8DIR |= 0x01;      // Enables LCD ENABLE PIN
-    P7DIR |= 0x1C;      // Enables LCD RS, RW, & B
-
-    P3OUT &= ~0xFF;     // Below sets all pins to LOW
-    P8OUT &= ~0x01;
-    P7OUT &= ~0x1C;
-
-    // P4DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
+    /// Test Board Build
+    // P3DIR |= 0xFF;      // Enables all pins on Port 3 as LCD Output Port
     // P8DIR |= 0x01;      // Enables LCD ENABLE PIN
     // P7DIR |= 0x1C;      // Enables LCD RS, RW, & B
 
-    // P4OUT &= ~0xFF;     // Below sets all pins to LOW
+    // P3OUT &= ~0xFF;     // Below sets all pins to LOW
     // P8OUT &= ~0x01;
     // P7OUT &= ~0x1C;
-    
 
+    /// Production Build
+    /// p8.0 --> HIGH
 
+    // IF YOU SWAP TO BOTTOM, CHANGE RESPECTIVE LINES IN hd44780.h 
+    //    // (128 & 301)  <P3OUT vs P4OUT>
 
-    // P1DIR = 0xFF;                                    // Set P1.0 (D0) to P1.7 (D7)
-    // P2DIR = (0x01 | 0x02);                      // Set P2.0 (E) and P2.1 (RS) to output
-    TA0CCR1  = 1000;                                 // Set CCR1 value for 31000 ms interrupt
-    TA0CCTL1 = CCIE;                                  // Compare interrupt enable
-    TA0CTL   = (TASSEL_2 | MC_2 | TACLR);  //SMCLK, Continuous mode
-    __bis_SR_register( GIE );                            // Enable global interrupts
+    P4DIR |= 0xFF;      // Enables all pins on Port 4 as LCD Output Port
+    P8DIR |= 0x01;      // Enables LCD ENABLE PIN
+    P7DIR |= 0x1C;      // Enables LCD RS, RW, & B
+
+    P4OUT &= ~0xFF;     // Below sets all pins to LOW
+    P7OUT &= 0x10;
+    P7OUT |= 0x04;
+    // P7OUT |= 0x8C;
+
+    // __bis_SR_register( GIE );                            // Enable global interrupts
     hd44780_clear_screen();                             // Clear display content
-    // while( 1 ){              
-        hd44780_write_string( "HEC project!  ", 1, 1, NO_CR_LF );
-    // }
+    // hd44780_timer_isr();
+    hd44780_write_string( "HEC project!  ", 1, 1, NO_CR_LF );
+    hd44780_timer_isr();
+    // TA1CTL |= TAIE;
 }
 // Directive for timer interrupt
 #pragma vector = TIMER0_A1_VECTOR
-__interrupt void timer_0_a1_isr( void ){                     // Timer 0 A1 interrupt service
-  switch( TA0IV )                                                        // Determine interrupt source
-  {
-    case 2:                                                                   // CCR1 caused the interrupt
-    {
-        TA0CCR1 += 1000;
-        hd44780_timer_isr();                                          // Call HD44780 state machine
-        break;                                                                        // CCR1 interrupt handling done
+__interrupt void TIMERA1_TEST_TIMER_OVERFLOW_ISR( void ){ // Timer 0 A1 interrupt service
+    switch(__even_in_range(TA0IV, TAIV__TAIFG)){
+        case TAIV__NONE:   break;           // No interrupt
+        case TAIV__TACCR1:
+            // P1OUT ^= 0x01;
+            P5OUT ^= 0x08;
+            // hd44780_write_string( "HEC project!  ", 1, 1, NO_CR_LF );
+            hd44780_timer_isr();
+            break;           // CCR1
+        case TAIV__TACCR2:
+            // P1OUT ^= 0x03;
+            break;           // CCR2 not used
+        case TAIV__TACCR3: break;           // reserved
+        case TAIV__TACCR4: break;           // reserved
+        case TAIV__TACCR5: break;           // reserved
+        case TAIV__TACCR6: break;           // reserved
+        case TAIV__TAIFG:                   // overflow
+            // P1OUT ^= 0x03;
+            break;
+        default: break;
     }
-    default :
-        break;
-  }
+    // printf("SEE THESE");
+    //   TB0CCR0 += 1000; 
+    //   hd44780_timer_isr();
+    //   P1OUT ^= 0x01;
+    __bic_SR_register_on_exit(LPM4_bits);
 }
 
 int _system_pre_init( void ) // This function is called before anything else is done
 {
-  WDTCTL = (WDTPW | WDTHOLD); // Stop watchdog timer
-  return 1; // Return 1
+    WDTCTL = (WDTPW | WDTHOLD); // Stop watchdog timer
+    return 1; // Return 1
 }

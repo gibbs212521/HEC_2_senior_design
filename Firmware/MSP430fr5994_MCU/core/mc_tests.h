@@ -10,7 +10,6 @@
 // #include "Interrupts/button_interrupt.h"
 // #include "Pins/pins.h"
 #include <ctype.h>
-#include "../util/Ticker/mc_test_lcd.h"
 
 short runTests(short transmitter_built);
 

@@ -6,13 +6,13 @@ void mc_set_comm(short *POWER_LEVEL){
 }
 
 void mc_comm_controller(){
-    printf("THIS SHOULD TALK TO THE PAIR");
+    printf("THIS SHOULD TALK TO THE PAIR\n");
 }
 
 void mc_comm_local(){
-    printf("THIS SHOULD TALK TO THE PAIR");
+    printf("THIS SHOULD TALK TO THE PAIR\n");
 }
 
 void mc_comm_gui(){
-    printf("THIS SHOULD TALK TO THE PAIR");
+    printf("THIS SHOULD TALK TO THE PAIR\n");
 }

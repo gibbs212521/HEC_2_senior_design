@@ -1,6 +1,4 @@
 #include "pins.h"
-#include <stdio.h>
-#include <msp430fr5994.h>
 
 
 short _compile_transmitter_pins = 0x00;
@@ -10,7 +8,7 @@ short ConfigureADC12Pins(short build_transmitter){
         // P1OUT |= 0x03;
         _compile_transmitter_pins = 0x01;
     }
-    WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
+    // WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
 
     // GPIO Setup
                     // Configure P3.0 for ADC  (ADC12)
@@ -29,7 +27,7 @@ short ConfigureADC12Pins(short build_transmitter){
 
     // Disable the GPIO power-on default high-impedance mode to activate
     // previously configured port settings
-    PM5CTL0 &= ~LOCKLPM5;
+    // PM5CTL0 &= ~LOCKLPM5;
 
     // Configure ADC12
     ADC12CTL0 &= ~ADC12ENC;

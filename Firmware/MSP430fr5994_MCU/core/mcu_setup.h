@@ -13,7 +13,7 @@
 
 #ifndef COMPILE_TRANSMITTER
 #ifndef RUN_TESTS
-// #define COMPILE_TRANSMITTER  /// COMMENT TO BUILD (COMPILE) RECEIVER
+#define COMPILE_TRANSMITTER  /// COMMENT TO BUILD (COMPILE) RECEIVER
 #define RUN_TESTS            /// COMMENT TO BUILD PRODUCTION CODE 
 #endif
 #include "Pins/pins.h"
@@ -21,12 +21,13 @@
 #include "Builds/build_transmitter.h"
 #include "Interrupts/clock_interrupt.h"
 #include "Interrupts/button_interrupt.h"
+#include "../util/Ticker/mc_ticker_init.h"
 #endif
 
  #include "mc_tests.h"
 
 
 short mc_setup();
-
+void reset_pins();
 
 #endif

@@ -11,15 +11,17 @@ short main(){
    mc_setup();
    struct MCScheduler mc_scheduler;
     buildScheduler(&mc_scheduler);
-   // mc_scheduler.check_shutdown_interrupt = SOME_SHUTDOWN_INTERRUPT
-   // mc_scheduler.check_button_interrupt = SOME_BUTTON_INTERRUPT
-   // mc_scheduler.check_timer_interrupt = SOME_TIMER_INTERRUPT
+// //    mc_scheduler.check_shutdown_interrupt = SOME_SHUTDOWN_INTERRUPT
+//    // mc_scheduler.check_button_interrupt = SOME_BUTTON_INTERRUPT
+//    // mc_scheduler.check_timer_interrupt = SOME_TIMER_INTERRUPT
     mc_scheduler.runMC(&mc_scheduler);
 
-   _enable_interrupt();
-   while(1){
-      _no_operation();
-   }
+   // _enable_interrupt();
+  while(1){
+//     _enable_interrupt();
+    __bis_SR_register(LPM0_bits | GIE);
+    _no_operation();
+  }
 
    return 0;
 }

@@ -105,8 +105,8 @@
 
 // ########## INSERT YOUR CONFIGURATION: Define the hardware connection for ENABLE of HD44780 ################################################################################
 //                                                                                                                                                                           #
-#define HD44780_ENABLE_MCU_OUT_PORT         P8OUT          // Define MCU output port that is connected to ENABLE of HD44780                                                  #
-#define HD44780_ENABLE_MCU_OUT_PIN          0x01//BIT0           // Define MCU output pin that is connected to ENABLE of HD44780                                                   #
+#define HD44780_ENABLE_MCU_OUT_PORT         P7OUT          // Define MCU output port that is connected to ENABLE of HD44780                                                  #
+#define HD44780_ENABLE_MCU_OUT_PIN          0x10//BIT4           // Define MCU output pin that is connected to ENABLE of HD44780                                                   #
 //#define HD44780_ENABLE_INVERTED                          // Enable if signal for ENABLE is inverted by external hardware                                                   #
 //                                                                                                                                                                           #
 // ###########################################################################################################################################################################

@@ -40,9 +40,9 @@ __interrupt void PORT5_PIN6_BUTTON_ISR(void)
         case P5IV__P5IFG4:  break;          // Vector  10:  P5.4 interrupt flag
         case P5IV__P5IFG5:  break;          // Vector  12:  P5.5 interrupt flag
         case P5IV__P5IFG6:  
-            P5IES ^= BIT1;                  // Toggle interrupt edge
+            // P5IES ^= BIT1;                  // Toggle interrupt edge
             __bic_SR_register_on_exit(LPM4_bits); // Exit LPM4
-            P1OUT ^= 0x03;                      // Toggles Green LED (Port 1 Pin 1)
+            // P1OUT ^= 0x03;                      // Toggles Green LED (Port 1 Pin 1)
             break;                          // Vector  14:  P5.6 interrupt flag
         case P5IV__P5IFG7:  break;          // Vector  16:  P5.7 interrupt flag
         default: break;

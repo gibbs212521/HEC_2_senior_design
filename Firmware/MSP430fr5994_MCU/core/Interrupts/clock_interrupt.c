@@ -1,13 +1,6 @@
 #include "clock_interrupt.h"
 
 void main_clock_interrupt(){
-//  WDTCTL = WDTPW | WDTHOLD; // stop watchdog timer
-//  PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
-
-    P1DIR |= 0x03;
-    P5DIR |= 0x03;
-    P5OUT &= ~0x03; // Sets Pin 2 of Port 5 to LOW
-
 // setting CCIE bit in the TA0CCTL0 register
     TA0CCTL0 = CCIE; // TAxCCR0 interrupt enabled
 // TA0CTL specifies Timer A0 control register
@@ -18,21 +11,34 @@ void main_clock_interrupt(){
 // ID_0 selects an internal 1x divider for the supplied clock 
 // 1000 kHz / 4 = 250 kHz --> 250 ms period
 // TAIE === Timer A Interrupt Enabled Bit
-    TA0CTL = TASSEL_2 | MC__UP | ID__4 | TAIE;
+    TA0CTL = TASSEL_2 | MC__UP | ID__8;// | TAIE;
     // TA0CCR0 = 500; // Timer Limit :: Timer counts up to 500 ticks   --> 0.25 second period
-    TA0CCR0 = 62500; // Timer Limit :: Timer counts up to 62500 ticks
+    TA0CCR0 = 31250; // Timer 0 Limit :: Timer counts up to 62500 ticks
     // TA0CCR0 = 10500; // Timer Limit :: Timer counts up to 10500 ticks
 //  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
 //  Divide 10,500 by 1,000,000 & Multiply by 4  --> 0.05 second period 
 // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
+    // TA0CTL |= TAIE;
+
+    /// Additional Timer Interrupts
+      // * NOTE * CCRx cannot exceed CCR0 for MC__UP
+
+    /// CRR1 used for LCD Display Ticker
+    TA0CCTL1 = CCIE; // TAxCCR1 interrupt enabled
+    TA0CCR1 = 20000; // Timer 0 CCR1
 }
 
 // Timer interrupt service routine
 #pragma vector = TIMER0_A0_VECTOR   // Set Compiler to note to Vector (Memory Address for TimerA0)
 __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void){  // Question on overflow datatype  /// Set interrupt error handler to respond when vector above is initiated with interrupt routine.
 //  mc_critical_tasks();
-    P3OUT ^= 0x80;
-    P1OUT ^= 0x02;; // Toggle P1.0
+    P3OUT ^= 0x80;  // Production Build  /// MCU_Clock_on
+    __bic_SR_register_on_exit(LPM4_bits);
+}
+
+  /// Pin Tutorial Below ///
+
+    // P1OUT ^= 0x02; // Toggle P1.1
   /*
   Toggle Visualization
   P1OUT = 0b00011100
@@ -56,4 +62,3 @@ __interrupt void TIMERA_TIMER_OVERFLOW_ISR(void){  // Question on overflow datat
  ^0b00000011
  =0b00000001
   */
-}
