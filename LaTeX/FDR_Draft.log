@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.2.23)  23 FEB 2021 06:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.2.23)  12 APR 2021 13:03
 entering extended mode
 **C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/FDR_Draft.
 tex
@@ -869,8 +869,231 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 \zifour@ocount=\count426
 )
+(D:\Programs\MikTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2020/10/09 version 4.42 text color boxes
 
-Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 187.
+(D:\Programs\MikTeX\tex/latex/pgf/basiclayer\pgf.sty
+(D:\Programs\MikTeX\tex/latex/pgf/utilities\pgfrcs.sty
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfutil-common.tex
+\pgfutil@everybye=\toks27
+\pgfutil@tempdima=\dimen185
+\pgfutil@tempdimb=\dimen186
+
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfutil-common-lists.tex))
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfutil-latex.def
+\pgfutil@abb=\box97
+)
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfrcs.code.tex
+(D:\Programs\MikTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2020/12/27 v3.1.8b (3.1.8b)
+))
+Package: pgf 2020/12/27 v3.1.8b (3.1.8b)
+
+(D:\Programs\MikTeX\tex/latex/pgf/basiclayer\pgfcore.sty
+(D:\Programs\MikTeX\tex/latex/pgf/systemlayer\pgfsys.sty
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgfsys.code.tex
+Package: pgfsys 2020/12/27 v3.1.8b (3.1.8b)
+
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks28
+\pgfkeys@temptoks=\toks29
+
+(D:\Programs\MikTeX\tex/generic/pgf/utilities\pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks30
+))
+\pgf@x=\dimen187
+\pgf@y=\dimen188
+\pgf@xa=\dimen189
+\pgf@ya=\dimen190
+\pgf@xb=\dimen191
+\pgf@yb=\dimen192
+\pgf@xc=\dimen193
+\pgf@yc=\dimen194
+\pgf@xd=\dimen195
+\pgf@yd=\dimen196
+\w@pgf@writea=\write5
+\r@pgf@reada=\read4
+\c@pgf@counta=\count427
+\c@pgf@countb=\count428
+\c@pgf@countc=\count429
+\c@pgf@countd=\count430
+\t@pgf@toka=\toks31
+\t@pgf@tokb=\toks32
+\t@pgf@tokc=\toks33
+\pgf@sys@id@count=\count431
+
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgf.cfg
+File: pgf.cfg 2020/12/27 v3.1.8b (3.1.8b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2020/12/27 v3.1.8b (3.1.8b)
+
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfsyssoftpath@smallbuffer@items=\count432
+\pgfsyssoftpath@bigbuffer@items=\count433
+)
+(D:\Programs\MikTeX\tex/generic/pgf/systemlayer\pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+))
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcore.code.tex
+Package: pgfcore 2020/12/27 v3.1.8b (3.1.8b)
+
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmath.code.tex
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathcalc.code.tex
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathutil.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathparser.code.tex
+\pgfmath@dimen=\dimen197
+\pgfmath@count=\count434
+\pgfmath@box=\box98
+\pgfmath@toks=\toks34
+\pgfmath@stack@operand=\toks35
+\pgfmath@stack@operation=\toks36
+)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.code.tex
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.basic.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.trigonometric.code.te
+x) (D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.random.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.comparison.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.base.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.round.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.misc.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfunctions.integerarithmetics.co
+de.tex))) (D:\Programs\MikTeX\tex/generic/pgf/math\pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count435
+))
+(D:\Programs\MikTeX\tex/generic/pgf/math\pgfint.code.tex)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@picminx=\dimen198
+\pgf@picmaxx=\dimen199
+\pgf@picminy=\dimen256
+\pgf@picmaxy=\dimen257
+\pgf@pathminx=\dimen258
+\pgf@pathmaxx=\dimen259
+\pgf@pathminy=\dimen260
+\pgf@pathmaxy=\dimen261
+\pgf@xx=\dimen262
+\pgf@xy=\dimen263
+\pgf@yx=\dimen264
+\pgf@yy=\dimen265
+\pgf@zx=\dimen266
+\pgf@zy=\dimen267
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@path@lastx=\dimen268
+\pgf@path@lasty=\dimen269
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@shorten@end@additional=\dimen270
+\pgf@shorten@start@additional=\dimen271
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfpic=\box99
+\pgf@hbox=\box100
+\pgf@layerbox@main=\box101
+\pgf@picture@serial@count=\count436
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgflinewidth=\dimen272
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@pt@x=\dimen273
+\pgf@pt@y=\dimen274
+\pgf@pt@temp=\dimen275
+) (D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfarrowsep=\dimen276
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@max=\dimen277
+\pgf@sys@shading@range@num=\count437
+\pgf@shadingcount=\count438
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfexternal@startupbox=\box102
+))
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/generic/pgf/basiclayer\pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)))
+(D:\Programs\MikTeX\tex/generic/pgf/modules\pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+\pgfnodeparttextbox=\box103
+)
+(D:\Programs\MikTeX\tex/generic/pgf/modules\pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/12/27 v3.1.8b (3.1.8b)
+)
+(D:\Programs\MikTeX\tex/latex/pgf/compatibility\pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/12/27 v3.1.8b (3.1.8b)
+\pgf@nodesepstart=\dimen278
+\pgf@nodesepend=\dimen279
+)
+(D:\Programs\MikTeX\tex/latex/pgf/compatibility\pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/12/27 v3.1.8b (3.1.8b)
+))
+(D:\Programs\MikTeX\tex/latex/latex-tools\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks37
+\verbatim@line=\toks38
+\verbatim@in@stream=\read5
+)
+(D:\Programs\MikTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(D:\Programs\MikTeX\tex/latex/trimspaces\trimspaces.sty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks39
+)
+\tcb@titlebox=\box104
+\tcb@upperbox=\box105
+\tcb@lowerbox=\box106
+\tcb@phantombox=\box107
+\c@tcbbreakpart=\count439
+\c@tcblayer=\count440
+\c@tcolorbox@number=\count441
+\tcb@temp=\box108
+\tcb@temp=\box109
+\tcb@temp=\box110
+\tcb@temp=\box111
+\tcb@out=\write6
+\tcb@record@out=\write7
+)
+
+Package csquotes Warning: Load 'inputenc' before 'csquotes' on input line 186.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -878,31 +1101,29 @@ Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
 (D:\Programs\MikTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count427
-\l__pdf_internal_box=\box97
-)
-(C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX\FDR_Draft.a
-ux)
+\l__color_backend_stack_int=\count442
+\l__pdf_internal_box=\box112
+) (FDR_Draft.aux)
 \openout1 = `FDR_Draft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 187.
-LaTeX Font Info:    ... okay on input line 187.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 186.
+LaTeX Font Info:    ... okay on input line 186.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -940,17 +1161,17 @@ LaTeX Font Info:    ... okay on input line 187.
 
 (D:\Programs\MikTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count428
-\scratchdimen=\dimen185
-\scratchbox=\box98
-\nofMPsegments=\count429
-\nofMParguments=\count430
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count431
-\MPscratchDim=\dimen186
-\MPnumerator=\count432
-\makeMPintoPDFobject=\count433
-\everyMPtoPDFconversion=\toks28
+\scratchcounter=\count443
+\scratchdimen=\dimen280
+\scratchbox=\box113
+\nofMPsegments=\count444
+\nofMParguments=\count445
+\everyMPshowfont=\toks40
+\MPscratchCnt=\count446
+\MPscratchDim=\dimen281
+\MPnumerator=\count447
+\makeMPintoPDFobject=\count448
+\everyMPtoPDFconversion=\toks41
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
@@ -987,13 +1208,44 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 \openout4 = `FDR_Draft-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'FDR_Draft.bbl' not found.
+Package biblatex Info: ... file 'FDR_Draft.bbl' found.
 
-No file FDR_Draft.bbl.
-Package biblatex Info: Reference section=0 on input line 187.
-Package biblatex Info: Reference segment=0 on input line 187.
-Package hyperref Info: Link coloring ON on input line 187.
-(D:\Programs\MikTeX\tex/latex/hyperref\nameref.sty
+(FDR_Draft.bbl
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'WiboSHPS':
+(biblatex)                - Invalid format of field 'urldate'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'MSP430FR599x':
+(biblatex)                - Invalid format of field 'urldate'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'testKit':
+(biblatex)                - Invalid format of field 'urldate'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'TPSM265R1':
+(biblatex)                - Invalid format of field 'urldate'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'TPS54160':
+(biblatex)                - Invalid format of field 'urldate'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'rfCond':
+(biblatex)                - Invalid format of field 'urldate'.
+
+)
+Package biblatex Info: Reference section=0 on input line 186.
+Package biblatex Info: Reference segment=0 on input line 186.
+Package hyperref Info: Link coloring ON on input line 186.
+ (D:\Programs\MikTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
 (D:\Programs\MikTeX\tex/latex/refcount\refcount.sty
@@ -1002,20 +1254,18 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (D:\Programs\MikTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count434
+\c@section@level=\count449
 )
-LaTeX Info: Redefining \ref on input line 187.
-LaTeX Info: Redefining \pageref on input line 187.
-LaTeX Info: Redefining \nameref on input line 187.
+LaTeX Info: Redefining \ref on input line 186.
+LaTeX Info: Redefining \pageref on input line 186.
+LaTeX Info: Redefining \nameref on input line 186.
 
-(C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX\FDR_Draft.o
-ut)
-(C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX\FDR_Draft.o
-ut)
-\@outlinefile=\write5
-\openout5 = `FDR_Draft.out'.
+(FDR_Draft.out) (FDR_Draft.out)
+\@outlinefile=\write8
+\openout8 = `FDR_Draft.out'.
 
- (D:\Programs\MikTeX\tex/latex/pdflscape\pdflscape.sty
+
+(D:\Programs\MikTeX\tex/latex/pdflscape\pdflscape.sty
 Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
 
 (D:\Programs\MikTeX\tex/latex/graphics\lscape.sty
@@ -1027,7 +1277,1342 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
 tim
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 189
+LaTeX Font Info:    Trying to load font information for U+msa on input line 188
 .
 
 (D:\Programs\MikTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 188
+.
+
+(D:\Programs\MikTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{C:/Users/gibbo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [1] [2] (FD
+R_Draft.toc [3] [4])
+\tf@toc=\write9
+\openout9 = `FDR_Draft.toc'.
+
+ [5]
+(FDR_Draft.lof)
+\tf@lof=\write10
+\openout10 = `FDR_Draft.lof'.
+
+ [6] (FDR_Draft.lot)
+\tf@lot=\write11
+\openout11 = `FDR_Draft.lot'.
+
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 280--281
+
+ []
+
+[1]
+<./images//black_box_power.png, id=724, 540.51938pt x 217.5628pt>
+File: ./images//black_box_power.png Graphic file (type png)
+<use ./images//black_box_power.png>
+Package pdftex.def Info: ./images//black_box_power.png  used on input line 292.
+
+(pdftex.def)             Requested size: 379.41585pt x 152.72116pt.
+ [2 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+black_box_power.png>]
+<./images//power_supply_diagram.png, id=732, 735.49782pt x 328.22626pt>
+File: ./images//power_supply_diagram.png Graphic file (type png)
+<use ./images//power_supply_diagram.png>
+Package pdftex.def Info: ./images//power_supply_diagram.png  used on input line
+ 316.
+(pdftex.def)             Requested size: 415.55168pt x 185.44817pt.
+<./images//transmitter_diagram.png, id=733, 289.83281pt x 353.06906pt>
+File: ./images//transmitter_diagram.png Graphic file (type png)
+<use ./images//transmitter_diagram.png>
+Package pdftex.def Info: ./images//transmitter_diagram.png  used on input line 
+323.
+(pdftex.def)             Requested size: 185.19353pt x 225.60246pt.
+<./images//receiver_diagram.png, id=734, 360.59718pt x 338.01282pt>
+File: ./images//receiver_diagram.png Graphic file (type png)
+<use ./images//receiver_diagram.png>
+Package pdftex.def Info: ./images//receiver_diagram.png  used on input line 324
+.
+(pdftex.def)             Requested size: 240.2967pt x 225.24504pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 319--328
+
+ []
+
+[3 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/p
+ower_supply_diagram.png> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior
+_design/LaTeX/images/transmitter_diagram.png> <C:/Users/gibbo/OneDrive/Document
+s/GitHub/HEC_2_senior_design/LaTeX/images/receiver_diagram.png>] [4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 463--465
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 466--468
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 469--471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 472--474
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 490--492
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 493--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 496--498
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 506--508
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 511--513
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 514--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 522--524
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 525--527
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 535--537
+
+ []
+
+<./images//pcb_JA_theta.png, id=770, 294.34969pt x 213.79875pt>
+File: ./images//pcb_JA_theta.png Graphic file (type png)
+<use ./images//pcb_JA_theta.png>
+Package pdftex.def Info: ./images//pcb_JA_theta.png  used on input line 553.
+(pdftex.def)             Requested size: 370.38707pt x 269.03224pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 564--583
+
+ []
+
+[10 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+pcb_JA_theta.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 602--604
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 605--607
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--610
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 615--617
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 620--622
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 623--625
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 626--628
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 629--631
+
+ []
+
+[12]
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 638--656
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 657--658
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 661--663
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 664--666
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 667--669
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 670--672
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 673--675
+
+ []
+
+[13]
+Overfull \hbox (42.83516pt too wide) in paragraph at lines 682--684
+[]\OT1/cmr/m/n/12 The Wire-less Power Trans-mis-sion Stage (Trans-mit-ter) will
+ be con-trolled by an MSP430FR5994
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 682--684
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 685--687
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 688--690
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 691--693
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 694--696
+
+ []
+
+
+Overfull \hbox (1.11894pt too wide) in paragraph at lines 703--705
+[]\OT1/cmr/m/n/12 The Wire-less Power Re-ceiver Stage (Re-ceiver) will be con-t
+rolled by an MSP430FR5994
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 703--705
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 706--708
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 709--711
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 712--714
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 715--717
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 718--720
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 721--723
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 724--726
+
+ []
+
+[14]
+Underfull \hbox (badness 10000) in paragraph at lines 727--729
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 730--732
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 733--735
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 742--743
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 744--746
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 747--749
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 750--752
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 843--844
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 945--946
+
+ []
+
+[16]
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 953--1048
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1049--1050
+
+ []
+
+
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 1055--1100
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1101--1102
+
+ []
+
+
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 1107--1129
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1130--1131
+
+ []
+
+
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 1136--1171
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1172--1173
+
+ []
+
+[17] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 1197--1198
+
+ []
+
+
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 1204--1225
+ [][] 
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1226--1227
+
+ []
+
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1235--1237
+
+ []
+
+[20]
+<./images//total_diagram.png, id=841, 574.39594pt x 773.13844pt>
+File: ./images//total_diagram.png Graphic file (type png)
+<use ./images//total_diagram.png>
+Package pdftex.def Info: ./images//total_diagram.png  used on input line 1244.
+(pdftex.def)             Requested size: 397.48721pt x 535.03513pt.
+ [21 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/total_diagram.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1251--1252
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1253--1255
+
+ []
+
+<./images//gui_wireframe.png, id=847, 1134.48843pt x 728.7225pt>
+File: ./images//gui_wireframe.png Graphic file (type png)
+<use ./images//gui_wireframe.png>
+Package pdftex.def Info: ./images//gui_wireframe.png  used on input line 1260.
+(pdftex.def)             Requested size: 397.48721pt x 255.32356pt.
+[22 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+gui_wireframe.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1270--1271
+
+ []
+
+<./images//trans_sub_volt_reg.png, id=853, 871.75688pt x 355.3275pt>
+File: ./images//trans_sub_volt_reg.png Graphic file (type png)
+<use ./images//trans_sub_volt_reg.png>
+Package pdftex.def Info: ./images//trans_sub_volt_reg.png  used on input line 1
+279.
+(pdftex.def)             Requested size: 397.48721pt x 162.01582pt.
+[23 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+trans_sub_volt_reg.png>]
+<./images//controller_block.png, id=860, 657.2053pt x 628.59843pt>
+File: ./images//controller_block.png Graphic file (type png)
+<use ./images//controller_block.png>
+Package pdftex.def Info: ./images//controller_block.png  used on input line 129
+2.
+(pdftex.def)             Requested size: 397.48721pt x 380.19292pt.
+ [24 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/controller_block.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1300--1302
+
+ []
+
+<./images//trans_coil.png, id=866, 1071.25218pt x 295.85532pt>
+File: ./images//trans_coil.png Graphic file (type png)
+<use ./images//trans_coil.png>
+Package pdftex.def Info: ./images//trans_coil.png  used on input line 1307.
+(pdftex.def)             Requested size: 397.48721pt x 109.77623pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1313--1315
+
+ []
+
+[25 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+trans_coil.png>]
+<./images//tx_smps.png, id=872, 1260.20813pt x 487.8225pt>
+File: ./images//tx_smps.png Graphic file (type png)
+<use ./images//tx_smps.png>
+Package pdftex.def Info: ./images//tx_smps.png  used on input line 1329.
+(pdftex.def)             Requested size: 417.81232pt x 161.73372pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1333--1335
+
+ []
+
+<./images//tx_dc_rf_driver.png, id=873, 1175.14032pt x 313.9228pt>
+File: ./images//tx_dc_rf_driver.png Graphic file (type png)
+<use ./images//tx_dc_rf_driver.png>
+Package pdftex.def Info: ./images//tx_dc_rf_driver.png  used on input line 1342
+.
+(pdftex.def)             Requested size: 417.81232pt x 111.61342pt.
+
+Overfull \hbox (6.40372pt too wide) in paragraph at lines 1346--1348
+\OT1/cmr/m/n/12 U6: NUD3112LT1G), and LCD con-trast con-trol (U7: MCP4531-103E/
+MS). The schematic
+ []
+
+[26 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+tx_smps.png> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTe
+X/images/tx_dc_rf_driver.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1352
+
+ []
+
+File: ./images//controller_block.png Graphic file (type png)
+<use ./images//controller_block.png>
+Package pdftex.def Info: ./images//controller_block.png  used on input line 135
+9.
+(pdftex.def)             Requested size: 397.48721pt x 380.19292pt.
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1366--1368
+
+ []
+
+<./images//recv_coil.png, id=882, 1075.01625pt x 458.46281pt>
+File: ./images//recv_coil.png Graphic file (type png)
+<use ./images//recv_coil.png>
+Package pdftex.def Info: ./images//recv_coil.png  used on input line 1375.
+(pdftex.def)             Requested size: 397.48721pt x 169.51665pt.
+<./images//recv_sub_volt_reg.png, id=883, 586.44093pt x 455.45157pt>
+File: ./images//recv_sub_volt_reg.png Graphic file (type png)
+<use ./images//recv_sub_volt_reg.png>
+Package pdftex.def Info: ./images//recv_sub_volt_reg.png  used on input line 13
+85.
+(pdftex.def)             Requested size: 203.258pt x 157.85371pt.
+[28 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+recv_coil.png> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/La
+TeX/images/recv_sub_volt_reg.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1392--1394
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1395--1397
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1398--1400
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1403
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1406
+
+ []
+
+<./images//rx_dc_rf_conv.png, id=890, 1135.24126pt x 301.125pt>
+File: ./images//rx_dc_rf_conv.png Graphic file (type png)
+<use ./images//rx_dc_rf_conv.png>
+Package pdftex.def Info: ./images//rx_dc_rf_conv.png  used on input line 1414.
+(pdftex.def)             Requested size: 397.48721pt x 105.43208pt.
+[29 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+rx_dc_rf_conv.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1422--1423
+
+ []
+
+<./images//Coil_CAD.png, id=896, 1132.23pt x 627.09282pt>
+File: ./images//Coil_CAD.png Graphic file (type png)
+<use ./images//Coil_CAD.png>
+Package pdftex.def Info: ./images//Coil_CAD.png  used on input line 1430.
+(pdftex.def)             Requested size: 429.10176pt x 237.65665pt.
+[30 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+Coil_CAD.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1440
+
+ []
+
+<./images//mcu_workflow.png, id=902, 539.01375pt x 562.35094pt>
+File: ./images//mcu_workflow.png Graphic file (type png)
+<use ./images//mcu_workflow.png>
+Package pdftex.def Info: ./images//mcu_workflow.png  used on input line 1447.
+(pdftex.def)             Requested size: 397.48721pt x 414.7002pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1453--1454
+
+ []
+
+[31 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+mcu_workflow.png>]
+<./images//mcv_arch.png, id=907, 517.935pt x 536.0025pt>
+File: ./images//mcv_arch.png Graphic file (type png)
+<use ./images//mcv_arch.png>
+Package pdftex.def Info: ./images//mcv_arch.png  used on input line 1461.
+(pdftex.def)             Requested size: 397.48721pt x 411.3737pt.
+ [32 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/mcv_arch.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1470--1471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1472--1475
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1476--1485
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1486--1495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1496--1505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1515
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1516--1525
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1526--1535
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1536--1545
+
+ []
+
+[33]
+Underfull \hbox (badness 10000) in paragraph at lines 1560--1562
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1563--1566
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1567--1575
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1576--1584
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1585--1593
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1594--1602
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1603--1611
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1612--1620
+
+ []
+
+[34]
+Underfull \hbox (badness 10000) in paragraph at lines 1633--1641
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1642--1650
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OT1+zi4 on input line 1
+658.
+(D:\Programs\MikTeX\tex/latex/inconsolata\ot1zi4.fd
+File: ot1zi4.fd 2018/01/14 OT1/zi4 (Inconsolata)
+)
+LaTeX Font Info:    Font shape `OT1/zi4/m/n' will be
+(Font)              scaled to size 12.0pt on input line 1658.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1651--1659
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1660--1668
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1669--1677
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1678--1686
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1687--1695
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1696--1704
+
+ []
+
+[35]
+Overfull \hbox (3.49237pt too wide) in paragraph at lines 1733--1733
+\OT1/zi4/m/n/12 standard-[]battery-[]packs / 
+ []
+
+[36]
+Overfull \hbox (13.53625pt too wide) in paragraph at lines 1752--1777
+ [][] 
+ []
+
+[37]
+Underfull \hbox (badness 10000) in paragraph at lines 1785--1787
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1793--1795
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1796--1797
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OMS+zi4 on input line 1
+806.
+LaTeX Font Info:    No file OMSzi4.fd. on input line 1806.
+
+LaTeX Font Warning: Font shape `OMS/zi4/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 1806.
+
+[38]
+Underfull \hbox (badness 10000) in paragraph at lines 1816--1817
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1819--1837
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1819--1837
+
+ []
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 1845--1846
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1847--1849
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1850--1862
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1863--1867
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1868--1872
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1873--1875
+
+ []
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 1890--1896
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1897--1899
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1900--1901
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1902--1904
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1905--1907
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1908--1912
+
+ []
+
+[41]
+<./images//tx_pcb_tslk.png, id=990, 904.1278pt x 593.96906pt>
+File: ./images//tx_pcb_tslk.png Graphic file (type png)
+<use ./images//tx_pcb_tslk.png>
+Package pdftex.def Info: ./images//tx_pcb_tslk.png  used on input line 1922.
+(pdftex.def)             Requested size: 338.76563pt x 222.54752pt.
+<./images//tx_pcb_top_metal.png, id=991, 834.86906pt x 612.78937pt>
+File: ./images//tx_pcb_top_metal.png Graphic file (type png)
+<use ./images//tx_pcb_top_metal.png>
+Package pdftex.def Info: ./images//tx_pcb_top_metal.png  used on input line 193
+1.
+(pdftex.def)             Requested size: 338.76563pt x 248.6552pt.
+ [42 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/tx_pcb_tslk.png> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design
+/LaTeX/images/tx_pcb_top_metal.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1939--1945
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1950--1951
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1956--1957
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1958--1960
+
+ []
+
+[43]
+Underfull \hbox (badness 10000) in paragraph at lines 1978--1982
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1983--1986
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1987--1989
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1990--1999
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2000--2006
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2007--2009
+
+ []
+
+[44]
+Underfull \hbox (badness 10000) in paragraph at lines 2023--2025
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2026--2030
+
+ []
+
+<./images//rx_pcb_tslk.png, id=1004, 973.38657pt x 682.04813pt>
+File: ./images//rx_pcb_tslk.png Graphic file (type png)
+<use ./images//rx_pcb_tslk.png>
+Package pdftex.def Info: ./images//rx_pcb_tslk.png  used on input line 2036.
+(pdftex.def)             Requested size: 397.48721pt x 278.51756pt.
+[45 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+rx_pcb_tslk.png>]
+<./images//rx_pcb_top_metal.png, id=1009, 963.6pt x 672.26157pt>
+File: ./images//rx_pcb_top_metal.png Graphic file (type png)
+<use ./images//rx_pcb_top_metal.png>
+Package pdftex.def Info: ./images//rx_pcb_top_metal.png  used on input line 205
+0.
+(pdftex.def)             Requested size: 338.76563pt x 236.34137pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2054--2056
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2057--2062
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2068--2070
+
+ []
+
+[46 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+rx_pcb_top_metal.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2083--2085
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2086--2088
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2089--2096
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2097--2104
+
+ []
+
+[47]
+Underfull \hbox (badness 10000) in paragraph at lines 2117--2119
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2120--2126
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2127--2134
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2135--2137
+
+ []
+
+[48] [49] [50]
+Overfull \hbox (2.31865pt too wide) in paragraph at lines 2334--2361
+ [][] 
+ []
+
+[51] [52]
+Underfull \hbox (badness 10000) in paragraph at lines 2413--2416
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2417--2422
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2417--2422
+
+ []
+
+[53]
+<./images//Transmitter_power_supply_sch_diag.png, id=1046, 615.0478pt x 542.777
+82pt>
+File: ./images//Transmitter_power_supply_sch_diag.png Graphic file (type png)
+<use ./images//Transmitter_power_supply_sch_diag.png>
+Package pdftex.def Info: ./images//Transmitter_power_supply_sch_diag.png  used 
+on input line 2431.
+(pdftex.def)             Requested size: 370.38707pt x 326.8701pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2440--2442
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2443--2445
+
+ []
+
+[54 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+Transmitter_power_supply_sch_diag.png>]
+<./images//TX_oscillator_and_buffer.png, id=1052, 781.41937pt x 389.20406pt>
+File: ./images//TX_oscillator_and_buffer.png Graphic file (type png)
+<use ./images//TX_oscillator_and_buffer.png>
+Package pdftex.def Info: ./images//TX_oscillator_and_buffer.png  used on input 
+line 2451.
+(pdftex.def)             Requested size: 406.516pt x 202.47635pt.
+ [55 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/TX_oscillator_and_buffer.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2457--2459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2460--2462
+
+ []
+
+<./images//Class_E_amplifier.png, id=1058, 968.86969pt x 486.31688pt>
+File: ./images//Class_E_amplifier.png Graphic file (type png)
+<use ./images//Class_E_amplifier.png>
+Package pdftex.def Info: ./images//Class_E_amplifier.png  used on input line 24
+68.
+(pdftex.def)             Requested size: 406.516pt x 204.05133pt.
+<./images//Variable_RX-TX_Distance.png, id=1059, 708.6475pt x 202.7575pt>
+File: ./images//Variable_RX-TX_Distance.png Graphic file (type png)
+<use ./images//Variable_RX-TX_Distance.png>
+Package pdftex.def Info: ./images//Variable_RX-TX_Distance.png  used on input l
+ine 2479.
+(pdftex.def)             Requested size: 338.76563pt x 96.92957pt.
+[56 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+Class_E_amplifier.png>]
+<./images//receiver_pcb_layout.png, id=1065, 930.47626pt x 688.82344pt>
+File: ./images//receiver_pcb_layout.png Graphic file (type png)
+<use ./images//receiver_pcb_layout.png>
+Package pdftex.def Info: ./images//receiver_pcb_layout.png  used on input line 
+2490.
+(pdftex.def)             Requested size: 361.35138pt x 267.50491pt.
+ [57 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/Variable_RX-TX_Distance.png> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_s
+enior_design/LaTeX/images/receiver_pcb_layout.png>]
+[58]
+<./images//RX_COIL_TERMINALS.png, id=1076, 397.485pt x 335.75438pt>
+File: ./images//RX_COIL_TERMINALS.png Graphic file (type png)
+<use ./images//RX_COIL_TERMINALS.png>
+Package pdftex.def Info: ./images//RX_COIL_TERMINALS.png  used on input line 25
+23.
+(pdftex.def)             Requested size: 338.76563pt x 286.16104pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2518--2529
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2530--2535
+
+ []
+
+[59 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+RX_COIL_TERMINALS.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2544--2546
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2549--2555
+
+ []
+
+<./images//RX_EFF_TEST.png, id=1083, 799.98875pt x 211.79124pt>
+File: ./images//RX_EFF_TEST.png Graphic file (type png)
+<use ./images//RX_EFF_TEST.png>
+Package pdftex.def Info: ./images//RX_EFF_TEST.png  used on input line 2565.
+(pdftex.def)             Requested size: 361.35138pt x 95.66711pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 2571--2576
+
+ []
+
+[60 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+RX_EFF_TEST.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 2577--2579
+
+ []
+
+[61] [62]
+Underfull \hbox (badness 10000) in paragraph at lines 2600--2601
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2602--2604
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2609--2612
+
+ []
+
+<./images//RX_SUBSYSTEM_COIL_TERMINALS.PNG, id=1098, 169.38281pt x 153.57375pt>
+
+File: ./images//RX_SUBSYSTEM_COIL_TERMINALS.PNG Graphic file (type png)
+<use ./images//RX_SUBSYSTEM_COIL_TERMINALS.PNG>
+Package pdftex.def Info: ./images//RX_SUBSYSTEM_COIL_TERMINALS.PNG  used on inp
+ut line 2618.
+(pdftex.def)             Requested size: 225.84375pt x 204.77307pt.
+[63 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+RX_SUBSYSTEM_COIL_TERMINALS.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 2624--2626
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2627--2629
+
+ []
+
+[64]
+Underfull \hbox (badness 10000) in paragraph at lines 2645--2650
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2651--2653
+
+ []
+
+<./images//osc_out.png, id=1110, 321.2pt x 240.9pt>
+File: ./images//osc_out.png Graphic file (type png)
+<use ./images//osc_out.png>
+Package pdftex.def Info: ./images//osc_out.png  used on input line 2660.
+(pdftex.def)             Requested size: 361.35138pt x 271.02284pt.
+[65 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images/
+osc_out.png (PNG copy)>]
+<./images//Q1_measured.jpg, id=1116, 971.3088pt x 728.4816pt>
+File: ./images//Q1_measured.jpg Graphic file (type jpg)
+<use ./images//Q1_measured.jpg>
+Package pdftex.def Info: ./images//Q1_measured.jpg  used on input line 2671.
+(pdftex.def)             Requested size: 293.59412pt x 220.19128pt.
+<./images//t_coil_v_measured.jpg, id=1117, 971.3088pt x 728.4816pt>
+File: ./images//t_coil_v_measured.jpg Graphic file (type jpg)
+<use ./images//t_coil_v_measured.jpg>
+Package pdftex.def Info: ./images//t_coil_v_measured.jpg  used on input line 26
+80.
+(pdftex.def)             Requested size: 293.59412pt x 220.19128pt.
+ [66 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/Q1_measured.jpg> <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design
+/LaTeX/images/t_coil_v_measured.jpg>]
+Overfull \hbox (4.82428pt too wide) in paragraph at lines 2698--2698
+ []\OT1/cmr/m/n/12 V$[]$ 
+ []
+
+
+Overfull \hbox (4.0104pt too wide) in paragraph at lines 2700--2700
+ []\OT1/cmr/m/n/12 P$[]$ 
+ []
+
+
+Overfull \hbox (4.27383pt too wide) in paragraph at lines 2701--2701
+ []\OT1/cmr/m/n/12 Efficiency 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2721--2722
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2722--2727
+
+ []
+
+
+Overfull \hbox (4.82428pt too wide) in paragraph at lines 2739--2739
+ []\OT1/cmr/m/n/12 V$[]$ 
+ []
+
+
+Overfull \hbox (4.0104pt too wide) in paragraph at lines 2741--2741
+ []\OT1/cmr/m/n/12 P$[]$ 
+ []
+
+
+Overfull \hbox (4.27383pt too wide) in paragraph at lines 2742--2742
+ []\OT1/cmr/m/n/12 Efficiency 
+ []
+
+[67]
+Underfull \hbox (badness 10000) in paragraph at lines 2763--2764
+
+ []
+
+
+Overfull \hbox (3.90286pt too wide) in paragraph at lines 2778--2778
+ []\OT1/cmr/m/n/12 V$[]$ 
+ []
+
+
+Overfull \hbox (1.49083pt too wide) in paragraph at lines 2805--2805
+ []\OT1/cmr/m/n/12 V$[]$ 
+ []
+
+
+Overfull \hbox (3.13531pt too wide) in paragraph at lines 2811--2811
+ []\OT1/cmr/m/n/12 V$[]$ 
+ []
+
+
+Overfull \hbox (2.32144pt too wide) in paragraph at lines 2812--2812
+ []\OT1/cmr/m/n/12 P$[]$ 
+ []
+
+[68]
+<./images//VNA_measured.jpg, id=1132, 971.3088pt x 728.4816pt>
+File: ./images//VNA_measured.jpg Graphic file (type jpg)
+<use ./images//VNA_measured.jpg>
+Package pdftex.def Info: ./images//VNA_measured.jpg  used on input line 2828.
+(pdftex.def)             Requested size: 361.35138pt x 271.01236pt.
+ [69 <C:/Users/gibbo/OneDrive/Documents/GitHub/HEC_2_senior_design/LaTeX/images
+/VNA_measured.jpg>] [70]
+Underfull \hbox (badness 10000) in paragraph at lines 2920--2954
+
+ []
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 3056--3058
+
+ []
+
+[72]
+Underfull \hbox (badness 10000) in paragraph at lines 3139--3141
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3142--3144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3145--3147
+
+ []
+
+[73]
+Overfull \hbox (1.41426pt too wide) in paragraph at lines 3154--3175
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3176--3177
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3180--3182
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3183--3187
+
+ []
+
+[74] [75]
+Underfull \hbox (badness 10000) in paragraph at lines 3188--3190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3191--3193
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3194--3196
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3197--3199
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3200--3202
+
+ []
+
+[76]
+Underfull \hbox (badness 10000) in paragraph at lines 3208--3210
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3211--3213
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3214--3216
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3217--3219
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3220--3224
+
+ []
+
+[77]
+Underfull \hbox (badness 10000) in paragraph at lines 3225--3227
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 3228--3230
+
+ []
+

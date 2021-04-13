@@ -26,6 +26,7 @@
         "ctype.h": "c",
         "stdio.h": "c",
         "bluetooth_init.h": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "mc_ticker_init.h": "c"
     }
 }
