@@ -1,16 +1,15 @@
 #include "pins.h"
-#include <stdio.h>
-#include <msp430fr5994.h>
+#include "hd44780.h"
 
 
 short _compile_transmitter_pins = 0x00;
 
 short ConfigureADC12Pins(short build_transmitter){
     if (build_transmitter==0x01){
-        P1OUT |= 0x03;
+        // P1OUT |= 0x03;
         _compile_transmitter_pins = 0x01;
     }
-    WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
+    // WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
 
     // GPIO Setup
                     // Configure P3.0 for ADC  (ADC12)
@@ -27,17 +26,27 @@ short ConfigureADC12Pins(short build_transmitter){
     P3SEL0 |= BIT3;
 
 
+
     // Disable the GPIO power-on default high-impedance mode to activate
     // previously configured port settings
-    PM5CTL0 &= ~LOCKLPM5;
+    // PM5CTL0 &= ~LOCKLPM5;
 
-    // Configure ADC12
+    
+
+    // General ADC Configuration
     ADC12CTL0 &= ~ADC12ENC;
-    ADC12CTL0 = ADC12SHT0_2 | ADC12ON;      // Sampling time, S&H=16, ADC12 on
-    ADC12CTL1 = ADC12SHP;                   // Use sampling timer
-    ADC12CTL2 |= ADC12RES_2;                // 12-bit conversion results
-    ADC12MCTL0 |= ADC12INCH_12;              // A1 ADC input select; Vref=AVCC
-    ADC12IER0 |= ADC12IE12;                  // Enable ADC conv complete interrupt
+    ADC12CTL0 = ADC12ON | ADC12SHT0_4; //ADC12SHT0_3;      // Sampling time, S&H=16, ADC12 on
+    ADC12CTL1 = ADC12CONSEQ_1 | ADC12SHP | ADC12SSEL_3 | ADC12VRSEL_14;                   // Use sampling timer
+    ADC12CTL2 |= ADC12RES_2;//ADC12RES_1;//ADC12RES_2;                // 12-bit conversion results
+    ADC12CTL3 |= ADC12CSTARTADD__ADC12MEM12;
+    // Enable ADC conv complete interrupt (ADC Pin 0-15)
+    ADC12IER0 = ADC12IE0 | ADC12IE12 | ADC12IE13 | ADC12IE14 | ADC12IE15;
+    
+    // Configure ADC12 and/or ADC13
+    ADC12MCTL12 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_12;               // A12 ADC input select; Vref=AVCC
+    ADC12MCTL13 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_13;               // A13 ADC input select; Vref=AVCC
+    ADC12MCTL14 = ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_14;               // A14 ADC input select; Vref=AVCC
+    ADC12MCTL15 = ADC12EOS | ADC12DF_0 | ADC12VRSEL2 | ADC12INCH_15;    // A15 ADC input select; Vref=AVCC
 
     // while (1)
     // {
@@ -56,7 +65,8 @@ short ConfigureADC12Pins(short build_transmitter){
 
 void GetADC(){
     ADC12CTL0 |= ADC12ENC | ADC12SC;    // Start sampling/conversion
-    __delay_cycles(1000);
+    // __delay_cycles(1000);
+    _no_operation();
 }
 
 short GetADC_12(){
@@ -86,6 +96,7 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
 #error Compiler not supported!
 #endif
 {
+    ADC12CTL0 &= ~ADC12ENC;
     switch(__even_in_range(ADC12IV, ADC12IV__ADC12RDYIFG))
     {
         case ADC12IV__NONE:        break;   // Vector  0:  No interrupt
@@ -102,6 +113,8 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
 
             //     // Exit from LPM0 and continue executing main
             //     __bic_SR_register_on_exit(LPM0_bits);
+            // P5OUT ^= 0x04;
+            __bic_SR_register_on_exit(LPM4_bits);
             break;
         case ADC12IV__ADC12IFG1:   break;   // Vector 14:  ADC12MEM1
         case ADC12IV__ADC12IFG2:   break;   // Vector 16:  ADC12MEM2
@@ -114,10 +127,40 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
         case ADC12IV__ADC12IFG9:   break;   // Vector 30:  ADC12MEM9
         case ADC12IV__ADC12IFG10:  break;   // Vector 32:  ADC12MEM10
         case ADC12IV__ADC12IFG11:  break;   // Vector 34:  ADC12MEM11
-        case ADC12IV__ADC12IFG12:  break;   // Vector 36:  ADC12MEM12
-        case ADC12IV__ADC12IFG13:  break;   // Vector 38:  ADC12MEM13
-        case ADC12IV__ADC12IFG14:  break;   // Vector 40:  ADC12MEM14
-        case ADC12IV__ADC12IFG15:  break;   // Vector 42:  ADC12MEM15
+        case ADC12IV__ADC12IFG12:  
+            ADC12IER0 &= ~ADC12IE12;
+            __bic_SR_register_on_exit(LPM4_bits);
+            // P5OUT ^= 0x04;
+            break;   // Vector 36:  ADC12MEM12
+        case ADC12IV__ADC12IFG13:  
+            ADC12IER0 &= ~ADC12IE13;
+            __bic_SR_register_on_exit(LPM4_bits);
+            break;   // Vector 38:  ADC12MEM13
+        case ADC12IV__ADC12IFG14:  
+            ADC12IER0 &= ~ADC12IE14;
+            __bic_SR_register_on_exit(LPM4_bits);
+            break;   // Vector 40:  ADC12MEM14
+        case ADC12IV__ADC12IFG15:  
+            ADC12IER0 &= ~ADC12IE15;
+            _no_operation();
+            int valued = (int) ADC12MEM15;//ADC12MEM15;// / 0x1000; --> volts :. valued *
+            float float_valued = (2.5*valued)/4096; // this is a lie!
+            int whole_valued = (int) float_valued;
+            float_valued = (float_valued - whole_valued) * 1000;
+            int fraction_valued = (int) float_valued;
+            char msg_gained[17];
+            sprintf(msg_gained, "%d.%d Volts", whole_valued, fraction_valued);
+            hd44780_write_string(msg_gained, 1, 1, NO_CR_LF);
+                //// test
+            // P1OUT ^= 0x01;   // Test Board Build
+            P5OUT ^= 0x08;      // Production Build
+            hd44780_timer_isr();
+            __bic_SR_register_on_exit(LPM4_bits);
+            __bic_SR_register_on_exit(LPM4_bits);
+            // P5OUT ^= 0x04;
+            // ADC12CTL0 &= ~ADC12ON;
+            // ADC12IER0 = 0x00;
+            break;   // Vector 42:  ADC12MEM15
         case ADC12IV__ADC12IFG16:  break;   // Vector 44:  ADC12MEM16
         case ADC12IV__ADC12IFG17:  break;   // Vector 46:  ADC12MEM17
         case ADC12IV__ADC12IFG18:  break;   // Vector 48:  ADC12MEM18
@@ -137,6 +180,10 @@ void __attribute__ ((interrupt(ADC12_B_VECTOR))) ADC12_ISR (void)
         case ADC12IV__ADC12RDYIFG: break;   // Vector 76:  ADC12RDY
         default: break;
      }
+    __bic_SR_register_on_exit(LPM4_bits);
+    // ADC12CTL0 &= ~ADC12ENC;
+    // ADC12CTL0 &= ~ADC12ON;
+    // ADC12IER0 = 0x00;
 }
 
 

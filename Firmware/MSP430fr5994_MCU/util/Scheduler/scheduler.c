@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 #include "scheduler.h"
 
 
@@ -124,10 +122,10 @@ void __run_task__(struct MCScheduler * self){
             // self->check_shutdown_interrupt(self);
             break;
         case __NO_TASK__ : 
-            printf("There is no task running... sorry mate \n");
+            // printf("There is no task running... sorry mate \n");
             break;
         default :
-            printf("Some error is occuring\n");
+            // printf("Some error is occuring\n");
             break;
     } 
 }
@@ -135,7 +133,10 @@ void __run_task__(struct MCScheduler * self){
 void _run_micro_controller_(struct MCScheduler * self){
     for(;;){
         // Check for Interrupt
-        _enable_interrupt();
+        // _enable_interrupt();
+        __bis_SR_register(LPM4_bits + GIE );    // Enable global interrupts
+        // UCA0IE ^= UCRXIE     // Toggle USCI_A0 RX interrupt Enable Bit
+        __no_operation();
         self->select_next_task(self);
         // self->check_shutdown_interrupt(self);
         // self->check_timer_interrupt();
@@ -168,7 +169,7 @@ void _select_next_task_(struct MCScheduler *self){
         // printf(" iterator   %d   \n", iterator);
     }
     self->set_task_string(self, sequential_task);
-    printf("\n Your Next Task is %s   \n", self->task_name);
+    // printf("\n Your Next Task is %s   \n", self->task_name);
     _set_next_task_(self, sequential_task);
 }
     
@@ -197,5 +198,7 @@ void buildScheduler(struct MCScheduler * self){
     self->set_current_task(self, __BLUETOOTH_TASK__);
     self->set_last_task(self, __NO_TASK__);
     self->set_next_task(self, __LCD_TASK__);
+    resetCommUART();
+    UCA0TXBUF = 'A';
     return;
 }

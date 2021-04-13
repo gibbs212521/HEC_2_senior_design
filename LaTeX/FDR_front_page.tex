@@ -1,0 +1,204 @@
+%		For public use only, fair use laws still apply
+%		A tutorial template created by Chad Gibbons
+
+
+
+
+%	I recommend for generic help the following website
+%	http://www.emerson.emory.edu/services/latex/latex_toc.html
+%	There are many good websites and forums for LaTeX
+%
+%	If you have a problem, google it. (ex. "How do I start my page numbers at a different number")
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					 													  %
+%					 													  %
+%					  ALWAYS BEGIN THE PROGRAM WITH								  %
+%					 													  %
+%						\documentclass{class_type}								  %
+%																		  %
+%		Different class types have different commands associated with them, similar to header files			  %
+%					 													  %
+%					 													  %`
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					 													  %
+%					 													  %
+%				It is recommended to only use packages as you need them 						  %
+%					 													  %
+%	Different types of reports will consistently use specific packages; keep these in their respective templates		  %
+%					 													  %
+%					 													  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\usepackage[a4paper,total={8.27in,11.69in},left=0.56in,right=0.56in,top=0.75in,bottom=1.69in]{geometry}		% 	Margins IEEE Articles
+\usepackage[letterpaper,total={8.5in,11in},left=1.25in,top=1in,bottom=1in,right=1in]{geometry}		% 	Margins PDD
+%\usepackage[a4paper,total={6.5in,9.375in}]{geometry}		% 	Margins MLA
+%\usepackage{babel}				%	Expands text mode
+\usepackage[english]{babel}
+\usepackage{csquotes}				%	Permits \enquote{quote}
+\usepackage{graphicx}				%	Permits \includegraphics[]{image}
+\usepackage{caption}				%	Permits the void caption \caption*{}
+\usepackage{titlesec}				%	Modify section titles
+\usepackage{wrapfig}				% 	Insert wrappable objects like figures or tables
+%\usepackage{a4wide}				% 	Expand width of body lazily
+\usepackage{multicol}				% 	Permits multicolumn
+\usepackage{multirow}				%	Permites utilization of multiple rows of a table
+\usepackage{tocloft}				%	Permits modification of Table of Contents
+\usepackage{amssymb}				%	Greek Alphabet Symbols
+\usepackage{appendix}
+
+\usepackage{scrextend}				% 	Permits padding margins of document
+
+
+\graphicspath{ {./images/} }			%	Sets filepath to images folder in location of TeX Document
+
+\usepackage[utf8]{inputenc}			%	biblatex depends on on this package
+\usepackage{comment}
+%\usepackage[backend=bibtex,style=numeric]{biblatex}	%	LaTeX blibliography	%% Note: ieee stle lower-cases titles past first letter (Which seems wrong)
+\usepackage[backend=bibtex,style=numeric,sorting=none]{biblatex}
+%\bibliographystyle{ieeetr}			% INVESTIGATE FURTHER FOR AUTO ORDERING OF BIB REFERENCES
+\bibliography{FDR_Draft}				%	REMEMBER TO RENAME THIS FILE IF MOVING TO NEW .bib
+
+
+%\addbibresource{hec2.bib}
+
+
+			%	Makes Table of Contents Functionally a table of Hyperlinks
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor= black,
+	filecolor = black,
+	linkcolor = blue,
+	urlcolor = blue
+	}
+
+			%	Next Three Lines permit use of .tif images in \includegraphics
+\usepackage{epstopdf}
+\epstopdfDeclareGraphicsRule{.tif}{png}{.png}{convert #1 \OutputFile}
+\AppendGraphicsExtensions{.tif}
+
+\renewcommand{\thesection}{\Roman{section}} 
+\renewcommand{\thesubsection}{\thesection.\Alph{subsection}}
+\renewcommand{\thesubsubsection}{\thesection.\arabic{subsubsection}}
+\setlength\cftsecnumwidth{3em}
+\setlength\cftsubsecnumwidth{3em}
+\setlength\cftsubsubsecnumwidth{3em}
+
+			%	Define Abstract to be IEEE compliant (10pt, centered, roman numerals, capitalized)
+\titleformat{\abstract}{\normalfont\btshape}{\Roman{section}}{1em}{\MakeUppercase}
+			%	Define Sections to be IEEE compliant (10pt, centered, roman numerals, capitalized)
+\titleformat{\section}{\normalfont\filcenter}{\Roman{section}.}{1em}{\MakeUppercase}
+			%	Define Subections to be IEEE compliant (10pt, left, roman numerals, capitalized)
+\titleformat{\subsection}{\normalfont\itshape}{\Alph{subsection}.}{1em}{}
+			%	Define Subsubections to be IEEE compliant (10pt, left, roman numerals, capitalized, inline text)
+\titleformat{\subsubsection}[runin]{\normalfont\itshape}{\indent\arabic{subsubsection}.)}{1em}{}
+			%	Define Table of Contents to be IEEE compliant
+
+
+			%	Next Two Lines Make Document San-Serif
+%\renewcommand{\familydefault}{\sfdefault}		
+%\usepackage{helvet}
+
+
+\usepackage{textcomp}				%	For subsection symbol w/ \textsection
+\usepackage{pdfpages}				%	For inserting PDF document and pages into LaTeX file
+							%% 		Recommended pdfpages format : 									%%
+							%%		\includepdf[pages=-,width=0.9\linewidth,pagecommand={}]{./appendices/file.pdf}		%%
+
+\newcommand{\cross}[1][1pt]{\ooalign{ 	%	Creating footnote cross symbol
+  \rule[1ex]{1ex}{#1}\cr% Horizontal bar
+  \hss\rule{#1}{.7em}\hss\cr}}% Vertical bar
+
+\usepackage{inconsolata}				%	converts \ttfamily to consolas font
+
+\usepackage{tcolorbox}			%	Permits oval boxes around text
+						%	Line below defines tcolorboxes
+\tcbset{colframe=black,colback=red!5!green!5!blue!5,box align=base,width=4cm, nobeforeafter, size=small}
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			PREAMBLE
+
+
+\title{\Large \textbf{The University of Texas at Tyler\\
+College of Engineering and Computer Science\\
+Tyler, TX 75799\\
+\hfill \\
+\hfill \\[0.5em]
+Final Design Report \\ [0.25em] For\\[0.25em]
+Wireless Charger Project}}		%note left quote command vs " = \textquotedblright
+%%  FIX FONT of Sub Sub Title  >> It should fit in with the text below. <<
+\author{\large \hfill \\[0.5em] \textbf{A design project to fulfill the requirements of Senior Design}\\ \textbf{ 
+in the Department of Electrical Engineering}\\ \textbf{ 
+at The University of Texas at Tyler
+}\hfill \\ \hfill \\[0.5em]}
+\date{\normalsize \flushleft  The  individuals  whose  names  and  signatures  appear  below  certify  that  the  narrative, diagrams,  figures,  tables,  calculations,  and  analyses  contained  within  this  document  are their original work except as otherwise cited.
+\hfill \\ \hfill \\[0.5em]
+\underline{Flory, David\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\today \space\space\space\space\space\space\space} \hspace{0.25in}\\
+\hspace{1.8in} Signature \hspace{1.8in} Date \hfill \\ \hfill \\
+\underline{Fran\c{c}a, Natasha\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\today \space\space\space\space\space\space\space} \hspace{0.25in}\\
+\hspace{1.8in} Signature \hspace{1.8in} Date \hfill \\ \hfill \\
+\underline{Franulovic, Franci \space\space} \hspace{0.25in}
+\underline{\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\today \space\space\space\space\space\space\space} \hspace{0.25in}\\
+\hspace{1.8in} Signature \hspace{1.8in} Date \hfill \\ \hfill \\
+\underline{Gibbons, Chad \space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\today \space\space\space\space\space\space\space} \hspace{0.25in}\\
+\hspace{1.8in} Signature \hspace{1.8in} Date \hfill \\ \hfill \\
+\underline{Sosa, Francisco \space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space\space} \hspace{0.25in}
+\underline{\today \space\space\space\space\space\space\space} \hspace{0.25in}\\
+\hspace{1.8in} Signature \hspace{1.8in} Date \hfill \\
+}
+%\date{12/29/2018}					%	Set permanent date or use date section as additional text real estate on the title page.
+%\date{Sic et Non \\ Quid Faciendus Est}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%			DOCUMENT
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					 													  %
+%					 													  %
+%					  ALWAYS BEGIN THE DOCUMENT WITH								  %
+%					 													  %
+%							\begin{document}									  %
+%					 													  %
+%					 													  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\includepdf[pages=-,pagecommand={}]{./front_page/front_page_fall.pdf}
+
+\pagenumbering{gobble}
+
+\end{document}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%					 													  %
+%					 													  %
+%					  ALWAYS END THE DOCUMENT WITH								  %
+%					 													  %
+%							\end{document}									  %
+%					 													  %
+%					 													  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

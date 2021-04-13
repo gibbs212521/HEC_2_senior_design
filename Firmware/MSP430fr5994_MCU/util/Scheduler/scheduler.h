@@ -5,11 +5,13 @@
 
 #ifndef __MC_SCHEDULER_H
 #define __MC_SCHEDULER_H
+#include <stdio.h>
 
 #include "../Bluetooth/bluetooth_task.h"
 #include "../Ticker/lcd_task.h"
 #include "../Power/power_task.h"
 #include "../Comm/comm_protocol.h"
+#include "../Comm/mc_uart.h"
 
 
 #define __BLUETOOTH_TASK__ 0x00

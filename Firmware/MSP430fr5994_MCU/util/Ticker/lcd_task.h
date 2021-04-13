@@ -3,12 +3,8 @@
 #include <msp430fr5994.h>
 #endif
 
-#ifndef __MC_READ_TICKER_H
-#include "mc_read_ticker.h"
-#endif
-
-#ifndef __MC_WRITE_TICKER_H
-#include "mc_write_ticker.h"
+#ifndef __MC_TICKER_INIT_H
+#include "mc_ticker_init.h"
 #endif
 
 #ifndef __LCD_TASK_H
