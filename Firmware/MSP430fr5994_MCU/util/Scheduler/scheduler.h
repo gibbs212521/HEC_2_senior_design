@@ -12,6 +12,7 @@
 #include "../Power/power_task.h"
 #include "../Comm/comm_protocol.h"
 #include "../Comm/mc_uart.h"
+#include "../../core/mcu_setup.h"
 
 
 #define __BLUETOOTH_TASK__ 0x00

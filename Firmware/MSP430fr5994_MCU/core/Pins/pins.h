@@ -5,9 +5,15 @@
 #include <stdint.h>
 
 short ConfigureADC12Pins(short build_transmitter);
-void GetADC();
-short GetADC_12();
-short GetADC_13();
-short GetADC_14();
-short GetADC_15();
+int FIR1samples[10];
+int FIR2samples[10];
+int ADC12Value;
+int ADC13Value;
+int ADC14Value;
+int ADC15Value;
+int filtADC12Value;
+int filtADC15Value;
+int filtFIR1(int s);
+int filtFIR2(int s);
+
 #endif

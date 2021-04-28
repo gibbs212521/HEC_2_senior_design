@@ -132,8 +132,17 @@ void __run_task__(struct MCScheduler * self){
 
 void _run_micro_controller_(struct MCScheduler * self){
     for(;;){
+            /// EMERGENCY SHUT TX OFF ///
+        #ifdef COMPILE_TRANSMITTER
+        // OSC ENABLE disabled if unsafe to transfer power
+        if (filtADC12Value < 72){
+            P5OUT |= 0x01;  // OFF
+        } else {
+            P5OUT &= ~0x01; // ON
+        }
+        #endif
+            /// Regular Schedular ///
         // Check for Interrupt
-        // _enable_interrupt();
         __bis_SR_register(LPM4_bits + GIE );    // Enable global interrupts
         // UCA0IE ^= UCRXIE     // Toggle USCI_A0 RX interrupt Enable Bit
         __no_operation();

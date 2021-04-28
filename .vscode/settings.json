@@ -27,6 +27,8 @@
         "stdio.h": "c",
         "bluetooth_init.h": "c",
         "stdlib.h": "c",
-        "mc_ticker_init.h": "c"
+        "mc_ticker_init.h": "c",
+        "hd44780.h": "c",
+        "mc_uart.h": "c"
     }
 }

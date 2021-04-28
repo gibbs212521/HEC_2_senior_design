@@ -19,12 +19,25 @@ short mc_setup(){
     PM5CTL0 &= ~LOCKLPM5; // power mode 5 control register 0 locks LPM5 bit
     reset_pins();
     
+    // clock system setup
+    CSCTL0_H = CSKEY_H;                     // Unlock CS registers
+    CSCTL1 = DCOFSEL_6;                     // Set DCO setting for 8MHz
+    CSCTL1 &= ~DCORSEL;
+    CSCTL2 = SELA__VLOCLK | SELS__DCOCLK | SELM__DCOCLK;
+    CSCTL3 = DIVA__1 | DIVS__1 | DIVM__1;   // MCLK = SMCLK = DCO = 8MHz
+    CSCTL0_H = 0;  
+    
 /// General Build
-     ConfigureADC12Pins(BUILDING_TRANSMITTER); // ADC SENSORS
+    ConfigureADC12Pins(BUILDING_TRANSMITTER); // ADC SENSORS
     set_button_interrupts(BUILDING_TRANSMITTER);
     main_clock_interrupt();
-    // __enable_interrupt();
     set_LCD_ticker();
+
+    if ( BUILDING_TRANSMITTER == 1 ) {
+        buildTransmitter();
+    } else {
+        buildReceiver();
+    };
 
     if ( RUN_MCU_TESTS == 1 ) {
         return runTests(BUILDING_TRANSMITTER);
@@ -70,10 +83,5 @@ void reset_pins(){
     /// Test Board Build
 //    P1DIR |= 0x03;    // LED Green & LED Red
 
-    if ( BUILDING_TRANSMITTER == 1 ) {
-        buildTransmitter();
-    } else {
-        buildReceiver();
-    };
 
 }

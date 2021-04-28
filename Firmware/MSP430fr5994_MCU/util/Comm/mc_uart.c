@@ -25,6 +25,22 @@ volatile char tx_msg[30];
 volatile unsigned short rx_indx = 0;
 volatile char rx_msg[30];
 
+
+void send_string(char s[])
+{
+    int i =0;
+    while (s[i] != 0x00)
+    {
+        while(!(UCA0IFG & UCTXIFG));
+        UCA0TXBUF = s[i];
+        i++;
+    }
+    while(!(UCA0IFG & UCTXIFG));
+    UCA0TXBUF = 0x0d; //CR
+    while(!(UCA0IFG & UCTXIFG));
+    UCA0TXBUF = 0x0a; //LF
+}
+
 void UART_TX(char * tx_data){               // Define a function which accepts a character pointer to an array
     unsigned int i=0;
     while(tx_data[i] != '\0'){                     // Increment through array, look for null pointer (0) at end of string
@@ -36,31 +52,32 @@ void UART_TX(char * tx_data){               // Define a function which accepts a
 
 void resetCommUART(){
     // Set P2.0 and P2.1 for USCI_A0 UART operation
-    // printf("\n\n Resetting UART Settings \n\n");
     P2SEL0 &= ~(BIT0 | BIT1);
     P2SEL1 |= BIT0 | BIT1;
     
-    // // Startup clock system with max DCO setting ~1MHz /// (not) ~8MHz
-    // CSCTL0_H = CSKEY >> 8;                // Unlock clock registers
-    // CSCTL1 = DCOFSEL0 | DCORSEL;         // Set DCO to 1MHz (DCOFSSEL_0) /// 8 MHz (DC0FSEL_3)
-    // CSCTL2 = SELA__VLOCLK | SELS__DCOCLK | SELM__DCOCLK;
-    // CSCTL3 = DIVA__1 | DIVS__1 | DIVM__1; // Set all dividers
-    // CSCTL0_H = 0;                         // Lock CS registers
-
     // Configure USCI_A0 for UART mode
     UCA0CTLW0 = UCSWRST;          // enable software reset
     UCA0CTLW0 |= UCSSEL__SMCLK;   // CLK = SMCLK
 
     // Baud Rate calculation    //// NOTE: DCOFSEL8 -> less fractional loss
-    // 1000000/(16*9600) = 6.510417
-    // Fractional portion = 0.510417
-    // UCBRFx = int ( (0.510417)*16) = 8
-    UCA0BR0 = 6;                 // 1000000/16/9600
+    // 8000000/(16*9600) = 52.083
+    // Fractional portion = 0.083
+    // UCBRFx = int ( (52.083-52)*16) = 1
+    UCA0BR0 = 52; // 8000000/16/9600;
     UCA0BR1 = 0x00;
     UCA0MCTLW |= UCOS16 | UCBRF_8 | 0x4900;
-
     UCA0CTLW0 &= ~UCSWRST;        // Initialize eUSCI, disable software reset
     UCA0IE |= UCRXIE;             // Enable USCI_A0 RX interrupt
+
+    // Configure USCI_A1 for UART mode BT module 115kHz Baud rate no flow control
+    UCA1CTLW0 = UCSWRST;                    // Put eUSCI in reset
+    UCA1CTLW0 |= UCSSEL__SMCLK;             // CLK = SMCLK
+    UCA1BRW = 8;                            // 1000000/115200 = 8.68
+    UCA1MCTLW = 0xD600;                     // 1000000/115200 - INT(1000000/115200)=0.68
+                                            // UCBRSx value = 0xD6 (See UG)
+    UCA1CTLW0 &= ~UCSWRST;                  // release from reset
+    UCA1IE |= UCRXIE;                       // Enable USCI_A1 RX interrupt
+
 }
 
   #pragma vector=USCI_A0_VECTOR
@@ -71,26 +88,19 @@ void resetCommUART(){
         case USCI_NONE:
             break;
         case USCI_UART_UCRXIFG:
-            // printf("interrupt discovered USCI_UART_UCRXIFG\n");
-            // printf("\n TESTING... %s\n", UCA0RXBUF);
             rx_msg[rx_indx] = UCA0RXBUF;
-            // printf("\n TEST THIS STR %s\n", rx_msg);
             if (rx_indx >= 30){
                 rx_indx = 0;
             }
             rx_indx++;
             UCA0TXBUF = (unsigned short) UCA0RXBUF + 1;        //echo
             __no_operation();
-            // P1OUT ^= BIT0;               //LED P1.0 switched off
-            // __no_operation();
             break;
         case USCI_UART_UCTXIFG:
-        //   printf("interrupt discovered USCI_UART_UCTXIFG\n");
             break;
         case USCI_UART_UCSTTIFG:
             break;
         case USCI_UART_UCTXCPTIFG:
             break;
     }
-    UCA0IE ^= UCRXIE;             // Toggle USCI_A0 RX interrupt Enable Bit
  }

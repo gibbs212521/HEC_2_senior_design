@@ -16,12 +16,5 @@ short main(){
 //    // mc_scheduler.check_timer_interrupt = SOME_TIMER_INTERRUPT
     mc_scheduler.runMC(&mc_scheduler);
 
-   // _enable_interrupt();
-  while(1){
-//     _enable_interrupt();
-    __bis_SR_register(LPM0_bits | GIE);
-    _no_operation();
-  }
-
    return 0;
 }

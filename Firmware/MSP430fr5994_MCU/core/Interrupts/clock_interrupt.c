@@ -1,31 +1,29 @@
 #include "clock_interrupt.h"
 
 void main_clock_interrupt(){
-// setting CCIE bit in the TA0CCTL0 register
+    // setting CCIE bit in the TA0CCTL0 register
     TA0CCTL0 = CCIE; // TAxCCR0 interrupt enabled
-// TA0CTL specifies Timer A0 control register
-// TASSEL_2 selects SMCLK (1 MHz)                 /// TODO: Test 1MHz is true 1 micro second period
-// SMCLK --> SM === Subsystem Master  :: Subsystem Master Clock
-// With MC__UP, timer counts up to TAxCCR0
-// ID__4 selects an internal 4x divider for the supplied clock 
-// ID_0 selects an internal 1x divider for the supplied clock 
-// 1000 kHz / 4 = 250 kHz --> 250 ms period
-// TAIE === Timer A Interrupt Enabled Bit
+    // TA0CTL specifies Timer A0 control register
+    // TASSEL_2 selects SMCLK 
+    // SMCLK --> SM === Subsystem Master  :: Subsystem Master Clock
+    // With MC__UP, timer counts up to TAxCCR0
+    // ID__4 selects an internal 4x divider for the supplied clock 
+    // ID_0 selects an internal 1x divider for the supplied clock 
+    // 1000 kHz / 4 = 250 kHz --> 250 ms period
+    // TAIE === Timer A Interrupt Enabled Bit
     TA0CTL = TASSEL_2 | MC__UP | ID__8;// | TAIE;
-    // TA0CCR0 = 500; // Timer Limit :: Timer counts up to 500 ticks   --> 0.25 second period
-    TA0CCR0 = 31250; // Timer 0 Limit :: Timer counts up to 62500 ticks
-    // TA0CCR0 = 10500; // Timer Limit :: Timer counts up to 10500 ticks
-//  Divide 62,500 by 1,000,000 & Multiply by 4  --> 0.25 second period 
-//  Divide 10,500 by 1,000,000 & Multiply by 4  --> 0.05 second period 
-// Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
-    // TA0CTL |= TAIE;
+    TA0CCR0 = 62500; // Timer 0 Limit :: Timer counts up to 62500 ticks
+    //  Divide 62,500 by 8,000,000 & Multiply by 8  --> 0.0625 second period 
+    // Timer Limit :: Timer counts up to 4 ticks |-> 1 second period
+    // TODO: Consider implementing alternation in timer interrupt to double blinking period
+    //        --> halving frequency of blinks
 
     /// Additional Timer Interrupts
       // * NOTE * CCRx cannot exceed CCR0 for MC__UP
 
     /// CRR1 used for LCD Display Ticker
     TA0CCTL1 = CCIE; // TAxCCR1 interrupt enabled
-    TA0CCR1 = 20000; // Timer 0 CCR1
+    TA0CCR1 = 31250; // Timer 0 CCR1
 }
 
 // Timer interrupt service routine

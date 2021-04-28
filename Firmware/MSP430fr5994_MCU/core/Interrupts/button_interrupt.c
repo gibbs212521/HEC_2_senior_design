@@ -46,6 +46,11 @@ void set_button_interrupts(short build_transmitter){
 
 
 void button0_push(){ // Port 2 Pin 2
+    // OSC ENABLE disabled if unsafe to transfer power
+    P5OUT |= 0x01; // Set Port 5 Bit 1 to High
+    if (filtADC12Value < 72){
+        P5OUT &= ~0x03;
+    }
     if (_compile_transmitter == 0x01){
     P5OUT |= 0X01;  /// Enables Transmitter's Coil
     } else {
@@ -67,10 +72,10 @@ void button1_push(){ // Port 2 Pin 2
     // P1OUT ^= 0x03;
 }
 void button2_push(){ // Port 2 Pin 4
-   P5OUT ^= 0X0C; // toggles both red and green LEDs
+   P5OUT ^= 0X0C;
 }
 void button3_push(){ // Port 2 Pin 7
-   P5OUT ^= 0X08; // toggles both red and green LEDs
+   P5OUT ^= 0X08;
 }
 
 // #pragma vector = PORT2_VECTOR // Set Compiler watch Port 2 Interrupt Vector

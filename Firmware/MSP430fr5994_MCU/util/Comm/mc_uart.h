@@ -10,6 +10,7 @@
 #include <string.h>
 // #include <stdlib.h>
 
+void send_string(char s[]);
 void _UART_TX(char * tx_data);
 void resetCommUART();
 
